@@ -22,3 +22,7 @@ Korisnik je 15.10.2026. u razgovoru ChatGPT dostavio fotografiju **donje, lemlje
 6. Za stvarni 3D prikaz i vjerodostojan PCB raspored potrebni su footprintovi odgovarajućih konkretnih modula i držača; točnost njihove geometrije posebno označiti.
 
 **Status:** obje strane stvarnog funkcionalnog sklopa sada su fotografirane. Fotografije daju osnovu za rekonstrukciju fizičkog rasporeda, ali ne predstavljaju potvrđenu električnu netlistu niti dopuštenje za proizvodnju PCB-a.
+
+## Dopuna za korisnikov objedinjeni PDF
+
+U datoteci `tester18650_fotoreferenca_obje_strane.pdf` donja fotografija **već je vodoravno zrcaljena**. Za taj prilog ne ponavlja se zrcaljenje iz ranijih smjernica. PCB P1 koristi lijevu gornju fotografiju za položaje i desnu samo za vizualnu usporedbu; nejasne žice i lemovi nisu pretvoreni u nove električne spojeve. Izvorni SHA-256 i ograničenja navedeni su u [PCB.md](../PCB.md) i manifestu izvora.

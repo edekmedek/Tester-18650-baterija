@@ -20,3 +20,7 @@ Ovaj dokument opisuje fotografiju koju je korisnik dostavio u razgovoru ChatGPT 
 5. Ako Codex ima pristup originalnoj fotografiji kao privitku, usporediti vizualni raspored s ovom bilješkom. Izvorna slika je mjerodavnija od teksta.
 
 Status: **vizualna referenca, nije verificirana električna netlista niti mehanički nacrt**.
+
+## Dopuna nakon pregleda priloženog PDF-a u P1
+
+Izvorni PDF ima prednost pred gornjim opisom. Na njegovoj gornjoj fotografiji vidi se **Soldered INA219 bez ugrađenog vijčanog terminala**: desno su vidljive zalemljene strujne rupe IN−/IN+. Raniji izraz „vijčani terminal” nije točan za fotografiranu izvedbu. PCB P1 i njegov proizvođački 3D model prate tu izvedbu. Relativni raspored i granice potvrde opisani su u [PCB.md](../PCB.md).

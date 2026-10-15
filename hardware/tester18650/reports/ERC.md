@@ -16,7 +16,7 @@ Izvorni rezultati nisu filtrirani: [erc.rpt](erc.rpt), [erc.json](erc.json), [er
 
 U odnosu na R1, četiri pogreške nestale su zbog stvarnih novih spojeva: K1 COM/11 na BAT+, K1 NO/14 na R1/R2, VIN+ na stranu opterećenja i VIN− na povrat BAT−. Nisu uklonjene izuzećima ili promjenom pravila.
 
-Nema novih isključenih provjera, oznaka `No Connect`, lažnih `PWR_FLAG` simbola ni promjene ozbiljnosti nalaza. Tvornički zadani neaktivni tipovi provjera ostaju navedeni u `ignored_checks` izvornog JSON-a; `.kicad_pro` nije promijenjen. Konačni ERC ne prijavljuje nepovezane krajeve vodova, krajeve izvan mreže, višestruke nazive iste mreže ni nepodudaranje bibliotečnih simbola.
+Nema novih isključenih provjera, oznaka `No Connect`, lažnih `PWR_FLAG` simbola ni promjene ozbiljnosti nalaza. Tvornički zadani neaktivni tipovi provjera ostaju navedeni u `ignored_checks` izvornog JSON-a; U fazi PCB P1 KiCad je dopunio PCB postavke projekta; ERC izuzeća i ozbiljnosti nalaza nisu mijenjani. Konačni ERC ne prijavljuje nepovezane krajeve vodova, krajeve izvan mreže, višestruke nazive iste mreže ni nepodudaranje bibliotečnih simbola.
 
 Zasebna [provjera mreža](connectivity-check.txt) prolazi: COM–NO prekida put kada je otvoren i omogućuje put BAT+ → R1/R2 → interni shunt → BAT− kada je zatvoren; obje grane opterećenja su paralelne i nisu premoštene. Provjereno je deset točnih funkcionalnih mreža i deset izoliranih pinova, uključujući poznati nekorišteni NC. Skripta za izvoz zadržava ERC status 5 i nakon uspjeha ovih provjera.
 

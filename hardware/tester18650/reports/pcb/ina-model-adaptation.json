@@ -1,0 +1,15 @@
+{
+  "source": "pcb_sources/Soldered_INA219_source.step",
+  "kept_original_solids": 28,
+  "removed_solids": [
+    [
+      25.449999899999998,
+      5.4999999,
+      -1.6500001,
+      38.0500001,
+      17.680500974043,
+      16.8500001
+    ]
+  ],
+  "reason": "Optional screw terminal absent in user top photo. No replacement dimensions or geometry created."
+}

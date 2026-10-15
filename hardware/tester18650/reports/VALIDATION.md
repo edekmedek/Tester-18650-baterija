@@ -36,3 +36,7 @@ sha256sum -c reports/SHA256SUMS
 ```
 
 Kontrolni zbrojevi uključuju `.kicad_pro`, `.kicad_sch`, PDF, nativne ERC izvještaje, netlist i korišteni firmware. Skripta je izvršena iz direktorija projekta te iz drugog radnog direktorija. Na drugom računalu potrebni su KiCad 10 sa standardnim bibliotekama i Python 3; `sym-lib-table` koristi `KICAD10_SYMBOL_DIR`.
+
+## PCB P1 — nastavak prema fotografijama
+
+Dodan je nativni KiCad 10 PCB, PDF 1:1, GLB i PNG prema korisnikovoj fotografiji. U ovoj fazi promijenjeni su footprint-metapodaci sheme (bez promjene električnih mreža) i KiCadove PCB postavke u `.kicad_pro`. J1/J2 sada su uključeni u PCB kao referentni footprintovi; nepotvrđeni paketi ostaju bez padova. Provjere su u [pcb/DRC.md](pcb/DRC.md) i [pcb/board-check.txt](pcb/board-check.txt). ERC ostaje 11 pogrešaka + 1 upozorenje. DRC je nečist: 3 nepovezane veze + 16 upozorenja usporedbe sa shemom, status 5. Fizičko i termičko stanje nije potvrđeno.

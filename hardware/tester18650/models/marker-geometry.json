@@ -1,0 +1,98 @@
+{
+  "NodeMCU_CH340_reference_plane": {
+    "width": 30.48,
+    "height": 46.63,
+    "color": [
+      0.13,
+      0.32,
+      0.62
+    ],
+    "center_y": -1.725,
+    "graphic_thickness": 0.02,
+    "physical_package": false
+  },
+  "RESERVE_K1_PACKAGE_TBD": {
+    "width": 18,
+    "height": 34,
+    "color": [
+      0.85,
+      0.39,
+      0.08
+    ],
+    "center_y": 0,
+    "graphic_thickness": 0.02,
+    "physical_package": false
+  },
+  "RESERVE_Q1_PACKAGE_TBD": {
+    "width": 12,
+    "height": 10,
+    "color": [
+      0.85,
+      0.39,
+      0.08
+    ],
+    "center_y": 0,
+    "graphic_thickness": 0.02,
+    "physical_package": false
+  },
+  "RESERVE_R1_PACKAGE_TBD": {
+    "width": 20,
+    "height": 14,
+    "color": [
+      0.85,
+      0.39,
+      0.08
+    ],
+    "center_y": 0,
+    "graphic_thickness": 0.02,
+    "physical_package": false
+  },
+  "RESERVE_R2_PACKAGE_TBD": {
+    "width": 20,
+    "height": 14,
+    "color": [
+      0.85,
+      0.39,
+      0.08
+    ],
+    "center_y": 0,
+    "graphic_thickness": 0.02,
+    "physical_package": false
+  },
+  "RESERVE_R3_PACKAGE_TBD": {
+    "width": 8,
+    "height": 8,
+    "color": [
+      0.85,
+      0.39,
+      0.08
+    ],
+    "center_y": 0,
+    "graphic_thickness": 0.02,
+    "physical_package": false
+  },
+  "RESERVE_R4_PACKAGE_TBD": {
+    "width": 8,
+    "height": 8,
+    "color": [
+      0.85,
+      0.39,
+      0.08
+    ],
+    "center_y": 0,
+    "graphic_thickness": 0.02,
+    "physical_package": false
+  },
+  "RESERVE_BTH1_PACKAGE_TBD": {
+    "width": 22,
+    "height": 98,
+    "color": [
+      0.85,
+      0.39,
+      0.08
+    ],
+    "center_y": 0,
+    "graphic_thickness": 0.02,
+    "physical_package": false
+  }
+}

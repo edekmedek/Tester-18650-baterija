@@ -1,0 +1,356 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-15T06:56:25",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "key": "pth_inside_courtyard"
+        },
+        {
+            "description": "NPTH inside courtyard",
+            "key": "npth_inside_courtyard"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.4",
+    "schematic_parity": [
+        {
+            "description": "No pad found for pin A1 (/+5V_RELEJ) in schematic",
+            "items": [
+                {
+                    "description": "Footprint K1",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 52.0
+                    },
+                    "uuid": "0a9f0c28-bbcb-472e-b7e4-f3852931e335"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 11 (/BAT_PLUS) in schematic",
+            "items": [
+                {
+                    "description": "Footprint K1",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 52.0
+                    },
+                    "uuid": "0a9f0c28-bbcb-472e-b7e4-f3852931e335"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin A2 (/K1_C) in schematic",
+            "items": [
+                {
+                    "description": "Footprint K1",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 52.0
+                    },
+                    "uuid": "0a9f0c28-bbcb-472e-b7e4-f3852931e335"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 14 (/LOAD_IN) in schematic",
+            "items": [
+                {
+                    "description": "Footprint K1",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 52.0
+                    },
+                    "uuid": "0a9f0c28-bbcb-472e-b7e4-f3852931e335"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 12 in schematic",
+            "items": [
+                {
+                    "description": "Footprint K1",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 52.0
+                    },
+                    "uuid": "0a9f0c28-bbcb-472e-b7e4-f3852931e335"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 2 (/K1_C) in schematic",
+            "items": [
+                {
+                    "description": "Footprint Q1",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 87.0
+                    },
+                    "uuid": "45ccab04-c9f1-4537-8cd5-de40a90ffb61"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 1 in schematic",
+            "items": [
+                {
+                    "description": "Footprint Q1",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 87.0
+                    },
+                    "uuid": "45ccab04-c9f1-4537-8cd5-de40a90ffb61"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 3 in schematic",
+            "items": [
+                {
+                    "description": "Footprint Q1",
+                    "pos": {
+                        "x": 151.0,
+                        "y": 87.0
+                    },
+                    "uuid": "45ccab04-c9f1-4537-8cd5-de40a90ffb61"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 1 (/LOAD_IN) in schematic",
+            "items": [
+                {
+                    "description": "Footprint R1",
+                    "pos": {
+                        "x": 156.0,
+                        "y": 108.0
+                    },
+                    "uuid": "44f4e329-a7f7-47e6-afea-6ac447607e5a"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 2 (/VIN_PLUS) in schematic",
+            "items": [
+                {
+                    "description": "Footprint R1",
+                    "pos": {
+                        "x": 156.0,
+                        "y": 108.0
+                    },
+                    "uuid": "44f4e329-a7f7-47e6-afea-6ac447607e5a"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 1 (/LOAD_IN) in schematic",
+            "items": [
+                {
+                    "description": "Footprint R2",
+                    "pos": {
+                        "x": 156.0,
+                        "y": 132.0
+                    },
+                    "uuid": "a74b0784-7717-4020-bc74-499de197b1ed"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 2 (/VIN_PLUS) in schematic",
+            "items": [
+                {
+                    "description": "Footprint R2",
+                    "pos": {
+                        "x": 156.0,
+                        "y": 132.0
+                    },
+                    "uuid": "a74b0784-7717-4020-bc74-499de197b1ed"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 1 in schematic",
+            "items": [
+                {
+                    "description": "Footprint R3",
+                    "pos": {
+                        "x": 137.0,
+                        "y": 80.0
+                    },
+                    "uuid": "fa4c0895-59be-4f17-9575-48513c3a4f56"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 2 in schematic",
+            "items": [
+                {
+                    "description": "Footprint R3",
+                    "pos": {
+                        "x": 137.0,
+                        "y": 80.0
+                    },
+                    "uuid": "fa4c0895-59be-4f17-9575-48513c3a4f56"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 1 in schematic",
+            "items": [
+                {
+                    "description": "Footprint R4",
+                    "pos": {
+                        "x": 137.0,
+                        "y": 92.0
+                    },
+                    "uuid": "96f4d717-437d-4c9a-b961-8bbe7084036c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "No pad found for pin 2 in schematic",
+            "items": [
+                {
+                    "description": "Footprint R4",
+                    "pos": {
+                        "x": 137.0,
+                        "y": 92.0
+                    },
+                    "uuid": "96f4d717-437d-4c9a-b961-8bbe7084036c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        }
+    ],
+    "source": "tester18650.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad 5 [/VIN_PLUS] of J2",
+                    "pos": {
+                        "x": 123.5,
+                        "y": 138.5
+                    },
+                    "uuid": "b840539d-2e13-4801-9785-0852ef2dccee"
+                },
+                {
+                    "description": "PTH pad 5 [/VIN_PLUS] of J2",
+                    "pos": {
+                        "x": 128.5,
+                        "y": 138.5
+                    },
+                    "uuid": "a6d394d8-b31b-4285-b96f-dac1b6cace4a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "PTH pad 6 [/BAT_MINUS] of J2",
+                    "pos": {
+                        "x": 123.5,
+                        "y": 133.5
+                    },
+                    "uuid": "759d3d45-b067-401c-94c3-a4de32f83db7"
+                },
+                {
+                    "description": "PTH pad 6 [/BAT_MINUS] of J2",
+                    "pos": {
+                        "x": 128.5,
+                        "y": 133.5
+                    },
+                    "uuid": "29afb0d2-304e-4b8f-9af6-49c90d2da805"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [/BAT_MINUS] on F.Cu, length 5.0300 mm",
+                    "pos": {
+                        "x": 127.97,
+                        "y": 45.92
+                    },
+                    "uuid": "c6c78a88-b90f-47d9-8cbf-ad79d8a4d925"
+                },
+                {
+                    "description": "PTH pad 6 [/BAT_MINUS] of J2",
+                    "pos": {
+                        "x": 128.5,
+                        "y": 133.5
+                    },
+                    "uuid": "29afb0d2-304e-4b8f-9af6-49c90d2da805"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": []
+}

@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/workspace/Tester-18650-baterija/hardware/tester18650/tester18650.kicad_sch</source>
-    <date>2026-10-15T06:14:41</date>
+    <date>2026-10-15T06:54:53</date>
     <tool>Eeschema 10.0.4-10.0.4~ubuntu25.10.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -26,8 +26,9 @@
   <components>
     <comp ref="BT1">
       <value>Li-ion 18650</value>
+      <footprint>Tester18650:Battery_Wire_Termination_DESIGN</footprint>
       <fields>
-        <field name="Footprint"/>
+        <field name="Footprint">Tester18650:Battery_Wire_Termination_DESIGN</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
@@ -48,16 +49,15 @@
     </comp>
     <comp ref="J1">
       <value>NodeMCU v2</value>
+      <footprint>Tester18650:NodeMCU_CH340_Manufacturer_REFERENCE</footprint>
       <fields>
-        <field name="Footprint"/>
+        <field name="Footprint">Tester18650:NodeMCU_CH340_Manufacturer_REFERENCE</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_01x06" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="Sheetname" value="tester18650"/>
       <property name="Sheetfile" value="tester18650.kicad_sch"/>
-      <property name="exclude_from_bom"/>
-      <property name="exclude_from_board"/>
       <property name="ki_keywords" value="connector"/>
       <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
       <sheetpath names="/" tstamps="/"/>
@@ -77,16 +77,15 @@
     </comp>
     <comp ref="J2">
       <value>INA219 / 0x40</value>
+      <footprint>Tester18650:INA219_Soldered333066_Manufacturer_REF</footprint>
       <fields>
-        <field name="Footprint"/>
+        <field name="Footprint">Tester18650:INA219_Soldered333066_Manufacturer_REF</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_01x06" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="Sheetname" value="tester18650"/>
       <property name="Sheetfile" value="tester18650.kicad_sch"/>
-      <property name="exclude_from_bom"/>
-      <property name="exclude_from_board"/>
       <property name="ki_keywords" value="connector"/>
       <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
       <sheetpath names="/" tstamps="/"/>
@@ -106,8 +105,9 @@
     </comp>
     <comp ref="K1">
       <value>Schrack RT314006</value>
+      <footprint>Tester18650:RESERVE_K1_PACKAGE_TBD</footprint>
       <fields>
-        <field name="Footprint"/>
+        <field name="Footprint">Tester18650:RESERVE_K1_PACKAGE_TBD</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
@@ -132,8 +132,9 @@
     </comp>
     <comp ref="Q1">
       <value>C3209 / NPN</value>
+      <footprint>Tester18650:RESERVE_Q1_PACKAGE_TBD</footprint>
       <fields>
-        <field name="Footprint"/>
+        <field name="Footprint">Tester18650:RESERVE_Q1_PACKAGE_TBD</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
@@ -155,8 +156,9 @@
     </comp>
     <comp ref="R1">
       <value>22 Ω / 5 W</value>
+      <footprint>Tester18650:RESERVE_R1_PACKAGE_TBD</footprint>
       <fields>
-        <field name="Footprint"/>
+        <field name="Footprint">Tester18650:RESERVE_R1_PACKAGE_TBD</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
@@ -178,8 +180,9 @@
     </comp>
     <comp ref="R2">
       <value>22 Ω / 5 W</value>
+      <footprint>Tester18650:RESERVE_R2_PACKAGE_TBD</footprint>
       <fields>
-        <field name="Footprint"/>
+        <field name="Footprint">Tester18650:RESERVE_R2_PACKAGE_TBD</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
@@ -201,8 +204,9 @@
     </comp>
     <comp ref="R3">
       <value>10 kΩ</value>
+      <footprint>Tester18650:RESERVE_R3_PACKAGE_TBD</footprint>
       <fields>
-        <field name="Footprint"/>
+        <field name="Footprint">Tester18650:RESERVE_R3_PACKAGE_TBD</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
@@ -224,8 +228,9 @@
     </comp>
     <comp ref="R4">
       <value>20 kΩ</value>
+      <footprint>Tester18650:RESERVE_R4_PACKAGE_TBD</footprint>
       <fields>
-        <field name="Footprint"/>
+        <field name="Footprint">Tester18650:RESERVE_R4_PACKAGE_TBD</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>

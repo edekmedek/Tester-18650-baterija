@@ -34,3 +34,7 @@ Ova dokumentacijska oznaka v1.0 **nije** potvrda da je firmware verificiran ili 
 ## Električna shema u KiCadu 10
 
 [Projekt R2, PDF, ERC i popis nepoznatih spojeva](hardware/tester18650/README.md). Funkcionalni strujni krug u postojećoj shemi je spojen; fizičko ožičenje nije potvrđeno i ERC nije čist.
+
+## PCB raspored prema fotografijama
+
+[PCB P1, PDF i 3D prikaz](hardware/tester18650/PCB.md). Uređivi raspored s djelomičnim bakrom i otvorenim footprintovima; pločica nije spremna za proizvodnju.

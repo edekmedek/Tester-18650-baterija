@@ -1,6 +1,6 @@
 # Dodatna korisnikova vizualna referenca — detalj RL/Q/R (15.10.2026.)
 
-Korisnik je u razgovoru poslao uski prikaz rasporeda s mrežom perforirane pločice, obojenim tragovima i oznakama. Slika je referenca za usporedbu s postojećim PCB-om, ali nije dokaz da je svaka mreža električki ispravno mapirana.
+**Potvrda korisnika:** slika je iz jednog od ranijih predložaka ovog projekta i **footprint/raster rasporeda na toj slici odgovara stvarnom funkcionalnom sklopu**. Ovo je potvrđena referenca fizičkog rasporeda, a ne samo spekulativan crtež. Prikazani vodovi i njihovo električko značenje ipak se moraju zasebno provjeriti.
 
 ## Čitljive oznake na slici
 
@@ -12,10 +12,10 @@ Korisnik je u razgovoru poslao uski prikaz rasporeda s mrežom perforirane ploč
 
 ## Kako upotrijebiti
 
-1. Usporediti detalj s fotografijama gornje i donje strane fizičkog testera te s PCB P1.
+1. Koristiti **korisnički potvrđen footprint/raster ovog predloška** kao prioritetnu geometrijsku referencu za područje releja, tranzistora i otpornika. Usporediti s fotografijama obje strane fizičkog testera i PCB P1.
 2. Ne pretpostaviti da oznake RL11/RL12/RL14 predstavljaju potvrđen stvarni raspored izvoda Schrack RT314006. Oznake A/B mogu označavati paralelne/udvojene kontaktne točke, ali to je potrebno dokazati.
-3. Provjeriti jesu li R1/R2 na detalju isti 22Ω/5W cementni otpornici sa stvarne fotografije. Vizualno na detalju izgledaju kao mali aksijalni otpornici; zato se slika ne smije bez provjere tretirati kao vjerna fotografija izvedenog sklopa.
+3. Korisnik potvrđuje da footprint/raster predloška odgovara stvarnosti, ali **simbolički 3D izgled R1–R4 na prikazu nije mjera fizičkog kućišta**. R1/R2 su na stvarnoj fotografiji 22Ω/5W cementni otpornici; treba razlikovati pozicije/raster od grafičkog prikaza tijela.
 4. Grafički Q1 E/C/B raspored nije sam po sebi dokaz fizičkog pinouta C3209.
-5. Sačuvati ovaj detalj kao referencu za mogući raniji nacrt/raspored; ako je generiran iz nekog alata, tražiti njegov izvorni uređivi dokument umjesto ponovnog precrtavanja.
+5. Potražiti izvorni uređivi predložak u postojećim projektnim datotekama ako je dostupan, kako bi se **preuzele potvrđene koordinate i rasteri**, a ne ponovno ručno precrtavali.
 
-**Status:** korisna dodatna referenca, ali nije dovoljno pouzdana za automatsku promjenu bakrenih mreža ili proizvodnih padova.
+**Status:** korisnik je izričito potvrdio da **footprint prikazanog ranijeg predloška odgovara stvarnom sklopu**. To opravdava korištenje geometrije za PCB P2. Potvrda geometrije nije automatska potvrda električkog pinouta ili vodova.

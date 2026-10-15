@@ -40,3 +40,9 @@ Kontrolni zbrojevi uključuju `.kicad_pro`, `.kicad_sch`, PDF, nativne ERC izvje
 ## PCB P1 — nastavak prema fotografijama
 
 Dodan je nativni KiCad 10 PCB, PDF 1:1, GLB i PNG prema korisnikovoj fotografiji. U ovoj fazi promijenjeni su footprint-metapodaci sheme (bez promjene električnih mreža) i KiCadove PCB postavke u `.kicad_pro`. J1/J2 sada su uključeni u PCB kao referentni footprintovi; nepotvrđeni paketi ostaju bez padova. Provjere su u [pcb/DRC.md](pcb/DRC.md) i [pcb/board-check.txt](pcb/board-check.txt). ERC ostaje 11 pogrešaka + 1 upozorenje. DRC je nečist: 3 nepovezane veze + 16 upozorenja usporedbe sa shemom, status 5. Fizičko i termičko stanje nije potvrđeno.
+
+## PCB P2 — provedba potvrđenog izreza
+
+Izmijenjena je stvarna `.kicad_pcb` datoteka nativnim KiCad 10 Python API-jem, bez ponovnog generiranja P1. Sačuvano je svih 15 P1 segmenata; dodano ih je 8. Shemi su ažurirana samo polja footprintova, bez promjene mreža; projektna pravila i firmware nisu promijenjeni. K1/Q1 imaju nedodijeljene fizičke točke izreza, R1/R2/R3 dvoizvodni raster, a R4 zbog odrezanih završetaka nema padove. Kućišta i zamjenski modeli imaju jasno odvojen status u [PCB.md](../PCB.md).
+
+Ponovljeni nativni ERC vraća 5, **11 pogrešaka + 1 upozorenje**. DRC sa schematic parity vraća 5: **0 geometrijskih kršenja, 2 nepovezane veze, 10 upozorenja**. Provjera izvora, mreža i rastera prolazi. PDF i GLB ponovno su izvezeni iz tog PCB-a; PNG je render tog GLB-a, uz grafičke opise statusa. Nema Gerbera, pojedinačnih izuzeća ni tvrdnje da je glavni strujni krug rutiran ili fizički uređaj verificiran.

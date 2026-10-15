@@ -20,32 +20,32 @@
       111
     ],
     "K1": [
-      "RESERVE_K1_PACKAGE_TBD",
+      "RT314006_CROP_GRID_UNMAPPED",
       61,
       27
     ],
     "Q1": [
-      "RESERVE_Q1_PACKAGE_TBD",
+      "C3209_CROP_GRID_UNMAPPED",
       61,
       62
     ],
     "R1": [
-      "RESERVE_R1_PACKAGE_TBD",
+      "Cement_5WAXIAL_VERTICAL_7.62_SUBSTITUTE",
       66,
       83
     ],
     "R2": [
-      "RESERVE_R2_PACKAGE_TBD",
+      "Cement_5WAXIAL_VERTICAL_7.62_SUBSTITUTE",
       66,
       107
     ],
     "R3": [
-      "RESERVE_R3_PACKAGE_TBD",
+      "R3_CROP_GRID_7.62_BODY_TBD",
       47,
       55
     ],
     "R4": [
-      "RESERVE_R4_PACKAGE_TBD",
+      "R4_LABEL_ONLY_NO_PADS",
       47,
       67
     ],
@@ -55,7 +55,7 @@
       10
     ],
     "BTH1": [
-      "RESERVE_BTH1_PACKAGE_TBD",
+      "Keystone1042_LAYOUT_REFERENCE_NO_PADS",
       100,
       70
     ]
@@ -115,9 +115,11 @@
     }
   },
   "copper_nets": [
-    "/I2C_SDA_GPIO2",
+    "/BAT_MINUS",
     "/I2C_SCL_GPIO5",
-    "/BAT_MINUS"
+    "/I2C_SDA_GPIO2",
+    "/LOAD_IN",
+    "/VIN_PLUS"
   ],
   "thermal_allocation_mm": {
     "R1": [
@@ -133,5 +135,149 @@
       114
     ]
   },
-  "note": "Allocation sizes are design choices, NEVER component body dimensions."
+  "note": "Confirmed crop raster is separate from manufacturer pin mapping. R1/R2 bodies are proposed vertical substitutes, not photo measurements. Q1/R3/R4 body unknown. Holder reference only.",
+  "revision": "P2",
+  "reference_body_mm": {
+    "K1": [
+      12.7,
+      29,
+      15.7
+    ],
+    "R1": [
+      6.4,
+      6.4,
+      25
+    ],
+    "R2": [
+      6.4,
+      6.4,
+      25
+    ],
+    "BTH1": [
+      20.65,
+      86.41,
+      16.3
+    ]
+  },
+  "thermal_body_xy_mm": {
+    "R1": [
+      62.8,
+      75.99,
+      69.2,
+      82.39
+    ],
+    "R2": [
+      62.8,
+      99.99,
+      69.2,
+      106.39
+    ]
+  },
+  "p1_tracks_preserved": [
+    [
+      "/BAT_MINUS",
+      181000000,
+      41000000,
+      188000000,
+      41000000
+    ],
+    [
+      "/BAT_MINUS",
+      133000000,
+      33000000,
+      181000000,
+      33000000
+    ],
+    [
+      "/BAT_MINUS",
+      133000000,
+      45920000,
+      133000000,
+      33000000
+    ],
+    [
+      "/BAT_MINUS",
+      181000000,
+      33000000,
+      181000000,
+      41000000
+    ],
+    [
+      "/BAT_MINUS",
+      127970000,
+      45920000,
+      133000000,
+      45920000
+    ],
+    [
+      "/I2C_SCL_GPIO5",
+      100030000,
+      66240000,
+      95000000,
+      66240000
+    ],
+    [
+      "/I2C_SCL_GPIO5",
+      106000000,
+      132190000,
+      96500000,
+      132190000
+    ],
+    [
+      "/I2C_SCL_GPIO5",
+      95000000,
+      66240000,
+      95000000,
+      125000000
+    ],
+    [
+      "/I2C_SCL_GPIO5",
+      106000000,
+      125000000,
+      106000000,
+      132190000
+    ],
+    [
+      "/I2C_SCL_GPIO5",
+      95000000,
+      125000000,
+      106000000,
+      125000000
+    ],
+    [
+      "/I2C_SDA_GPIO2",
+      93000000,
+      143000000,
+      105000000,
+      143000000
+    ],
+    [
+      "/I2C_SDA_GPIO2",
+      100030000,
+      58620000,
+      93000000,
+      58620000
+    ],
+    [
+      "/I2C_SDA_GPIO2",
+      93000000,
+      58620000,
+      93000000,
+      143000000
+    ],
+    [
+      "/I2C_SDA_GPIO2",
+      105000000,
+      134730000,
+      96500000,
+      134730000
+    ],
+    [
+      "/I2C_SDA_GPIO2",
+      105000000,
+      143000000,
+      105000000,
+      134730000
+    ]
+  ]
 }

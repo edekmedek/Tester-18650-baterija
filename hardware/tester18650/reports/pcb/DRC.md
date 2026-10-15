@@ -1,40 +1,38 @@
-# PCB DRC P1 — stvarni rezultat, pločica nije za proizvodnju
+# PCB DRC P2 — nije čist, nije za proizvodnju
 
-Provjeren je `tester18650.kicad_pcb` u **KiCadu 10.0.4** s `--schematic-parity --all-track-errors --severity-all --exit-code-violations`. Svi izvorni nalazi ostaju u [drc.json](drc.json) i [drc.rpt](drc.rpt); [izlazni status je 5](drc-exit-status.txt).
+Nativni **KiCad 10.0.4**, naredba `pcb drc --schematic-parity --all-track-errors --severity-all --exit-code-violations`. [JSON](drc.json), [tekst](drc.rpt), [status](drc-exit-status.txt).
 
-| Kategorija nativnog izvještaja | Rezultat |
-|---|---:|
-| Geometrijska DRC kršenja | 0 |
-| Nepovezane veze, `unconnected_items` | **3 pogreške** |
-| Usporedba sheme i PCB-a, `net_conflict` | **16 upozorenja** |
-| Dodana pojedinačna DRC izuzeća | 0 |
+| Kategorija | P1 | P2 |
+|---|---:|---:|
+| Geometrijska DRC kršenja | 0 | **0** |
+| Nepovezane veze, pogreške | 3 | **2** |
+| Schematic parity, upozorenja | 16 | **10** |
+| Pojedinačna DRC izuzeća | 0 | **0** |
+| Nativni izlazni status | 5 | **5** |
 
-**Rezultat nije čist DRC.** Nula geometrijskih kršenja ne znači dovršen električki ili mehanički projekt.
+Nula geometrijskih kršenja ne znači dovršen PCB. Uključena je usporedba sa shemom; problemi nisu skriveni. Projektna pravila ostaju 0,25 mm minimalni vod/razmak, 0,15 mm tisak i 0,5 mm bakar–rub. Ozbiljnosti se nisu smanjivale; tvornički neaktivne kategorije vidljive su u `ignored_checks` JSON-a.
 
-## Što ostaje otvoreno
+## Dvije nepovezane veze
 
-Tri nepovezanosti odnose se na VIN mreže INA219: dva izvoda IN+ nisu povezana bakrom nosača, dva izvoda IN− nisu povezana bakrom nosača i IN− nije proizvoljno spojen na zajednički BAT−. Dio kontakata pripada istim internim mrežama modula, ali DRC nosača ne dokazuje unutarnju vezu/varijantu i prijavljuje sve tri veze. Polaritet VIN+/VIN− u prethodnoj shemi bio je projektna pretpostavka; nije pretočen u bakar.
+- `/VIN_PLUS`: paralelni završetak opterećenja nije povezan s INA219 jer fizički INA polaritet nije potvrđen. Naziv mreže u funkcionalnoj shemi ne pretvara raniju pretpostavku u fizičku potvrdu.
+- `/BAT_MINUS`: INA219 strujni priključci nisu spojeni s potvrđenim NodeMCU/BT1 povratom iz istog razloga.
 
-Šesnaest upozorenja iz usporedbe sheme i PCB-a znači da **nedostaju stvarni padovi**:
+Udvojeni IN+ međusobno su spojeni, kao i udvojeni IN−, prema istoimenim mrežama izvornog proizvođačkog CAD-a modula. To ne određuje vanjski smjer struje. Oba kraja para R1/R2 međusobno su povezana kao potvrđeno paralelno opterećenje.
 
-| Dio | Nedostajući padovi | Broj |
+## Deset upozorenja usporedbe sa shemom
+
+| Dio | Funkcionalni padovi koji nedostaju | Broj |
 |---|---|---:|
-| K1 RT314006 | A1, A2, COM/11, NO/14, NC/12 | 5 |
-| Q1 C3209 | B/1, C/2, E/3 | 3 |
-| R1 i R2 | oba kraja svakog otpornika | 4 |
-| R3 i R4 | oba kraja svakog otpornika | 4 |
+| K1 | A1, A2, 11/COM, 12/NC, 14/NO | 5 |
+| Q1 | 1/B, 2/C, 3/E | 3 |
+| R4 | 1 i 2 | 2 |
 
-Ti dijelovi imaju uređive položaje i označene rezervirane površine, ali **nemaju izmišljene rupe, rastere ili pinoutove**. Zbog toga nedovršeni krug napajanja/opterećenja ne treba tumačiti kao samo tri preostala segmenta koja treba povući. Prvo nedostaju fizički footprintovi i pouzdani spojevi. Držač baterije također nema potvrđen montažni footprint; BT1 su nove projektne lemne točke za njegove žice.
+K1 sada ima osam uređivih **referentnih mjesta nosača** iz korisnikova potvrđenog izreza, a Q1 tri. Ta mjesta nisu električki proglašena proizvođačkim pinovima. Oznake `RL11A/B` ili E/C/B na starom crtežu ne dokazuju stvarni pinout. Zato je upozorenje o nedostajućem funkcionalnom padu točno i zadržano. R4 nema izmišljene rupe jer je par završetaka izvan vidljivog izreza.
 
-## Što je provjereno
+**Ove dvije nepovezanosti nisu jedine dvije preostale žice.** Dok funkcionalni K1/Q1 padovi nedostaju, DRC ne može opisati sve prekinute dijelove glavnog strujnog kruga i upravljanja kao ratsnest veze. Napajanja i djelitelj ostaju otvoreni u shemi; ERC prijavljuje **11 pogrešaka i 1 upozorenje**.
 
-- Petnaest bakrenih segmenata pripada isključivo trima potvrđenim mrežama: SDA, SCL i NodeMCU GND–BAT−. Provjerena je neprekinuta veza do namjenskih padova.
-- Nema vodova po pretpostavljenom VIN polaritetu, skrivenih poligona, proizvoljnog baznog otpornika, emiterske veze ili redoslijeda djelitelja.
-- Provjerene su koordinate i rupe referentnih NodeMCU/INA219 footprintova prema pohranjenim proizvođačkim izvorima. To **ne potvrđuje** konkretni NodeMCU klon, reviziju stvarnog modula niti njihovo konačno mehaničko pristajanje.
-- Projekt ima eksplicitno najmanje 0,25 mm vodove i razmake, 0,15 mm razmak tiska i 0,5 mm bakar–rub. Vodovi su 0,35 mm za I²C i 0,8 mm za potvrđeni povrat. Ne tvrdi se da su ovo proizvodna pravila odabranog proizvođača PCB-a.
-- Održani su položaji prema gornjoj fotografiji: USB gore lijevo, relej gore u sredini, baterija desno, opterećenje ispod releja i INA219 dolje lijevo. Nisu nagađani skriveni spojevi donje/zrcaljene fotografije.
-- Između projektnih područja R1/R2 je 10 mm, a bočno prema INA219 i držaču 13 mm. To su razmaci **rezervacija**, ne potvrđena udaljenost od još neidentificiranih vrućih kućišta.
+## Dodatne provjere i granice
 
-KiCad je pri prvom spremanju PCB-a dopunio `.kicad_pro` svojim zadanim PCB postavkama; dodatno su postavljeni navedeni minimalni razmaci. Ozbiljnost prijavljenih nalaza nije smanjivana. Nema dodatnih izuzeća; tvornički neaktivne kategorije ostaju navedene u `ignored_checks` izvornog JSON-a. Uključena je usporedba sa shemom kako nedostajući padovi ne bi ostali nevidljivi.
+[Provjera PCB-a](board-check.txt) provjerava nativni format 10, sve postojeće P1 trase, 23 segmenta na 5 dopuštenih mreža, povezanost krajeva paralelnih otpornika, udvojene INA padove, odsutnost vanjskog INA spoja i neprovjerenih K1/Q1 mreža, raster izreza, izvorne padove modula i hashove CAD izvora. Nema proizvoljnog bakra kopiranog iz starog predloška.
 
-**Preostali proizvodni blokatori:** stvarni footprintovi K1/Q1/R1–R4/držača, točan NodeMCU i revizija INA219, napajanja i zaštite, fizički pinoutovi, bazni sklop i djelitelj te mehanička/termička provjera. ERC sheme također ostaje **11 pogrešaka + 1 upozorenje**. Fotografije i ovaj DRC nisu potvrda sigurnosti ni proizvodne spremnosti.
+R1/R2 imaju predloženi zamjenski 3D model i novi prijedlog vertikalne montaže, a K1/BTH1 referentna kućišta. To nisu potvrde stvarnih kućišta, pinoutova, dobavljivosti ni mehaničke provjere. Novi promjeri rupa jesu projektni odabiri, ne izmjerene nožice. Konačno se moraju potvrditi RT314006, C3209, R4, moduli, držač, otpornici/izvodi, napajanja/zaštite i toplina. [PCB.md](../../PCB.md) daje tablicu svakog dijela.

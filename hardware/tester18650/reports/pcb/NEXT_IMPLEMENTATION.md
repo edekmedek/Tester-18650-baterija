@@ -15,3 +15,7 @@ Polazište: `de8bc63`, pregledani `PCB.md` i `reports/pcb/DRC.md`; podaci RT3140
 7. Commit na `main` s uređivim `.kicad_pcb` i svim izlazima. Bez Gerbera dok DRC/ERC i fizički pinoutovi nisu verificirani.
 
 **Upozorenje:** prethodni P1 sadrži samo SDA, SCL i jedan GND vod; nema električki rutiran glavni strujni krug. Oznaka '0 geometrijskih kršenja' ne znači dovršenu pločicu. Izvorne fotografije gornje i donje strane su u razgovoru korisnika, a njihov opis u `PHOTO_TOP_REFERENCE_2026-10-15.md` i `PHOTO_BOTTOM_REFERENCE_2026-10-15.md`.
+
+## Provedba P2
+
+[PCB.md](../../PCB.md) i [DRC.md](DRC.md) opisuju stvarno spremljene izmjene i preostale blokatore. Naknadni korisnikov [potvrđeni izrez](REFERENCE_DETAIL_RL_Q_R_2026-10-15.md) dao je raster nosača za K1/Q1/R1/R2/R3, ali ne i proizvođačko mapiranje releja/tranzistora. P2 ima fizičke referentne padove umjesto tih rezervacija, povezane paralelne otpornike i udvojene INA kontakte te volumne referentne/zamjenske modele gdje postoje podaci. Nije dovršen ni odobren direktni RT314006 footprint, pinout C3209 ili proizvodni PCB. R4 raster ostaje nepotpun u izrezu.

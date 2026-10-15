@@ -1,65 +1,68 @@
-# PCB P1 — raspored prema fotografijama, nije za proizvodnju
+# PCB P2 — stvarne izmjene pločice, djelomično rutirano, nije za proizvodnju
 
-Postojećem KiCad projektu dodan je pravi uređivi [tester18650.kicad_pcb](tester18650.kicad_pcb), spremljen KiCadom 10. **To je PCB raspored s djelomično izvedenim bakrom i otvorenim mehaničkim pitanjima, a ne završena pločica za naručivanje.**
+[Uređivi KiCad PCB](tester18650.kicad_pcb) · [PDF rasporeda 1:1](tester18650_pcb_layout.pdf) · [3D PNG](tester18650_pcb_3d.png) · [3D GLB](tester18650_pcb_3d.glb) · [izvorni DRC](reports/pcb/drc.rpt)
 
-- [PDF rasporeda komponenti, 1:1](tester18650_pcb_layout.pdf)
-- [3D prikaz PNG](tester18650_pcb_3d.png) i [uređivi/pregledni GLB model](tester18650_pcb_3d.glb)
-- [DRC izvještaj](reports/pcb/DRC.md), [izvorni JSON](reports/pcb/drc.json) i [izvorni tekst](reports/pcb/drc.rpt)
-- [Izvori geometrije](pcb_sources/reference-geometry.json), [raspored i razmaci](reports/pcb/placement-map.json), [provjera PCB-a](reports/pcb/board-check.txt)
+P2 mijenja postojeći PCB P1 nativnim KiCadom **10.0.4**, u istom projektu. Zadržani su obris **116 × 132 × 1,6 mm**, položaji prema fotografijama, referentni NodeMCU/INA219 i svih 15 prethodnih bakrenih segmenata. Dodani su fizički padovi potvrđenog rastera, osam bakrenih segmenata i novi 3D prikazi. **Glavni strujni put i upravljanje još nisu potpuno rutirani.**
 
-## Primarni vizualni izvor
+## Granice referenci
 
-Korisnikov PDF `tester18650_fotoreferenca_obje_strane.pdf`, jedna stranica: gornja strana lijevo i već vodoravno zrcaljena donja strana desno. Druga strana nije ponovno zrcaljena. SHA-256 izvornika zabilježen je u manifestu izvora; originalne korisnikove fotografije nisu ponovno objavljene u javnom repozitoriju.
+Glavni izvor položaja je korisnikov `tester18650_fotoreferenca_obje_strane.pdf`: NodeMCU lijevo/USB gore, relej gore u sredini, Q1 ispod njega, R1/R2 jedan ispod drugoga, INA219 dolje lijevo i držač desno. Donja fotografija u tom PDF-u već je zrcaljena; nije ponovno zrcaljena. SHA-256 je u [izvornom manifestu](pcb_sources/reference-geometry.json). Originalni korisnikovi prilozi nisu ponovno objavljeni.
 
-Zadržan je prepoznatljiv raspored: **NodeMCU gore lijevo s USB-om prema gore, relej u sredini gore, držač baterije uz desni rub, C3209 ispod releja, dva otpornika ispod njega, INA219 dolje lijevo.** R3/R4 su rezervirani u zoni sitnih komponenti između NodeMCU-a i upravljanja. Fotografija ne omogućuje pouzdanu identifikaciju svakog malog otpornika niti fizičko mjerenje njegovih izvoda.
+Iz starog predloška upotrijebljen je **isključivo korisnikov naknadni izrez RL/Q/R**, prema [njegovoj potvrdi](reports/pcb/REFERENCE_DETAIL_RL_Q_R_2026-10-15.md). Nisu preuzeti ostatak predloška, njegove boje bakra, navodni kratki spojevi ili električna netlista. Lokalni razmaci izreza preneseni su na raster 2,54 mm; ukupni raspored dijelova vodi fotografija. Ne tvrdi se metrička registracija cijelog predloška s fotografijom.
 
-Odbačen je početni Adafruit predložak: fotografija pokazuje ljubičasti Soldered INA219 breakout s četiri priključka i easyC konektorima. Fotografija NodeMCU-a pokazuje CH340 i oznaku Ver 0.1; firmware `nodemcuv2` ne određuje njegovu mehaničku varijantu. Zato referentni CH340 footprint nije proglašen potvrđenim footprintom konkretnog klona.
+Iz izreza su uneseni:
 
-**Donja fotografija služi za usporedbu položaja i provjeru vidljivosti. Nisu dodane električne veze pretpostavljanjem krajeva preklopljenih zelenih žica, skrivenih lemova, baze/emitera, djelitelja ili relejnih izvoda.** Bakrene trase u ovom prijedlogu nove su trase potvrđenih mreža, nisu tvrdnja da su reproducirane sve žice na fotografiji.
+- K1: dva stupca udaljena 7,62 mm; zavojnici slično označeni red te kontaktni redovi 15,24 / 20,32 / 25,40 mm ispod njega. Padovi su nazvani `REF_A1`, `REF_A2`, `RL12A/B`, `RL11A/B`, `RL14A/B`. **Svi su električki nedodijeljeni.** Osam mjesta na nosaču nije dokaz osam fizičkih izvoda releja niti dokaz njihova funkcionalnog mapiranja.
+- Q1: tri mjesta na 2,54 mm, `TOP_E_REF`, `MID_C_REF`, `BOT_B_REF`. Oznake E?/C?/B? na ploči ostaju pitanja; nema pretpostavljenih mreža B/C/E.
+- R1/R2/R3: vidljiv dvoizvodni raster 7,62 mm. Simboličko tijelo s izreza nije korišteno kao mjera kućišta.
+- R4: vidljiva oznaka, ali cijeli par završetaka izvan je izreza. Nisu ekstrapolirane rupe iz položaja ostalih otpornika.
 
-## Dimenzije i footprintovi
+Promjeri novih rupa jesu projektni odabiri: K1 1,3 mm iz KiCad RT1 reference, Q1 0,9 mm, R1/R2 1,2 mm iz power-resistor reference, R3 0,8 mm. **To nisu izmjereni promjeri nožica/rupa stvarnog sklopa niti potvrda pristajanja.** Izvorni raster i ove pretpostavke odvojeni su u [P2 manifestu](pcb_sources/p2/geometry.json).
 
-| Dio | Izvor / provjera | Stanje u PCB-u |
+## Stanje svakog dijela
+
+| Dio | Stvarni uređivi footprint / bakar | 3D i ograničenje |
 |---|---|---|
-| J1 NodeMCU | Izvorni NodeMCU CH340 DevKit `ESP12_DEVKIT.lbr`: raster 2,54 mm, redovi 27,94 mm, referentni obris širine 30,48 mm. Izvor i puni hash su u manifestu. | Referentni footprint s USB-om gore. Konkretni Ver 0.1 klon i konačno pristajanje/otvori **nisu potvrđeni**; nije upotrijebljen uži CP2102/Amica predložak. |
-| J2 INA219 | Izvorni Soldered SKU 333066 KiCad CAD V1.0: obris 38 × 22 mm, četiri upravljačka priključka na 2,54 mm, strujni izvodi na 5 mm. Provjerene koordinate i promjeri svih osam izvoda. Izvorni STEP također je od proizvođača. | Oblik i funkcije odgovaraju fotografiranoj obitelji. Točnu reviziju, način montaže i tolerancije treba potvrditi prije izrade. Logički indeksi sheme mapirani su po funkciji, ne po redoslijedu pinova generičkog konektora. |
-| K1 RT314006 | Oznaka se čita s fotografije. Pregledani KiCad Schrack RT1 kandidati imaju različite 5-/8-izvodne varijante; dostupni podatci ne dopuštaju proizvoljan izbor. Proizvođački web PDF nije bio dostupan iz okruženja (HTTP proxy 403). | **Rezervirano područje 18 × 34 mm, bez padova ili bušenja. To nije izmjereno kućište.** |
-| Q1 C3209 | Fotografija pokazuje položaj i tranzistorsko kućište, ali ne potvrđuje proizvođača, mjeru ni B/C/E raspored. | Područje 12 × 10 mm, bez izmišljenog TO-92 pinouta. |
-| R1/R2 22 Ω / 5 W | Oznake 5W22RJ i položaj vidljivi su na fotografiji. Proizvođač, puni broj dijela, razmak izvoda i montažna visina nisu potvrđeni. | Dvije rezervacije po 20 × 14 mm. Nema izmišljenih rupa ni tijela cementnog otpornika. |
-| R3/R4 10 kΩ / 20 kΩ | Vrijednosti su iz dokumentacije; kućište, raster i topologija nisu određeni. | Rezervacije 8 × 8 mm bez padova i bakra. |
-| BT1 / BTH1 | BT1 su dvije lemne točke za žice: raster 6 mm, rupa 1,2 mm, odabir za novi PCB. Nije identificiran tvornički konektor ili footprint držača sa slike. BTH1 je samo rezervacija uz desni rub. | Odabir presjeka žice, raster stvarnog držača i rasterećenje sile ostaju otvoreni. BTH1 površina 22 × 98 mm **nije mjera stvarnog držača**. |
+| J1 NodeMCU CH340 / Ver 0.1 | Zadržan izvorni CH340 referentni footprint: 30 rupa, raster 2,54 mm, redovi 27,94 mm. SDA/SCL/GND rute sačuvane. | Plava **grafička referenca**, nije kućište ni gotov 3D model. Točan klon i njegova montaža nisu identificirani. |
+| J2 Soldered INA219 | Zadržan proizvođački CAD 38 × 22 mm, 4 upravljačka + 4 strujna pada. Dodane veze između dvaju IN+ i dvaju IN− mjesta prema istoimenim mrežama izvornog CAD-a. | Proizvođački STEP, sačuvano 28 tijela; uklonjen samo vijčani terminal koji nije ugrađen na fotografiji. Točna revizija/način montaže ostaju nepotvrđeni. |
+| K1 RT314006 | **Osam potvrđenih mjesta nosača**, bez dodjele funkcionalnih A1/A2/11/12/14 i bez bakra. Nije odobren footprint za izravnu montažu pet izvoda releja. | Narančasta dimenzionirana referenca kućišta **29 × 12,7 × 15,7 mm**, izvedena iz KiCad RT1 modela jednakog omotača. Sva geometrija pinova uklonjena. Nije preuzet TE STEP. |
+| Q1 C3209 | Tri fizička mjesta izreza na 2,54 mm; svi padovi nedodijeljeni. | **Nema izmišljenog tijela.** Proizvođač, točno kućište i fizički B/C/E nisu potvrđeni. |
+| R1/R2 22 Ω / 5 W | Dva stvarna pada po dijelu, raster 7,62 mm iz izreza. Oba kraja paralelnog para sada povezana bakrom. | **Predložena zamjena**, katalogna obitelj Yageo/Reichelt `5W AXIAL 22`, nije identificirani dio `5W22R0J` s fotografije. Podaci biblioteke daju tijelo 25 × 6,4 × 6,4 mm. Prikazana je nova vertikalna montaža; nabava, formiranje izvoda i konačno pristajanje nisu verificirani. |
+| R3 10 kΩ | Dva fizička pada na 7,62 mm. Krajevi ostaju električki otvoreni prema shemi. | Nema odabranog kućišta ni 0,25 W modela na temelju crteža. |
+| R4 20 kΩ | Označen položaj; bez padova dok cijeli raster nije potvrđen. | Nema kućišta. |
+| BT1 | Zadržane dvije lemne točke za baterijske žice, projektni raster 6 mm. Samo potvrđeni NodeMCU GND–BAT− povrat je rutiran. | Nije identificiran tvornički konektor ni potvrđen presjek žice/rasterećenje sile. |
+| BTH1 | Referentni položaj držača; **bez proizvodnih padova i rupa**. | KiCad model **Keystone 1042**, nije identificiran kao fotografirani držač. Omotač izvornog modela približno 86,41 × 20,65 × 16,3 mm. Uklonjeni dijelovi ispod ploče; ne tvrdi se odgovarajuća montaža. |
 
-Svi izrazi **AREA / ALLOCATION / TBD** označavaju prostor koji je projektant ostavio za buduće dovršenje, a ne neprovjerenu fizičku dimenziju komponente. Nepoznate komponente nemaju skrivena bušenja. Standardni TO-92 ili nasumičan power-resistor footprint nisu dodijeljeni samo na temelju izgleda ili snage.
+Za R1/R2 tijelo i snaga provjereni su usporedbom izvornog KiCad STEP-a s receptom generatora. Njegov izvor navodi tvornički/katalogni PDF; taj PDF nije bio dostupan (proxy HTTP 403), pa se ne tvrdi neovisna provjera proizvođačkog lista ili narudžbene oznake. Zamjenski oblik ne zamjenjuje identifikaciju stvarnog otpornika.
 
-Izvorni proizvođački podaci, licence i pin-mapping pohranjeni su u `pcb_sources/`; lokalna biblioteka `footprints/Tester18650.pretty` čini projekt prenosivim. Originalni Soldered CAD ostavljen je nepromijenjen. Referentna NodeMCU geometrija ne zamjenjuje identifikaciju klona.
+Nova vertikalna vizualizacija R1/R2 koristi bibliotečne dimenzije tijela, a 1 mm odmaka od ploče, grafički izvod 0,8 mm i prikaz savijanja jesu **nevalidirani projektni odabiri za referentni model**. Nisu uputa za savijanje stvarnog dijela niti izmjereni gabariti fotografiranih otpornika. Ukupna visina tog prijedloga približno je 27,6 mm iznad modelne ravnine. To treba provjeriti s konkretnim dobavljivim dijelom.
 
-## Električne i termičke granice
+## Bakrene veze i razmaci
 
-Bakrom su povezane samo:
+Ukupno je **23 segmenta na pet mreža**. Svih 15 prethodnih segmenata ostalo je nepromijenjeno:
 
-- GPIO2/D4 ↔ SDA INA219, F.Cu, 0,35 mm;
-- GPIO5/D1 ↔ SCL INA219, B.Cu, 0,35 mm;
-- NodeMCU GND ↔ BAT− lemna točka, F.Cu, 0,8 mm, prema izričitoj postojećoj dokumentaciji.
+1. GPIO2/D4–SDA i GPIO5/D1–SCL: 0,35 mm;
+2. NodeMCU GND–BT1 BAT−: 0,8 mm;
+3. nov spoj R1/1–R2/1 i R1/2–R2/2: 0,8 mm, samo potvrđeni paralelni krajevi;
+4. nov spoj udvojenih padova IN+ te udvojenih padova IN−: 1 mm, prema proizvođačkom CAD-u Soldered modula.
 
-VIN+/VIN−, INA219 VCC/GND, relej, bazni sklop, emiter i djelitelj nemaju proizvoljne bakrene trase. R2 funkcionalna shema i dalje prikazuje pretpostavljeni smjer struje INA219, ali taj smjer nije automatski pretvoren u spoj na PCB-u. Nema bakrenih zona koje bi skriveno povezale nepoznate mreže.
+**Nisu spojeni** R1/R2 s pretpostavljenim INA polaritetom, vanjski IN− s BAT−, nijedan neprovjereni relejni/tranzistorski pin, izvor +5 V, napajanja INA219/NodeMCU-a ni redoslijed djelitelja. Nema bakrenih poligona. Firmware `fabsf(ina219_current)` i dalje ne dokazuje fizički polaritet INA219.
 
-Ploča **116 × 132 × 1,6 mm** i četiri M3 prolaza od 3,2 mm predstavljaju novi projektni odabir, ne izmjeru perfboarda s fotografije. Raspored je proširen radi prostora: između rezervacija R1/R2 je 10 mm, a između njihovih bočnih rubova i INA219/držača ostavljeno je 13 mm. Ispod područja opterećenja nema vodova, via ni bakrenih poligona; dodan je i konzervativni RF keepout.
+Između projekcija zamjenskih tijela R1/R2 ima 17,6 mm; bočno prema INA219 najmanje 19 mm, prema referentnom držaču približno 20,5 mm. Dodani su keepouti pod tim tijelima s otvorom za izlaz potvrđenog izvoda. Ti razmaci nisu termička provjera stvarnih dijelova. Na 4,2 V svaki otpornik 22 Ω disipira približno 0,80 W; oznaka 5 W nije stvarna disipacija testa. Nisu verificirani temperatura baterije, ventilacija, formiranje izvoda, visine i konstrukcijska učvršćenja.
 
-To nisu dokazani razmaci od stvarnih vrućih tijela dok se ne potvrde njihova kućišta. Pri 4,2 V i 22 Ω na svakom otporniku očekuje se oko 0,80 W; oznaka 5 W nije tvrdnja da disipacija u ovom testu iznosi 5 W. Termička simulacija, temperatura baterije, visina otpornika i ventilacija nisu provjereni. Ne tvrdi se da je dizajn termički siguran ili spreman za proizvodnju.
+## Provjere i izvozi
 
-## Što prikazuje 3D
+Nativni KiCad **10.0.4**: **DRC 0 geometrijskih kršenja, 2 nepovezane veze i 10 upozorenja schematic parity, status 5**. ERC: **11 pogrešaka + 1 upozorenje, status 5**. Nisu mijenjane ozbiljnosti pravila niti dodavana izuzeća, `No Connect` ili `PWR_FLAG` radi utišavanja nalaza. [Tumačenje DRC-a](reports/pcb/DRC.md) objašnjava zašto broj nepovezanih mreža ne predstavlja sav nedovršeni sklop.
 
-GLB je izvoz stvarnog PCB-a iz KiCada 10; PNG je render tog GLB-a u Blenderu. Izvorni CLI `pcb render` rušio se statusom 139 u ovom cloud okruženju, pa nije korišten izmišljeni zamjenski prikaz ili slika nepovezanog PCB-a.
-
-Soldered INA219 koristi proizvođački STEP model, iz kojega je uklonjen samo opcijski vijčani terminal koji na fotografiji nije ugrađen. Ostalih 28 izvornih tijela sačuvano je bez zamjene dimenzija; izvor i zapis preinake priloženi su uz projekt. **Plavo je referentni plan NodeMCU-a, a jantarne tanke plohe su rezervirani prostori; nisu 3D kućišta releja, tranzistora, otpornika ili baterije.** Njihova debljina 0,02 mm služi samo grafičkom prikazu i nije fizička mjera dijela. Ne provjeravaju se montažne visine, dodiri ili pristajanje stvarnih kućišta na temelju ovih ploha. Za ta tijela nije izmišljena visina.
-
-## Ponoviti provjere
+PDF je nativni izvoz slojeva F.Cu/F.SilkS/F.Fab/Edge.Cuts, 1:1 na A4 vodoravno; nije kompletna dokumentacija svih bakrenih slojeva. GLB je nativni KiCad izvoz stvarne pločice, PNG je Blender render tog GLB-a. Opisni natpisi u renderu grafičke su oznake statusa, ne tvornički natpisi ni fizička tijela. Nativni `pcb render` ranije se rušio u ovom okruženju; korišten je provjereni GLB→Blender put.
 
 ```sh
-./tools/validate_pcb.sh
-# Vraća 5 jer DRC ima neriješene nalaze.
+./tools/validate.sh       # očekivani stvarni ERC status 5
+./tools/validate_pcb.sh   # očekivani stvarni DRC status 5; izvozi PDF/GLB/PNG
+sha256sum -c reports/SHA256SUMS
+sha256sum -c reports/pcb/SHA256SUMS
 ```
 
-Skripta izvozi PDF, GLB, oba DRC izvještaja, pokreće provjeru padova/mreža/rasporeda te stvara PNG iz GLB-a. Potrebni su KiCad 10 i Blender za izvoz/render. Generator plana `tools/build_pcb.py` zahtijeva KiCad pcbnew Python API; grafičke STEP oznake nastaju pomoću `tools/make_marker_models.py` i `cadquery-ocp`. Generatori nisu potrebni za otvaranje i uređivanje predanog `.kicad_pcb`.
+Izvori, licence, hashovi i granice provjere su u [pcb_sources/p2](pcb_sources/p2/README.md). `tools/implement_p2.py` jednokratna je migracija postojećeg P1 u P2, preko nativnog KiCad 10 Python API-ja (`tools/pcb_python.sh`). `tools/build_pcb.py` ostaje povijesni generator P1; **nije generator konačnog P2**. `tools/make_p2_models.py` reproducira referentne modele pomoću paketa iz `tools/cad-requirements.txt`.
 
-Prije proizvodnje moraju se dovršiti stvarni footprintovi i pinoutovi K1/Q1/R1–R4/držača, potvrditi referentni klon i revizija modula, napajanja, zaštite i preostale električne veze te provesti ponovni ERC, puni DRC i termička/mehanička provjera. Gerberi i proizvodne bušilice namjerno nisu isporučeni kao odobrenje za izradu.
+**Za dovršenje nedostaju:** tvorničko mapiranje releja na potvrđeni nosač, točan C3209 i pinout, puni R4 raster, stvarna kućišta R3/R4, odobren konkretni otpornik i montaža, točan NodeMCU/INA219/držač, napajanja, zaštite, bazni sklop i djelitelj te mehanička/termička provjera. Nisu izdani Gerberi ni odobrenje za proizvodnju. Fizičko ožičenje funkcionalnog primjerka nije proglašeno potvrđenim.

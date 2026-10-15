@@ -1,4 +1,4 @@
-# Tester 18650 — KiCad 10, shema R2 i PCB P1
+# Tester 18650 — KiCad 10, shema R2 i PCB P2
 
 **Funkcionalni strujni krug je spojen u uređivoj shemi. Fizičko ožičenje i pinout nisu potvrđeni. ERC nije čist: 11 pogrešaka i 1 upozorenje.**
 
@@ -6,7 +6,7 @@ R2 nastavlja postojeći projekt iz commita `bfc8b56`: isti `.kicad_pro`, isti li
 
 ## PCB prema fotografijama
 
-Dodan je [uređivi PCB P1](tester18650.kicad_pcb), [PDF rasporeda](tester18650_pcb_layout.pdf) i [3D prikaz](tester18650_pcb_3d.png). Raspored koristi korisnikove fotografije kao glavni vizualni izvor. Detalji, izvori footprintova i ograničenja su u [PCB.md](PCB.md). Ploča ima tri potvrđene bakrene mreže; nepoznati paketi ostaju područja bez izmišljenih padova. **DRC: 3 nepovezane veze + 16 upozorenja usporedbe sa shemom; nije za proizvodnju.**
+Dodan je [uređivi PCB P2](tester18650.kicad_pcb), [PDF rasporeda](tester18650_pcb_layout.pdf) i [3D prikaz](tester18650_pcb_3d.png). Raspored koristi korisnikove fotografije kao glavni vizualni izvor. Detalji, izvori footprintova i ograničenja su u [PCB.md](PCB.md). P2 ima padove potvrđenog rastera izreza RL/Q/R i 23 bakrena segmenta na pet mreža; K1/Q1 padovi još nisu mapirani na funkcionalne pinove. Referentni/zamjenski 3D modeli jasno su označeni. **DRC: 2 nepovezane veze + 10 upozorenja usporedbe sa shemom; nije za proizvodnju.**
 
 ## Funkcionalni krug u shemi
 
@@ -31,7 +31,7 @@ Firmware ne određuje bazni otpornik, spoj emitera, zaštitnu diodu, redoslijed 
 
 ## Logička sučelja i oznake
 
-J1/J2 koriste standardni `Connector_Generic:Conn_01x06` kao logičke prikaze modula. U fazi P1 povezani su s referentnim PCB footprintovima i uključeni u pločicu/BOM; to nije potvrda mehaničkog pristajanja konkretnih modula. **Brojevi 1–6 su indeksi sheme, ne fizički raspored nožica.** Svaki priključak dodatno je označen funkcijom na listu. TP5 i TP6 su samo dokumentacijski završeci prema nepoznatom baznom sklopu i djelitelju; nisu ugrađene testne točke.
+J1/J2 koriste standardni `Connector_Generic:Conn_01x06` kao logičke prikaze modula. Od faze P1 povezani su s referentnim PCB footprintovima i uključeni u pločicu/BOM; to nije potvrda mehaničkog pristajanja konkretnih modula. **Brojevi 1–6 su indeksi sheme, ne fizički raspored nožica.** Svaki priključak dodatno je označen funkcijom na listu. TP5 i TP6 su samo dokumentacijski završeci prema nepoznatom baznom sklopu i djelitelju; nisu ugrađene testne točke.
 
 | Indeks | J1 — NodeMCU ESP8266 | J2 — INA219 modul |
 |---|---|---|
@@ -55,7 +55,7 @@ J1/J2 koriste standardni `Connector_Generic:Conn_01x06` kao logičke prikaze mod
 | N5 | GND INA219 te vrijednosti i naponska domena I²C pull-upova nisu potvrđeni. J2 GND je otvoren. |
 | N6 | Izvor +5 V za relej, ulaz napajanja NodeMCU-a i VCC INA219 nisu utvrđeni. J1/5 i J2/3 su otvoreni. |
 
-OLED nije ugrađen i nije nacrtan. Nisu dodani nepotvrđeni zaštitni elementi. PCB P1 koristi referentne footprintove i područja bez padova za nepotvrđene pakete. Shema i PCB nisu odobrenje za proizvodnju ni potvrda sigurnosti fizičkog uređaja.
+OLED nije ugrađen i nije nacrtan. Nisu dodani nepotvrđeni zaštitni elementi. PCB P2 koristi potvrđeni raster samo korisnikova izreza, uz nedodijeljene K1/Q1 padove i nepotvrđena kućišta; nema proizvoljne rekonstrukcije električnih mreža. Shema i PCB nisu odobrenje za proizvodnju ni potvrda sigurnosti fizičkog uređaja.
 
 ## Datoteke i provjera
 

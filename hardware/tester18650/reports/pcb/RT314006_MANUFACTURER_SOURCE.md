@@ -32,3 +32,7 @@ Postojeća rezervacija K1 od `18 × 34 mm` **nije kućište**. Poznato stvarno k
 **Poseban problem napajanja:** fizički relej s 6 V DC zavojnicom u dokumentiranom uređaju možda se pobuđuje s 5 V. Vrijednosti tipično daju nazivnu struju oko `6/90 = 67 mA` odnosno na 5 V oko `56 mA` ako se aproksimira stalan otpor; to nije potvrda da pouzdano uklapa na 5 V. Provjeriti pickup/dropout iz datasheeta ili mjerenjem, posebno za moguću novu pločicu.
 
 Status: **proizvođač/kućište/raster identificirani; precizne koordinate svih nožica i fizički ožičeni izvodi nisu još potvrđeni.**
+
+## Naknadni izrez i rezultat P2
+
+Korisnikov potvrđeni izrez prikazuje osam mjesta nosača na rasteru perfboarda, uključujući parove `RL11A/B`, `RL12A/B`, `RL14A/B`. To ne dokazuje osam fizičkih izvoda RT314006, niti mapiranje tih mjesta na pet funkcionalnih terminala iz ove bilješke. U P2 su te koordinate unesene kao električki nedodijeljeni referentni padovi. Kućište je dimenzionirana KiCad referenca bez pinova; službeni TE STEP i tvornički crtež pinova nisu preuzeti zbog proxy HTTP 403. Nije proglašena potvrda za izravnu montažu ili napajanje 5 V.

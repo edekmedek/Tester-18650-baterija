@@ -32,8 +32,27 @@ fps={next(p[2] for p in fields(f,'property') if p[1]=='Reference'):f for f in fi
 assert set(fps)=={'J1','J2','K1','Q1','R1','R2','R3','R4','BT1','BTH1','H1','H2','H3','H4'}
 for ref,(_name,x,y) in manifest['placements'].items():
     assert xy(fps[ref],'at')==(x+origin[0],y+origin[1]),ref
-for ref in ('K1','Q1','R1','R2','R3','R4','BTH1'):
+for ref in ('R4','BTH1'):
     assert not fields(fps[ref],'pad'),f'Invented physical pads in unresolved {ref}'
+p2=json.loads((root/'pcb_sources/p2/geometry.json').read_text())
+import hashlib
+for filename,digest in p2['sources_sha256'].items():
+    assert hashlib.sha256((root/'pcb_sources/p2'/filename).read_bytes()).hexdigest()==digest,filename
+for ref,key in [('K1','K1'),('Q1','Q1')]:
+    expected=p2['reference_detail'][key]['pads_grid']
+    pads={p[1]:p for p in fields(fps[ref],'pad')}
+    assert set(pads)==set(expected)
+    for number,(x,y) in expected.items():
+        target=((x-1.5)*2.54,(y-5)*2.54) if ref=='K1' else (x*2.54,y*2.54)
+        assert xy(pads[number],'at')==tuple(round(v,6) for v in target)
+        assert not fields(pads[number],'net'),f'Unproved terminal map in {ref}'
+for ref in ('R1','R2','R3'):
+    pads=fields(fps[ref],'pad')
+    assert len(pads)==2
+    assert {xy(p,'at') for p in pads}=={(0,-3.81),(0,3.81)}
+assert not fields(fps['Q1'],'model') and not fields(fps['R3'],'model') and not fields(fps['R4'],'model'), 'No guessed bodies'
+assert any('SUBSTITUTE.step' in m[1] for m in fields(fps['R1'],'model'))
+assert any('NO_PINS.step' in m[1] for m in fields(fps['K1'],'model'))
 assert len(fields(fps['J1'],'pad'))==30
 assert len(fields(fps['J2'],'pad'))==8
 # Check ALL reference pad coordinates and drill sizes against the manufacturer CAD extract.
@@ -47,8 +66,12 @@ allowed={'/I2C_SDA_GPIO2':(('J1','2'),('J2','1')),
          '/I2C_SCL_GPIO5':(('J1','3'),('J2','2')),
          '/BAT_MINUS':(('J1','6'),('BT1','2'))}
 segments=fields(board,'segment')
-assert len(segments)==15
-assert {one(t,'net')[1] for t in segments}==set(allowed)
+assert len(segments)==23
+assert {one(t,'net')[1] for t in segments}==set(allowed)|{'/LOAD_IN','/VIN_PLUS'}
+# Every original trace remains at the original coordinates (incremental edit).
+for net,x1,y1,x2,y2 in manifest['p1_tracks_preserved']:
+    assert any(one(t,'net')[1]==net and xy(t,'start')==(round(x1/1e6,6),round(y1/1e6,6)) and xy(t,'end')==(round(x2/1e6,6),round(y2/1e6,6)) for t in segments)
+
 
 def pad_position(ref,number):
     p=next(p for p in fields(fps[ref],'pad') if p[1]==number)
@@ -70,23 +93,44 @@ for net,(start,end) in allowed.items():
         assert all(pad_position('J2',n) not in seen for n in ('5','6')), 'Do not route assumed VIN polarity'
 assert not fields(board,'via'), 'No unexplained vias'
 assert all(fields(z,'keepout') for z in fields(board,'zone')), 'No hidden copper pours'
+# Parallel load ends and duplicate INA pads are confirmed independently of crop colours.
+def connected(net,start,end):
+    graph={}
+    for seg in segments:
+        if one(seg,'net')[1]!=net:continue
+        a,b=xy(seg,'start'),xy(seg,'end')
+        graph.setdefault(a,set()).add(b);graph.setdefault(b,set()).add(a)
+    pending=[start];seen=set()
+    while pending:
+        point=pending.pop()
+        if point in seen:continue
+        seen.add(point);pending.extend(graph.get(point,set())-seen)
+    return end in seen
+for pn,net in [('1','/LOAD_IN'),('2','/VIN_PLUS')]:
+    assert connected(net,pad_position('R1',pn),pad_position('R2',pn))
+for pn,net in [('5','/VIN_PLUS'),('6','/BAT_MINUS')]:
+    loc=xy(fps['J2'],'at')
+    pads=[tuple(round(a+b,6) for a,b in zip(loc,xy(p,'at'))) for p in fields(fps['J2'],'pad') if p[1]==pn]
+    assert connected(net,*pads)
+assert not connected('/VIN_PLUS',pad_position('R1','2'),pad_position('J2','5')), 'Do not adopt assumed VIN polarity'
 # Qualitative photo registration; metric reconstruction is NOT claimed.
 p=manifest['placements']
 assert p['J1'][1]<p['K1'][1]<p['BTH1'][1]
 assert p['J1'][2]<p['Q1'][2]<p['R1'][2]<p['R2'][2]
 assert p['J2'][1]==p['J1'][1] and p['J2'][2]>p['J1'][2]
-a,b=manifest['thermal_allocation_mm']['R1'],manifest['thermal_allocation_mm']['R2']
-assert b[1]-a[3]>=10
-assert 89-a[2]>=13 and a[0]-43>=13
+a,b=manifest['thermal_body_xy_mm']['R1'],manifest['thermal_body_xy_mm']['R2']
+assert b[1]-a[3]>=17.5
+assert 89.675-a[2]>=20 and a[0]-43>=19
 r=json.loads((root/'reports/pcb/drc.json').read_text())
 assert r['kicad_version'].startswith('10.')
 assert not r['violations']
-assert len(r['unconnected_items'])==3
-assert Counter(v['type'] for v in r['schematic_parity'])=={'net_conflict':16}
+assert len(r['unconnected_items'])==2
+assert Counter(v['type'] for v in r['schematic_parity'])=={'net_conflict':10}
 assert not any(v.get('excluded',False) for group in ('violations','unconnected_items','schematic_parity') for v in r[group])
-print('PASS: native KiCad 10 board; all nine tester placements plus holder and mounting holes.')
-print('PASS: manufacturer-reference pad coordinates/drills reproduced; unresolved packages contain NO invented pads.')
-print('PASS: exactly 3 confirmed copper nets / 15 segments; no VIN, driver or divider routing.')
-print('PASS: photo-directed order; 10 mm between heat allocations; 13 mm lateral separation from INA/holder allocations.')
-print('DRC NON-CLEAN: 0 geometric violations, 3 unconnected errors, 16 schema-parity warnings; native status 5.')
-print('BLOCKED FOR MANUFACTURING: missing physical packages/pads, exact clone fit and unresolved electrical connections.')
+print('PASS: incremental native KiCad 10 PCB edit; all 15 P1 tracks preserved.')
+print('PASS: crop grid reproduced for K1/Q1/R1/R2/R3. Relay and C3209 pads remain unmapped; R4/holder have no invented pads.')
+print('PASS: source hashes and original module pad coordinates/drills checked; no guessed Q1/R3/R4 bodies.')
+print('PASS: 23 segments on 5 confirmed copper nets; parallel resistor ends and duplicate INA pads connected; no assumed external VIN or driver/divider route.')
+print('PASS: photo order retained; resistor reference-body gap 17.6 mm, lateral gaps >=19 mm; production thermal/lead-forming fit unverified.')
+print('DRC NON-CLEAN: 0 geometric violations, 2 unconnected errors, 10 schematic-parity warnings; native status 5.')
+print('BLOCKED FOR MANUFACTURING: relay/C3209 terminal mapping, R4 geometry, exact clones/holder, resistor procurement/lead forming, supplies and divider topology.')

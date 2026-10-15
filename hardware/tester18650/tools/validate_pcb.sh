@@ -21,6 +21,6 @@ blender --version > reports/pcb/blender-version.txt
 rm -f tester18650_pcb_3d.png
 blender -b --python-exit-code 2 --python tools/render_pcb.py > reports/pcb/render.log 2>&1
 [ -s tester18650_pcb_3d.png ]
-sha256sum tester18650.kicad_pcb tester18650_pcb_layout.pdf tester18650_pcb_3d.glb tester18650_pcb_3d.png reports/pcb/drc.json reports/pcb/drc.rpt reports/pcb/board-check.txt pcb_sources/reference-geometry.json > reports/pcb/SHA256SUMS
+sha256sum tester18650.kicad_pcb tester18650_pcb_layout.pdf tester18650_pcb_3d.glb tester18650_pcb_3d.png reports/pcb/drc.json reports/pcb/drc.rpt reports/pcb/board-check.txt pcb_sources/reference-geometry.json pcb_sources/p2/geometry.json reports/pcb/p2-models.json models/RT314006_DIMENSION_REFERENCE_NO_PINS.step models/Cement_5WAXIAL_VERTICAL_SUBSTITUTE.step models/Keystone1042_REFERENCE_NO_MOUNTING.step > reports/pcb/SHA256SUMS
 printf 'PCB outputs verified. Preserving NON-CLEAN native DRC status %s.\n' "$tester_pcb_drc"
 exit "$tester_pcb_drc"

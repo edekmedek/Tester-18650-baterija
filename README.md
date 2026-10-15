@@ -37,4 +37,4 @@ Ova dokumentacijska oznaka v1.0 **nije** potvrda da je firmware verificiran ili 
 
 ## PCB raspored prema fotografijama
 
-[PCB P1, PDF i 3D prikaz](hardware/tester18650/PCB.md). Uređivi raspored s djelomičnim bakrom i otvorenim footprintovima; pločica nije spremna za proizvodnju.
+[PCB P2, PDF i 3D prikaz](hardware/tester18650/PCB.md). Uređivi raspored prema fotografijama i potvrđenom izrezu RL/Q/R, s novim padovima, djelomičnim bakrom i označenim referentnim/zamjenskim 3D modelima. DRC: 2 nepovezane veze i 10 upozorenja; pločica nije spremna za proizvodnju.

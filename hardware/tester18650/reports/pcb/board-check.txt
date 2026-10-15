@@ -1,6 +1,7 @@
-PASS: native KiCad 10 board; all nine tester placements plus holder and mounting holes.
-PASS: manufacturer-reference pad coordinates/drills reproduced; unresolved packages contain NO invented pads.
-PASS: exactly 3 confirmed copper nets / 15 segments; no VIN, driver or divider routing.
-PASS: photo-directed order; 10 mm between heat allocations; 13 mm lateral separation from INA/holder allocations.
-DRC NON-CLEAN: 0 geometric violations, 3 unconnected errors, 16 schema-parity warnings; native status 5.
-BLOCKED FOR MANUFACTURING: missing physical packages/pads, exact clone fit and unresolved electrical connections.
+PASS: incremental native KiCad 10 PCB edit; all 15 P1 tracks preserved.
+PASS: crop grid reproduced for K1/Q1/R1/R2/R3. Relay and C3209 pads remain unmapped; R4/holder have no invented pads.
+PASS: source hashes and original module pad coordinates/drills checked; no guessed Q1/R3/R4 bodies.
+PASS: 23 segments on 5 confirmed copper nets; parallel resistor ends and duplicate INA pads connected; no assumed external VIN or driver/divider route.
+PASS: photo order retained; resistor reference-body gap 17.6 mm, lateral gaps >=19 mm; production thermal/lead-forming fit unverified.
+DRC NON-CLEAN: 0 geometric violations, 2 unconnected errors, 10 schematic-parity warnings; native status 5.
+BLOCKED FOR MANUFACTURING: relay/C3209 terminal mapping, R4 geometry, exact clones/holder, resistor procurement/lead forming, supplies and divider topology.

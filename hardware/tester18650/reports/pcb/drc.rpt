@@ -1,24 +1,20 @@
 ** Drc report for tester18650.kicad_pcb **
-** Created on 2026-10-15T06:56:25 **
+** Created on 2026-10-15T07:25:59 **
 ** Report includes: Errors, Warnings, Exclusions **
 
 ** Found 0 DRC violations **
 
-** Found 3 unconnected pads **
+** Found 2 unconnected pads **
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(123.5000 mm, 138.5000 mm): PTH pad 5 [/VIN_PLUS] of J2
-    @(128.5000 mm, 138.5000 mm): PTH pad 5 [/VIN_PLUS] of J2
+    @(123.5000 mm, 138.5000 mm): Track [/VIN_PLUS] on F.Cu, length 5.0000 mm
+    @(170.0000 mm, 135.8100 mm): Track [/VIN_PLUS] on F.Cu, length 14.0000 mm
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(123.5000 mm, 133.5000 mm): PTH pad 6 [/BAT_MINUS] of J2
-    @(128.5000 mm, 133.5000 mm): PTH pad 6 [/BAT_MINUS] of J2
-[unconnected_items]: Missing connection between items
-    Local override; error
+    @(123.5000 mm, 133.5000 mm): Track [/BAT_MINUS] on F.Cu, length 5.0000 mm
     @(127.9700 mm, 45.9200 mm): Track [/BAT_MINUS] on F.Cu, length 5.0300 mm
-    @(128.5000 mm, 133.5000 mm): PTH pad 6 [/BAT_MINUS] of J2
 
-** Found 16 Footprint errors **
+** Found 10 Footprint errors **
 [net_conflict]: No pad found for pin A1 (/+5V_RELEJ) in schematic
     Local override; warning
     @(151.0000 mm, 52.0000 mm): Footprint K1
@@ -43,24 +39,6 @@
 [net_conflict]: No pad found for pin 3 in schematic
     Local override; warning
     @(151.0000 mm, 87.0000 mm): Footprint Q1
-[net_conflict]: No pad found for pin 1 (/LOAD_IN) in schematic
-    Local override; warning
-    @(156.0000 mm, 108.0000 mm): Footprint R1
-[net_conflict]: No pad found for pin 2 (/VIN_PLUS) in schematic
-    Local override; warning
-    @(156.0000 mm, 108.0000 mm): Footprint R1
-[net_conflict]: No pad found for pin 1 (/LOAD_IN) in schematic
-    Local override; warning
-    @(156.0000 mm, 132.0000 mm): Footprint R2
-[net_conflict]: No pad found for pin 2 (/VIN_PLUS) in schematic
-    Local override; warning
-    @(156.0000 mm, 132.0000 mm): Footprint R2
-[net_conflict]: No pad found for pin 1 in schematic
-    Local override; warning
-    @(137.0000 mm, 80.0000 mm): Footprint R3
-[net_conflict]: No pad found for pin 2 in schematic
-    Local override; warning
-    @(137.0000 mm, 80.0000 mm): Footprint R3
 [net_conflict]: No pad found for pin 1 in schematic
     Local override; warning
     @(137.0000 mm, 92.0000 mm): Footprint R4

@@ -1,0 +1,7 @@
+# Per-user KiCad state, lock files and local backups
+*.kicad_prl
+*.lck
+~*.lck
+*-backups/
+*.kicad_sch-bak
+*.kicad_pro-bak

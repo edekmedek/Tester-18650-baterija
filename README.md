@@ -2,7 +2,7 @@
 
 **Stanje: radni prototip, dokumentacijska verzija 1.0 (15.10.2026.)**
 
-ESP32 tester Li-ion 18650 baterija s INA219 mjerenjem i prikazom u Home Assistantu.
+NodeMCU ESP8266 tester Li-ion 18650 baterija s INA219 mjerenjem i prikazom u Home Assistantu.
 
 ## Potvrđene funkcije
 - Mjerenje napona, struje, snage, kapaciteta (mAh), energije (Wh) i trajanja.
@@ -30,3 +30,7 @@ Na snimci je baterija 3 u testu (3,983 V, 0,351 A). Rezultati još nisu uspoređ
 - [Ideje za budući razvoj](docs/PLAN_RAZVOJA.md)
 
 Ova dokumentacijska oznaka v1.0 **nije** potvrda da je firmware verificiran ili objavljen kao izdanje. Ne mijenjati funkcionalan firmware tijekom dokumentiranja.
+
+## Električna shema u KiCadu 10
+
+[Projekt R1, PDF, ERC i popis nepoznatih spojeva](hardware/tester18650/README.md). Shema je dokumentacijska rekonstrukcija potvrđenih podataka; nije izvedbeno provjerena.

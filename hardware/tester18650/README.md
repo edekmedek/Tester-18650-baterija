@@ -4,6 +4,21 @@
 
 Projekt je izrađen iz potvrda korisnika od 15.10.2026. i svih šest aktualnih Markdown dokumenata repozitorija. Sheme D6–D12 nisu korištene kao dokaz ispravnosti. Povijesni `docs/SCHEMA_D9_STATUS.md` nije izvor spojeva. Aktualni uređaj je NodeMCU ESP8266 (`nodemcuv2`); stariji navodi ESP32 u dokumentaciji opisuju raniji zapis.
 
+## Funkcionalni strujni krug — radna shema za dovršetak
+
+Korisnik je više puta potvrdio slijed pražnjenja, bez potrebe za ponovnim praćenjem istih žica:
+
+```text
+BAT+ → radni kontakt releja → (22 Ω / 5 W || 22 Ω / 5 W)
+     → INA219 mjerni put (VIN+ / interni shunt / VIN−) → BAT−
+```
+
+**Funkcionalni zaključak:** u električnoj shemi prikazati relejni radni kontakt **COM–NO**, jer se opterećenje uključuje aktivacijom releja; NC nije dio funkcionalnog puta pražnjenja. Brojevi nožica stvarnog RT314006 nisu time utvrđeni, ali **ne trebaju biti prepreka za spajanje standardnog funkcionalnog simbola**. Ne tražiti korisnika da provjerava očigledni serijski redoslijed.
+
+**Orijentacija INA219:** za standardni prikaz pozitivnog smjera struje označiti `VIN+` sa strane opterećenja, `VIN−` sa strane BAT−. To je **projektna pretpostavka**, a ne izmjerena činjenica; firmware računa apsolutnu vrijednost struje pa iz očitanja ne slijedi polaritet. Nije potrebno rastavljati funkcionalni uređaj radi crtanja načelne sheme.
+
+**Važno:** sljedeća revizija KiCad datoteke treba **stvarno spojiti** COM–NO i VIN+/VIN− u uređivoj shemi te ih označiti kao funkcionalno rekonstruirane. Sam tekst u README-u nije zamjena za izmjenu KiCad sheme. Nepoznate fizičke pinove, bazni otpornik, napajanje i djelitelj prikazati bez izmišljanja.
+
 ## Isporuka
 
 - [tester18650.kicad_pro](tester18650.kicad_pro) — pravi KiCad projekt; otvoriti u KiCadu 10.

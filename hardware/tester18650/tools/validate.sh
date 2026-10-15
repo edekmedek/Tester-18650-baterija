@@ -21,5 +21,8 @@ if [ "${tester_report_exit:-0}" -ne 5 ]; then
     echo "Unexpected text ERC status: ${tester_report_exit:-0}." >&2
     exit 1
 fi
-python3 tools/check_connectivity.py
-sha256sum tester18650.kicad_pro tester18650.kicad_sch tester18650.pdf reports/erc.json reports/erc.rpt reports/netlist.xml > reports/SHA256SUMS
+python3 tools/check_connectivity.py > reports/connectivity-check.txt
+cat reports/connectivity-check.txt
+sha256sum tester18650.kicad_pro tester18650.kicad_sch tester18650.pdf reports/erc.json reports/erc.rpt reports/netlist.xml ../../firmware/battery-tester-8266-wifi-test.yaml > reports/SHA256SUMS
+printf "ERC is non-clean; preserving native exit status %s.\n" "$tester_erc_exit"
+exit "$tester_erc_exit"

@@ -1,21 +1,23 @@
-# ERC — rekonstrukcija R1
+# ERC — postojeća shema R2
 
-Provjereno KiCad CLI-jem **10.0.4**, 15.10.2026. Shema se uspješno učitava, izvozi u PDF i u XML listu mreža. **ERC nije čist: 15 pogrešaka i 1 upozorenje.**
+KiCad CLI **10.0.4**, 15.10.2026. **Stvarni rezultat: 11 pogrešaka i 1 upozorenje. ERC nije čist.** Nativni poziv i završni `tools/validate.sh` vraćaju status **5**.
 
-Izvorni rezultati: [erc.rpt](erc.rpt), [erc.json](erc.json). CLI je pokrenut s `--severity-all --exit-code-violations`; vraća **5**, što je očuvano u [erc-exit-status.txt](erc-exit-status.txt).
+Izvorni rezultati nisu filtrirani: [erc.rpt](erc.rpt), [erc.json](erc.json), [erc-exit-status.txt](erc-exit-status.txt). Upotrijebljeni su `--severity-all --exit-code-violations`.
 
-| Nalaz | Broj | Mjesta / razlog |
+| Tip | Broj | Priključci i razlog |
 |---|---:|---|
-| `pin_not_connected` | 3 | K1 11/12/14 — nepoznata dodjela fizičkih kontakata (N1). |
-| `pin_not_connected` | 2 | Q1 B/1 i E/3 — nepoznat bazni sklop i emiter (N3). |
-| `pin_not_connected` | 4 | R3 1/2 i R4 1/2 — nepotvrđena topologija djelitelja (N4). |
-| `pin_not_connected` | 4 | J2 3/4/5/6 — VCC, GND, VIN+, VIN− (N2, N5, N6). |
-| `pin_not_connected` | 1 | J1 5 — napajanje NodeMCU pločice (N6). |
-| `pin_not_driven` | 1 | Q1 B/1 — posljedica nepoznatog puta GPIO14 do baze (N3). |
-| `isolated_pin_label` | 1 upozorenje | +5V_RELEJ — poznato odredište na zavojnici, nepoznat izvor (N6). |
+| `pin_not_connected` | 1 | K1/12 — NC nije dio funkcionalnog kruga. Nalaz nekorištenog kontakta namjerno je ostavljen vidljiv. |
+| `pin_not_connected` | 2 | Q1 B/1 i E/3 — nema potvrđenog baznog sklopa ni emiterske veze, N3. |
+| `pin_not_connected` | 4 | R3 1/2 i R4 1/2 — nema potvrđene topologije djelitelja, N4. |
+| `pin_not_connected` | 2 | J2/3 VCC i J2/4 GND — napajanje i referenca modula nisu fizički utvrđeni, N5/N6. |
+| `pin_not_connected` | 1 | J1/5 — ulaz i izvor napajanja NodeMCU-a nisu utvrđeni, N6. |
+| `pin_not_driven` | 1 | Q1 B/1 — bazni sklop nedostaje, N3. GPIO14 nije izravno kratko spojen na bazu. |
+| `isolated_pin_label` | 1 upozorenje | +5V_RELEJ — prikazano odredište na zavojnici, nepoznat izvor napajanja, N6. |
 
-Otvoreni pinovi nisu označeni kao namjerno nekorišteni. Nema dodanih ERC izuzeća, lažnih `PWR_FLAG` simbola ni promjene ozbiljnosti nalaza. KiCadovi tvornički zadani neaktivni provjerni tipovi vidljivi su u `ignored_checks` JSON-a; projekt ih nije dodatno isključivao. Nema dodatnih nepovezanih krajeva vodova ni nepodudaranja bibliotečnih simbola u konačnom izvještaju.
+U odnosu na R1, četiri pogreške nestale su zbog stvarnih novih spojeva: K1 COM/11 na BAT+, K1 NO/14 na R1/R2, VIN+ na stranu opterećenja i VIN− na povrat BAT−. Nisu uklonjene izuzećima ili promjenom pravila.
 
-Provjera `tools/check_connectivity.py` uspoređuje deset izvezenih funkcionalnih mreža, vrijednosti komponenti i četrnaest izoliranih nepoznatih pinova. Time se provjerava da su R1/R2 doista električki paralelni, da SDA i SCL nisu zamijenjeni, da je kolektor na zavojnici te da nepoznati kontakti, djelitelj i VIN priključci nisu slučajno povezani.
+Nema novih isključenih provjera, oznaka `No Connect`, lažnih `PWR_FLAG` simbola ni promjene ozbiljnosti nalaza. Tvornički zadani neaktivni tipovi provjera ostaju navedeni u `ignored_checks` izvornog JSON-a; `.kicad_pro` nije promijenjen. Konačni ERC ne prijavljuje nepovezane krajeve vodova, krajeve izvan mreže, višestruke nazive iste mreže ni nepodudaranje bibliotečnih simbola.
 
-ERC ne potvrđuje fizičku izvedbu, stvarni pinout, pouzdanost releja sa zavojnicom 6 V na 5 V, ispravnost firmwarea ni mjerenja. Budući da su J1/J2 pasivna logička sučelja standardnog konektorskog simbola, ERC također ne provjerava naponsku kompatibilnost i električne tipove stvarnih modula. To ostaje izričito ograničenje N5/N6. Shema se ne smije proglasiti izvedbeno provjerenom na temelju ovih provjera.
+Zasebna [provjera mreža](connectivity-check.txt) prolazi: COM–NO prekida put kada je otvoren i omogućuje put BAT+ → R1/R2 → interni shunt → BAT− kada je zatvoren; obje grane opterećenja su paralelne i nisu premoštene. Provjereno je deset točnih funkcionalnih mreža i deset izoliranih pinova, uključujući poznati nekorišteni NC. Skripta za izvoz zadržava ERC status 5 i nakon uspjeha ovih provjera.
+
+Niti ERC niti provjera mreža ne dokazuju fizički pinout, polaritet stvarnog INA219 spoja, vrijednost shunta, naponsku kompatibilnost modula ili pouzdanost zavojnice 6 V na 5 V. J1/J2 su pasivna logička sučelja pa ERC ne provjerava električne tipove izlaza stvarnih modula. RSH1 ima nepoznatu fizičku vrijednost i nije korišten za izračun ili simulaciju struje. Fizičko ožičenje ostaje nepotvrđeno.

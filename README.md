@@ -33,4 +33,4 @@ Ova dokumentacijska oznaka v1.0 **nije** potvrda da je firmware verificiran ili 
 
 ## Električna shema u KiCadu 10
 
-[Projekt R1, PDF, ERC i popis nepoznatih spojeva](hardware/tester18650/README.md). Shema je dokumentacijska rekonstrukcija potvrđenih podataka; nije izvedbeno provjerena.
+[Projekt R2, PDF, ERC i popis nepoznatih spojeva](hardware/tester18650/README.md). Funkcionalni strujni krug u postojećoj shemi je spojen; fizičko ožičenje nije potvrđeno i ERC nije čist.

@@ -1,22 +1,22 @@
-ERC report (2026-10-15T05:46:08, Encoding UTF8)
+ERC report (2026-10-15T06:14:43, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 [pin_not_connected]: Pin not connected
     ; error
-    @(66.04 mm, 177.80 mm): Symbol J1 Pin 5 [Pin_5, Passive, Line]
+    @(53.34 mm, 185.42 mm): Symbol J1 Pin 5 [Pin_5, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.58 mm, 175.26 mm): Symbol J2 Pin 3 [Pin_3, Passive, Line]
+    @(97.79 mm, 63.50 mm): Symbol K1 Pin 12 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.58 mm, 177.80 mm): Symbol J2 Pin 4 [Pin_4, Passive, Line]
+    @(180.34 mm, 175.26 mm): Symbol Q1 Pin 1 [B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(180.34 mm, 175.26 mm): Symbol Q1 Pin 1 [B, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.58 mm, 180.34 mm): Symbol J2 Pin 5 [Pin_5, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(195.58 mm, 182.88 mm): Symbol J2 Pin 6 [Pin_6, Passive, Line]
+    @(187.96 mm, 180.34 mm): Symbol Q1 Pin 3 [E, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(274.32 mm, 175.26 mm): Symbol R3 Pin 1 [Passive, Line]
@@ -25,22 +25,10 @@ Report includes: Errors, Warnings, Exclusions
     @(274.32 mm, 182.88 mm): Symbol R3 Pin 2 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(297.18 mm, 58.42 mm): Symbol K1 Pin 12 [Passive, Line]
+    @(314.96 mm, 76.20 mm): Symbol J2 Pin 3 [Pin_3, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(299.72 mm, 73.66 mm): Symbol K1 Pin 11 [Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(302.26 mm, 58.42 mm): Symbol K1 Pin 14 [Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(314.96 mm, 99.06 mm): Symbol Q1 Pin 1 [B, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(314.96 mm, 99.06 mm): Symbol Q1 Pin 1 [B, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(322.58 mm, 104.14 mm): Symbol Q1 Pin 3 [E, Passive, Line]
+    @(314.96 mm, 78.74 mm): Symbol J2 Pin 4 [Pin_4, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(350.52 mm, 175.26 mm): Symbol R4 Pin 1 [Passive, Line]
@@ -49,9 +37,9 @@ Report includes: Errors, Warnings, Exclusions
     @(350.52 mm, 182.88 mm): Symbol R4 Pin 2 [Passive, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(289.56 mm, 48.26 mm): Label '+5V_RELEJ'
+    @(111.76 mm, 96.52 mm): Label '+5V_RELEJ'
 
- ** ERC messages: 16  Errors 15  Warnings 1
+ ** ERC messages: 12  Errors 11  Warnings 1
 
  ** Ignored checks:
     - Global label only appears once in the schematic

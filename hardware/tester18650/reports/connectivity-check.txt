@@ -1,0 +1,3 @@
+PASS: COM-NO switches the load path; each parallel branch reaches the internal shunt and BAT-.
+PASS: 10 exact functional nets; 10 open pins and component values verified.
+ERC remains NON-CLEAN: 11 errors + 1 warning, including the unused NC contact.

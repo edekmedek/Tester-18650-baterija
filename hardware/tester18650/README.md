@@ -1,78 +1,72 @@
-# Tester 18650 — KiCad 10, rekonstrukcija R1
+# Tester 18650 — postojeći KiCad 10 projekt, R2
 
-**Status: dokumentacijska električna rekonstrukcija; nije izvedbeno provjerena.**
+**Funkcionalni strujni krug je spojen u uređivoj shemi. Fizičko ožičenje i pinout nisu potvrđeni. ERC nije čist: 11 pogrešaka i 1 upozorenje.**
 
-Projekt je izrađen iz potvrda korisnika od 15.10.2026. i svih šest aktualnih Markdown dokumenata repozitorija. Sheme D6–D12 nisu korištene kao dokaz ispravnosti. Povijesni `docs/SCHEMA_D9_STATUS.md` nije izvor spojeva. Aktualni uređaj je NodeMCU ESP8266 (`nodemcuv2`); stariji navodi ESP32 u dokumentaciji opisuju raniji zapis.
+R2 nastavlja postojeći projekt iz commita `bfc8b56`: isti `.kicad_pro`, isti list i isti UUID-i jedanaest zadržanih simbola. Nije izrađen zaseban projekt. Prekidi TP1–TP4 uklonjeni su i zamijenjeni stvarnim električnim vodovima. Raspored lista i oznake priključaka uređeni su radi čitljivosti.
 
-## Funkcionalni strujni krug — radna shema za dovršetak
-
-Korisnik je više puta potvrdio slijed pražnjenja, bez potrebe za ponovnim praćenjem istih žica:
+## Funkcionalni krug u shemi
 
 ```text
-BAT+ → radni kontakt releja → (22 Ω / 5 W || 22 Ω / 5 W)
-     → INA219 mjerni put (VIN+ / interni shunt / VIN−) → BAT−
+BAT+ → K1 COM (11) → NO (14) → (R1 22 Ω / 5 W || R2 22 Ω / 5 W)
+     → VIN+ → RSH1, interni shunt INA219 → VIN− → BAT−
 ```
 
-**Funkcionalni zaključak:** u električnoj shemi prikazati relejni radni kontakt **COM–NO**, jer se opterećenje uključuje aktivacijom releja; NC nije dio funkcionalnog puta pražnjenja. Brojevi nožica stvarnog RT314006 nisu time utvrđeni, ali **ne trebaju biti prepreka za spajanje standardnog funkcionalnog simbola**. Ne tražiti korisnika da provjerava očigledni serijski redoslijed.
+COM–NO koristi se prema korisnikovu zadatku i ponašanju firmwarea: aktivacija releja uključuje opterećenje. NC (12) ne sudjeluje u pražnjenju; ostavljen je otvoren i njegov je ERC nalaz vidljiv. Brojevi 11/12/14 i A1/A2 pripadaju standardnom funkcionalnom simbolu, a nisu potvrđeno mapiranje izvoda stvarnog RT314006.
 
-**Orijentacija INA219:** za standardni prikaz pozitivnog smjera struje označiti `VIN+` sa strane opterećenja, `VIN−` sa strane BAT−. To je **projektna pretpostavka**, a ne izmjerena činjenica; firmware računa apsolutnu vrijednost struje pa iz očitanja ne slijedi polaritet. Nije potrebno rastavljati funkcionalni uređaj radi crtanja načelne sheme.
+**VIN+ je spojen prema opterećenju, VIN− prema BAT− kao izričito označena projektna pretpostavka.** Firmware koristi `fabsf(ina219_current)`, pa pozitivna prikazana struja nije dokaz fizičkog polariteta. RSH1 prikazuje postojeći interni mjerni element modula, ne dodatni vanjski otpornik. Njegova je vrijednost označena `vrijednost ?`; firmware parametar `0.11425 Ω` naveden je zasebno kao kalibracijski podatak. RSH1 je izuzet iz zasebnog BOM-a i PCB-a jer pripada modulu.
 
-**Važno:** sljedeća revizija KiCad datoteke treba **stvarno spojiti** COM–NO i VIN+/VIN− u uređivoj shemi te ih označiti kao funkcionalno rekonstruirane. Sam tekst u README-u nije zamjena za izmjenu KiCad sheme. Nepoznate fizičke pinove, bazni otpornik, napajanje i djelitelj prikazati bez izmišljanja.
+Zavojnica K1 ostaje spojena između +5 V i kolektora Q1, oznake C3209. Nazivna zavojnica je 6 V DC, a dokumentirani pogon 5 V. Nije provjerena margina uklapanja. Q1 koristi generički NPN simbol; B/C/E su funkcije, a 1/2/3 nisu potvrđeni raspored nožica kućišta.
 
-## Isporuka
+## Izvori za upravljanje i mjerenje
 
-- [tester18650.kicad_pro](tester18650.kicad_pro) — pravi KiCad projekt; otvoriti u KiCadu 10.
-- [tester18650.kicad_sch](tester18650.kicad_sch) — uređiva shema sa standardnim ugrađenim KiCad simbolima, električnim vodovima, oznakama mreža i spojevima.
-- [tester18650.pdf](tester18650.pdf) — vektorski PDF, jedan list A3 vodoravno; izvezen iz iste sheme KiCadom 10.0.4.
-- [reports/ERC.md](reports/ERC.md) — tumačenje ERC-a i ograničenja provjere.
-- [reports/erc.rpt](reports/erc.rpt), [reports/erc.json](reports/erc.json) — izvorni CLI izvještaji, bez uklanjanja nalaza.
-- [reports/netlist.xml](reports/netlist.xml) — KiCadova izvezena električna lista mreža.
-- [reports/VALIDATION.md](reports/VALIDATION.md) — provedene provjere i izvor alata.
+Pregledan je puni [ESPHome firmware](../../firmware/battery-tester-8266-wifi-test.yaml), njegov [opis](../../firmware/README.md), aktualna dokumentacija i korisnikove potvrde. Stare D6–D12 sheme nisu korištene kao dokaz.
 
-## Kako čitati shemu
+Firmware potvrđuje `nodemcuv2`, GPIO14 bez inverzije (`ALWAYS_OFF` i isključenje pri bootu), SDA GPIO2, SCL GPIO5, I²C 100 kHz, INA219 `0x40` i A0 s faktorom `9.5079`. Prikazane su i radne napomene: uključivanje nakon 500 ms i početni cutoff 3,00 V kroz pet uzastopnih sekundi. Firmware nije izmijenjen ni flashan.
 
-List odvaja strujni put, zavojnicu i tranzistor, digitalna sučelja te vrijednosti djelitelja. Zeleni vodovi označavaju potvrđene funkcionalne mreže. Otvoren pin ili razmak predstavlja nedostatak podatka, a ne potvrdu da je pin u uređaju nepovezan. Ne koristi se oznaka `No Connect` za nepoznate veze.
+Firmware ne određuje bazni otpornik, spoj emitera, zaštitnu diodu, redoslijed otpornika djelitelja ni napajanja modula. Zato nema izmišljenog otpornika između GPIO14 i baze, izravnog kratkog spoja GPIO14–B, pretpostavljenog emitera na masi ni odabranog redoslijeda R3/R4. Pouzdani spojevi +5 V → zavojnica → kolektor i GPIO-i su nacrtani; preostale granice jasno su označene N3/N4. R3 = 10 kΩ i R4 = 20 kΩ zadržani su s otvorenim krajevima jer faktor A0 ne određuje njihovu fizičku topologiju.
 
-Potvrđen je slijed **BAT+ → relejni kontakt → R1 || R2 → INA219 → BAT−**. Međutim, nije potvrđeno koji se kontakti releja fizički koriste ni na koji VIN priključak INA219 ide koji kraj strujnog puta. Zato su na tim granicama ostavljeni prekidi umjesto izmišljenih spojeva. TP1–TP6 označavaju dokumentacijske krajeve mreža; nisu ugrađene testne točke i izuzeti su iz BOM-a i pločice.
+## Logička sučelja i oznake
 
-J1 i J2 koriste standardni simbol `Connector_Generic:Conn_01x06` kao **logička sučelja modula**. Nisu tvrdnja da postoji takav fizički konektor; kao logički prikazi izuzeti su iz BOM-a i pločice. Brojevi 1–6 su indeksi u ovoj shemi i nisu fizički brojevi nožica ni redoslijed pinova na pločici. NodeMCU i INA219 namjerno nisu zamijenjeni simbolima drugog modela pločice ili samog IC-a s pretpostavljenim okolnim sklopom.
+J1/J2 koriste standardni `Connector_Generic:Conn_01x06` kao logičke prikaze modula, izuzete iz BOM-a i pločice. **Brojevi 1–6 su indeksi sheme, ne fizički raspored nožica.** Svaki priključak dodatno je označen funkcijom na listu. TP5 i TP6 su samo dokumentacijski završeci prema nepoznatom baznom sklopu i djelitelju; nisu ugrađene testne točke.
 
-| Logički indeks | J1 — NodeMCU ESP8266 | J2 — INA219 modul |
+| Indeks | J1 — NodeMCU ESP8266 | J2 — INA219 modul |
 |---|---|---|
-| 1 | D5 / GPIO14, izlaz prema baznom sklopu | SDA, povezan s GPIO2 |
-| 2 | D4 / GPIO2, SDA | SCL, povezan s GPIO5 |
-| 3 | D1 / GPIO5, SCL | VCC, fizički izvor nepoznat |
-| 4 | A0, ulaz iz nepotvrđenog djelitelja | GND, referenca nepoznata |
-| 5 | Napajanje pločice, ulaz i izvor nepoznati | VIN+, dodjela strujnog puta nepoznata |
-| 6 | GND, BAT− prema aktualnom dokumentu D2 | VIN−, dodjela strujnog puta nepoznata |
+| 1 | D5 / GPIO14 → TP5, bazni sklop nepoznat | SDA ↔ GPIO2 |
+| 2 | D4 / GPIO2 ↔ SDA | SCL ↔ GPIO5 |
+| 3 | D1 / GPIO5 ↔ SCL | VCC, otvoreno |
+| 4 | A0 / ADC0 → TP6, djelitelj nepoznat | GND, otvoreno |
+| 5 | Napajanje pločice, otvoreno | VIN+ ↔ opterećenje i RSH1/1 |
+| 6 | GND ↔ BAT− prema dokumentu D2 | VIN− ↔ RSH1/2 i BAT−, projektna pretpostavka |
 
-K1 koristi standardni `Relay:Relay_SPDT`, vrijednosti `Schrack RT314006`. Zavojnica je prikazana između mreže +5 V i kolektora Q1. A1/A2 i 11/12/14 pripadaju funkcionalnom simbolu; ne potvrđuju raspored izvoda konkretnog releja. Spoj +5 V na A1 u simbolu nije identifikacija fizičke nožice niti potvrda polariteta eventualne ugrađene diode. Nazivna zavojnica je 6 V DC, a potvrđeno napajanje 5 V; pouzdanost uklapanja pri tom naponu nije izmjerena ovom provjerom.
+`BAT_MINUS` je jedini naziv povratne mreže, uključujući funkcionalni VIN−. `VIN_PLUS` je mreža između opterećenja i ulaza internog shunta. GND modula INA219 nije automatski spojen na VIN−/BAT−.
 
-Q1 koristi standardni generički NPN simbol, oznake C3209. B/C/E su funkcije; brojevi 1/2/3 nisu utvrđeni raspored nožica kućišta. Ne postoji dodijeljen footprint. Shema nije priprema za proizvodnju PCB-a.
+## Preostale nepoznanice
 
-## Nepoznate veze i granice rekonstrukcije
+| Oznaka | Stanje u R2 |
+|---|---|
+| N1 | COM–NO funkcionalno spojen; fizički izvodi i raspored RT314006 nisu potvrđeni. NC je nekorišten. |
+| N2 | VIN+/VIN− i interni shunt spojeni u serijski put. Orijentacija je pretpostavka; fizički polaritet, vrijednost i izvedba shunta nisu izmjereni. |
+| N3 | Baza i emiter C3209, fizički pinout, bazni otpornik i zaštitna dioda nisu potvrđeni. Otvoreni B/E i prekid nakon TP5 ostaju vidljivi. |
+| N4 | Vrijednosti 10 kΩ/20 kΩ su poznate; njihovi krajevi, redoslijed i eventualni djelitelj na NodeMCU-u nisu. TP6 i R3/R4 ostaju bez pretpostavljenih veza. |
+| N5 | GND INA219 te vrijednosti i naponska domena I²C pull-upova nisu potvrđeni. J2 GND je otvoren. |
+| N6 | Izvor +5 V za relej, ulaz napajanja NodeMCU-a i VCC INA219 nisu utvrđeni. J1/5 i J2/3 su otvoreni. |
 
-| Oznaka | Što nedostaje | Kako je prikazano |
-|---|---|---|
-| N1 | Fizički raspored RT314006; koji su kontakti korišteni, COM/NO/NC i veza na BAT+ te ulaz opterećenja | TP1/TP2 su odvojeni; kontakti K1 11/12/14 otvoreni. Zavojnica povezana funkcionalno, raspored izvoda nije potvrđen. |
-| N2 | INA219 VIN+/VIN− orijentacija, stvarna veza i vrijednost internog shunta, odnos strujnog puta prema masi | TP3 je kraj nakon R1/R2, TP4 je BAT−; nisu pridruženi VIN+/VIN− pinovima J2. `0,11425 Ω` postoji samo kao firmware podatak, nije fizički izmjeren shunt. |
-| N3 | Točan tip/raspored C3209, spoj emitera, bazni otpornik i put GPIO14 do baze; zaštitna dioda zavojnice i njezin polaritet | Zavojnica → kolektor je spojena; baza i emiter su otvoreni. TP5 je kraj GPIO14. Bazni otpornik i dioda nisu izmišljeni ni dodani. |
-| N4 | Redoslijed 10 kΩ/20 kΩ, spojevi na BAT+/A0/GND, dodatni djelitelj na NodeMCU pločici | R3 i R4 imaju otvorena oba kraja. A0 završava na TP6. Faktor 9.5079 je napomena o kalibraciji, ne dokaz omjera djelitelja. |
-| N5 | Fizička masa INA219 i odnos VIN−, BAT− i GND; prisutnost, vrijednosti i naponska domena I²C pull-upova | J2 GND otvoren. SDA/SCL su povezani prema potvrđenim GPIO-ima; pull-upovi nisu pretpostavljeni. BAT−/NodeMCU GND povezani su samo prema izričitom navodu u D2. |
-| N6 | Izvor +5 V releja, način napajanja NodeMCU-a i INA219, stvarna VCC razina modula | Mreža +5V_RELEJ nema pretpostavljen izvor; napajanje J1 i VCC J2 otvoreni. |
+OLED nije ugrađen i nije nacrtan. Nisu dodani nepotvrđeni zaštitni elementi. Footprintovi nisu dodijeljeni; shema nije odobrenje za izradu PCB-a ni potvrda sigurnosti fizičkog uređaja.
 
-Dodatno: OLED je uklonjen i nije nacrtan. Zaštita od obrnutog polariteta prema D2 nije ugrađena. Osigurač, zaštita opterećenja od pregrijavanja i ponašanje releja pri uključivanju napajanja nisu fizički potvrđeni i ne prikazuju se kao postojeće komponente. Ovaj projekt ne mijenja firmware ni podešenja cutoffa.
+## Datoteke i provjera
 
-## Ponovljiva provjera
-
-Na pripremljenom Debian 13 amd64 cloud računalu instalacija se može ponoviti naredbom `./tools/install_cloud.sh` (bez administratorskih prava). Ostale platforme trebaju službenu KiCad 10 instalaciju.
-
-U direktoriju projekta, uz KiCad 10 i Python 3:
+- [KiCad projekt](tester18650.kicad_pro) i [uređiva shema](tester18650.kicad_sch).
+- [Završni PDF](tester18650.pdf), A3 vodoravno, izvezen KiCadom 10.0.4 i vizualno pregledan.
+- [ERC tumačenje](reports/ERC.md), [izvorni tekst](reports/erc.rpt) i [JSON](reports/erc.json).
+- [Izvezene mreže](reports/netlist.xml), [rezultat provjere spojeva](reports/connectivity-check.txt), [provedena validacija](reports/VALIDATION.md).
 
 ```sh
+cd /workspace/Tester-18650-baterija/hardware/tester18650
 ./tools/validate.sh
 ```
 
-Može se pozvati iz bilo kojeg radnog direktorija. `tools/kicad.sh` bira KiCad 10 iz pripremljene lokalne cloud instalacije ili `kicad-cli` na PATH-u; varijablom `KICAD_CLI` moguće je odabrati drugu izvršnu datoteku. Izolira korisničke KiCad postavke u privremenom direktoriju, bez promjene HOME-a. `sym-lib-table` koristi standardni `KICAD10_SYMBOL_DIR`.
+Skripta ponovno izvozi PDF i netlist, pokreće nativni ERC s `--exit-code-violations`, provjerava točne mreže i oba stanja radnog kontakta te zapisuje kontrolne zbrojeve. **Vraća status 5 jer ERC nije čist**, čak i kada provjera funkcionalnog puta prolazi. Ne mijenja se ozbiljnost ERC nalaza i ne dodaju se izuzeća, `No Connect` ili `PWR_FLAG` oznake. NC nalaz također je zadržan.
 
-Skripta ponovno izvozi PDF i listu mreža, pokreće nativni ERC s `--exit-code-violations` te provjerava stvarne izvozne mreže i točan popis poznatih ERC nalaza. **Uspjeh skripte znači da rekonstrukcija odgovara dokumentiranom stanju; ne znači čist ERC.** Nativni ERC izlazni status 5 ostaje zapisan u `reports/erc-exit-status.txt`. Nakon potvrde novih fizičkih spojeva potrebno je ažurirati shemu, tablicu nepoznanica i očekivanja provjere zajedno.
+`tools/check_connectivity.py` može se pokrenuti zasebno: provjerava upravo izvezene mreže, zatvoren/otvoren COM–NO, obje paralelne grane i odsutnost premosnice opterećenja. To je provjera grafa spojeva, ne SPICE simulacija ili mjerenje struje. Kontrolni zbrojevi provjeravaju se naredbom `sha256sum -c reports/SHA256SUMS`.
+
+KiCad 10 već je pripremljen u cloudu. `tools/kicad.sh` bira tu instalaciju ili `kicad-cli` na PATH-u; može se zadati `KICAD_CLI`. Standardne biblioteke koristi preko `KICAD10_SYMBOL_DIR`. Na istom Debian 13 amd64 računalu instalacija se po potrebi ponavlja s `./tools/install_cloud.sh`; ostale platforme trebaju službenu KiCad 10 instalaciju i Python 3.

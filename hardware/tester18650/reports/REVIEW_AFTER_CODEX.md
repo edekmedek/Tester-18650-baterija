@@ -1,5 +1,7 @@
 # Neovisni pregled Codexove rekonstrukcije R1 — 15.10.2026.
 
+> Povijesni pregled R1 ostavljen je kao zapis. Za aktualno spojenu shemu R2 i stvarni ERC rezultat vidjeti [ERC.md](ERC.md) i [opis projekta](../README.md).
+
 ## Provjereno čitanjem stvarno spremljenih GitHub datoteka
 
 - `hardware/tester18650/tester18650.kicad_pro`, `.kicad_sch`, PDF i ERC izvještaji postoje u grani `main`.

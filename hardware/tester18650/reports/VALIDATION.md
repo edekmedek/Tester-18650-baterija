@@ -13,22 +13,26 @@ Preuzimanje je koristilo HTTPS s uključenom TLS provjerom. SHA-256 arhiva provj
 
 Izvor: `https://ppa.launchpadcontent.net/kicad/kicad-10.0-releases/ubuntu/`, distribucija `questing`. Biblioteka wxWebView i potrebne ovisnosti preuzete su APT-om iz Debian `trixie/main` preko HTTPS-a, uz provjeru potpisanih metapodataka Debianovim arhivskim ključem i provjeru paketa. PPA paketi provjereni su TLS-om i SHA-256; ne tvrdi se da je dodatno verificiran PPA potpis. Nisu isključene TLS ili kontrolne provjere, niti korištene zamjenske biblioteke s pogrešnim ABI-jem.
 
-## Rezultati
+## Rezultati R2
 
-- Nativni KiCad 10 parser uspješno učitava `.kicad_sch` i pripadajući JSON `.kicad_pro` kroz PDF/netlist/ERC operacije.
-- PDF: jedan vektorski list A3, vodoravno, izvezen iz isporučene sheme. Rasteriziran i vizualno pregledan; sekcije, nazivi i bilješke su unutar okvira lista. Nema izmišljenog OLED-a.
-- Neto veze: provjereno deset funkcionalnih mreža, paralelna dva otpornika 22 Ω / 5 W, 14 izoliranih nepoznatih pinova te oznake vrijednosti komponenti.
-- Nativni ERC: **15 pogrešaka + 1 upozorenje**, izlazni status **5**. Svi nalazi mapirani su na dokumentirane nepoznanice; nema tvrdnje o prolaznom ERC-u.
-- `tools/validate.sh`: uspješno ponovljeno iz direktorija projekta i iz drugog radnog direktorija; izvodi stvarne KiCad operacije, ne samo sintaktički pregled teksta.
-- Nisu rađeni firmware build, flash, električno mjerenje uređaja ni fizička provjera ožičenja. Potpuni izvorni firmware i fizički KiCad/PCB projekt nisu postojali u početnom repozitoriju.
+- Checkout je prije izmjena usklađen s `main`, commit `bfc8b56`, koji uključuje puni firmware i uputu za funkcionalni COM–NO / VIN spoj. Firmware je pregledan i ostao nepromijenjen.
+- Nastavljena je postojeća `.kicad_sch`: zadržan je UUID lista i identiteti jedanaest preostalih simbola. `.kicad_pro` je nepromijenjen. TP1–TP4 uklonjeni su jer su njihovi prekidi zamijenjeni električnim vodovima. Unutar prikaza INA219 dodan je interni shunt RSH1 s nepoznatom vrijednošću, izuzet iz zasebnog BOM-a i PCB-a.
+- Nativni KiCad 10 parser uspješno učitava shemu kroz PDF/netlist/ERC operacije. PDF je jedan vektorski list A3 vodoravno. Rasteriziran je i vizualno pregledan radi položaja kontakata, teksta, vodova i oznaka priključaka.
+- Izvezena lista mreža potvrđuje BAT+ na K1 COM/11, K1 NO/14 na oba otpornika 22 Ω / 5 W, njihove druge krajeve na VIN+ / RSH1/1, te RSH1/2 i VIN− na BAT−. +5 V i kolektor su na različitim krajevima zavojnice; GPIO2/GPIO5 i SDA/SCL nisu zamijenjeni.
+- Provjera grafa spojeva testira otvoren i zatvoren radni kontakt, obje pojedinačne paralelne grane te odsutnost premosnice opterećenja. Provjerene su vrijednosti komponenti, deset funkcionalnih mreža i deset preostalih izoliranih pinova. Rezultat je u `connectivity-check.txt`.
+- Nativni ERC: **11 pogrešaka + 1 upozorenje**, status **5**. `validate.sh` sada također završava statusom **5**, umjesto ranijeg statusa 0 nakon provjere očekivanih nalaza. Rezultati se ne prikazuju kao čist ERC.
+- Nema ERC izuzeća ili namjerno utišanih pinova. Nema dodatnih nepovezanih vodova, izvanmrežnih završetaka ili sukobljenih naziva mreža u konačnom izvještaju.
+- Firmware nije kompajliran ni flashan; za ovaj zadatak služi kao izvor GPIO-a, kalibracije i logike rada. Nisu provedena fizička mjerenja, potvrda ožičenja ili SPICE simulacija. Bazni sklop, emiter, napajanja i topologija djelitelja nisu izmišljeni radi uklanjanja nalaza.
 
 ## Ponoviti
 
 ```sh
 cd /workspace/Tester-18650-baterija/hardware/tester18650
 ./tools/validate.sh
+# Očekivan završni status: 5; stvarni ERC nije čist.
+python3 tools/check_connectivity.py
+# Zasebna provjera grafa spojeva: status 0.
+sha256sum -c reports/SHA256SUMS
 ```
 
-Integritet konačne isporuke može se provjeriti naredbom `sha256sum -c reports/SHA256SUMS` iz direktorija projekta.
-
-Na drugom računalu instalirati KiCad 10 sa standardnim bibliotekama i Python 3, pa pozvati istu skriptu. Sama uređiva shema sadrži kopije korištenih standardnih simbola; za ERC usporedbu s izvornom bibliotekom koristi `sym-lib-table` i instalirani `KICAD10_SYMBOL_DIR`.
+Kontrolni zbrojevi uključuju `.kicad_pro`, `.kicad_sch`, PDF, nativne ERC izvještaje, netlist i korišteni firmware. Skripta je izvršena iz direktorija projekta te iz drugog radnog direktorija. Na drugom računalu potrebni su KiCad 10 sa standardnim bibliotekama i Python 3; `sym-lib-table` koristi `KICAD10_SYMBOL_DIR`.

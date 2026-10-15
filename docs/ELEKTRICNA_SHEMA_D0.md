@@ -1,54 +1,30 @@
-# Rekonstrukcija električne sheme — revizija D0
+# Rekonstrukcija električne sheme — revizija D1
 
-**Datum:** 15.10.2026.  
-**Status:** radna rekonstrukcija, nije verificirana shema za izradu ili prelemljivanje.
+Datum: 15.10.2026. Status: radna rekonstrukcija na temelju fotografija i korisnikovih podataka. **Nije verificirana izvedbena shema.**
 
-## Potvrđeni signali iz prethodnog rada
+## Ispravak identifikacije kontrolera
+Na dostavljenim fotografijama je **NodeMCU s ESP8266 / ESP-12F**, a ne ESP32. Ranije zabilježeni GPIO21/22/26/34 pripadaju drugoj platformi i NE SMIJU se prenijeti u shemu ove pločice bez provjere izvornog koda. Vidljivi su pinovi D0–D8, A0, RX, TX, 3V, VIN i GND.
 
-| Oznaka | Uređaj / funkcija | Priključak / vrijednost | Status |
-|---|---|---|---|
-| U1 | ESP32 | razvojna pločica, točan model nepoznat | potvrđeno |
-| U2 | INA219 | I²C adresa 0x40 | potvrđeno |
-| DS1 | OLED | I²C adresa 0x3C | potvrđeno |
-| SDA | ESP32 → INA219 i OLED | GPIO21 | potvrđeno |
-| SCL | ESP32 → INA219 i OLED | GPIO22 | potvrđeno |
-| K1 | relej upravljan tranzistorom C3209 | GPIO26 | potvrđeno |
-| LED1 | LED na ESP32 pločici | GPIO2 | potvrđeno |
-| VBAT_ADC | naponski djelitelj → ESP32 | GPIO34 | potvrđeno |
-| R_LOAD1, R_LOAD2 | otpornici opterećenja | 22 Ω / 5 W svaki, paralelno | potvrđeno |
-| R_LOAD | ukupni izmjereni otpor | 11,15 Ω | potvrđeno |
+## Komponente i podaci
+- U1: NodeMCU ESP8266, ESP-12F; napajanje preko micro-USB vidljivo na fotografiji. Ostali putovi napajanja nisu potvrđeni.
+- U2: INA219 breakout, oznake SCL, SDA, VCC, GND i VIN+/VIN− (položaj u krugu provjeriti).
+- DS1: OLED I²C (poznat iz prethodnog projekta, nije vidljiv na fotografijama).
+- K1: Schrack RT314006, zavojnica označena 6 V DC, u uređaju napajana s 5 V prema korisniku.
+- Q1: tranzistor C3209 za upravljanje relejem, prema prethodnom projektu; vrijednost baznog otpornika i zaštitna dioda nisu utvrđene.
+- R_LOAD1, R_LOAD2: 22 Ω / 5 W paralelno, vidljivo na fotografiji. Izmjeren ukupni otpor oko 11,15 Ω.
+- R_DIV1, R_DIV2: 10 kΩ i 20 kΩ, korisnik potvrdio; redoslijed u djelitelju i spoj na A0 još provjeriti.
+- BAT1: držač 18650; minus baterije spojen na zajedničku masu.
+- Nema ugrađene zaštite od obrnutog polariteta prema korisniku; evidentirano kao sigurnosni rizik, ne kao preporuka.
 
-Povijesno: GY-712 bio je povezan na GPIO35, ali je zamijenjen INA219. **Ne uključivati GY-712 u aktualnu shemu.**
+## Put struje — korisnikov opis
+BAT+ → kontakt releja → shunt / INA219 → BAT−.
 
-## Potvrđena mjerenja
-- Baterija: 4,222 V.
-- GPIO34: 0,58 V.
-- Stari GY-712 izlaz GPIO35: 2,32 V (povijesno mjerenje, ne vrijedi za aktualnu izvedbu).
+**Otvoreno:** točan spoj dvaju opteretnih otpornika u tom putu, položaj INA219 VIN+ i VIN− u odnosu na shunt i kontakt releja. Ne spajati shemu prema pretpostavci.
 
-## Logička blok-shema (nije električna shema)
-```text
-                      +-- OLED (I²C 0x3C)
-ESP32 GPIO21 SDA -----+-- INA219 (I²C 0x40)
-ESP32 GPIO22 SCL -----+-- oba I²C uređaja
+## Potrebno iz izvornog firmwarea
+- Stvarni pinovi ESP8266 za SDA/SCL, relej, LED i analogni ulaz A0.
+- Polaritet relejnog upravljanja i logika sigurnog isključivanja.
+- Skala ADC-a i logika mjerenja INA219.
 
-ESP32 GPIO26 -------- upravljački stupanj C3209 ------ relej K1
-ESP32 GPIO34 <------- naponski djelitelj <------------ baterija
-ESP32 GPIO2 --------- ugrađena LED
-
-Baterija --- mjerni/pražnjeni krug (TOPOLOGIJA NIJE POTVRĐENA)
-                       INA219 / relej / 2x22Ω paralelno
-```
-
-## Kritične nepoznanice za završnu KiCad shemu
-1. Točan model ESP32 pločice i napajanje ESP32, OLED-a i INA219.
-2. Vrijednosti otpornika naponskog djelitelja i njihovo ožičenje.
-3. Točna veza INA219 VIN+ / VIN− u strujnom krugu.
-4. Kontaktni raspored releja (COM/NO/NC), napon zavojnice, zaštitna dioda i otpornik baze C3209.
-5. Polaritet priključka baterije, zajedničke mase i zaštite (osigurač, zamjena polariteta, termička zaštita).
-6. Razlika između fizički izmjerenih spojeva i posljednje verzije firmwarea.
-
-## Pravila za konačnu dokumentaciju
-- Svaku mrežu i komponentu označiti standardnom referencom (U1, U2, K1, Q1, R1...).
-- Ne izmišljati vrijednosti ni povezivanja na temelju tipične sheme modula.
-- Tek nakon provjere nacrtati KiCad projekt i izvesti PDF s naslovnim blokom, revizijom i popisom komponenti.
-- Ne mijenjati radni uređaj radi rekonstrukcije dok se podaci mogu prikupiti iz koda i povijesti.
+## Napomena o fotografijama
+Fotografije potvrđuju tip pločice, oznaku releja, INA219 i 2×22 Ω/5 W. Ne potvrđuju nevidljive veze na poleđini pločice. Nije potrebno rastavljati funkcionalan uređaj radi ove dokumentacije.

@@ -23,3 +23,7 @@ Polazište: `de8bc63`, pregledani `PCB.md` i `reports/pcb/DRC.md`; podaci RT3140
 ## Ispravak i provedba P3
 
 RT314006 16 A ima **8 fizičkih izvoda**, ne pet. K1 je u stvarnom PCB-u zamijenjen mapiranim osmoizvodnim footprintom i cjelovitim modelom. Rutirani su kontaktni parovi, BAT+–COM i NO–R1/R2. Ranije P2 tvrdnje o nedostatku K1 mapiranja više ne opisuju aktualni PCB. Izravna provjera točnih TE dimenzija/tolerancija ostaje otvorena jer PDF ovdje vraća 403; aktualna provjerljiva geometrija potječe iz standardne KiCad RT1 16 A biblioteke.
+
+## Nastavak P4
+
+PCB i biblioteka imaju čitljive NodeMCU nazive prema izvornoj CAD referenci, potvrđene GPIO oznake i INA IN+/IN−. Dodan je PDF donjeg bakra u registraciji već zrcaljene fotografije; novi GLB/PNG i ERC/DRC izrađeni su iz P4. Nove fizičke potvrde za Q1, R4, napajanja, djelitelj i INA polaritet nisu dobivene; nijedna od tih veza nije izmišljena. DRC i ERC ostaju nečisti, s istim nalazima kao P3. Za nastavak bakra trebaju upravo dokazi navedeni u [PCB.md](../../PCB.md), ne drugo zrcaljenje fotografije ili nacrt budućeg punjača.

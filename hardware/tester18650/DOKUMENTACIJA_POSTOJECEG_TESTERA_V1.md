@@ -16,7 +16,7 @@ Iz fotografije gornje strane korisnikova funkcionalnog sklopa:
 - Ljubičasti modul **INA219 BREAKOUT**, dolje lijevo, sa SCL/SDA/VCC/GND te IN+/IN−.
 - Manje komponente i ožičenje na pločici; nisu sve njihove fizičke oznake i priključci čitljivi.
 
-Fotografija donje strane prikazuje lemljene točke, bakrene mostove i izolirane vodiče. Ona se pri usporedbi s gornjom stranom mora **vodoravno zrcaliti točno jednom**. Samo križanje izoliranih vodiča ne predstavlja spoj.
+Fotografija donje strane prikazuje lemljene točke, bakrene mostove i izolirane vodiče. **U dostavljenom PDF-u donja fotografija već je vodoravno zrcaljena** radi usporedbe s gornjom; ne zrcaliti je ponovno. To potvrđuje i naslov stranice izvornog PDF-a. Samo križanje izoliranih vodiča ne predstavlja spoj.
 
 Korisnik je potvrdio **samo uski izrez ranijeg predloška** s oznakama RL11A/B, RL12A/B, RL14A/B, Q1 E/C/B i R1–R4 kao točan raster/footprint. **Ostatak tog predloška nije točan** i ne koristi se.
 
@@ -64,10 +64,10 @@ Ovi nalazi nisu tvrdnja da je postojeći fizički tester neispravan; oni su **ra
 ## 5. KiCad datoteke i stvarno stanje
 
 - [KiCad projekt](tester18650.kicad_pro), [shema R2](tester18650.kicad_sch), [PDF sheme](tester18650.pdf).
-- [PCB P3](tester18650.kicad_pcb), [PDF komponenti](tester18650_pcb_components.pdf), [PDF vodova](tester18650_pcb_layout.pdf), [3D PNG](tester18650_pcb_3d.png), [3D GLB](tester18650_pcb_3d.glb).
+- [PCB P4](tester18650.kicad_pcb), [PDF komponenti](tester18650_pcb_components.pdf), [PDF prednjeg bakra](tester18650_pcb_layout.pdf), [PDF donjeg bakra u gornjoj registraciji](tester18650_pcb_bottom_registered.pdf), [3D PNG](tester18650_pcb_3d.png), [3D GLB](tester18650_pcb_3d.glb).
 - [Detaljni opis PCB-a](PCB.md), [DRC](reports/pcb/DRC.md), [ERC](reports/ERC.md).
 
-P3 je **djelomična rekonstrukcija**, a ne potvrđena kopija fizičkog uređaja: DRC **0 geometrijskih kršenja, 2 nepovezane veze, 5 upozorenja**; ERC **11 pogrešaka i 1 upozorenje**. Glavni strujni krug na PCB-u nije potpuno rutiran. Nisu izrađeni proizvodni Gerberi.
+P4 je **djelomična rekonstrukcija**, a ne potvrđena kopija fizičkog uređaja: DRC **0 geometrijskih kršenja, 2 nepovezane veze, 5 upozorenja**; ERC **11 pogrešaka i 1 upozorenje**. P4 poboljšava oznake i izvoze, bez novih električnih veza. Glavni strujni krug na PCB-u nije potpuno rutiran. Nisu izrađeni proizvodni Gerberi.
 
 ## 6. Preostale nepoznanice koje fotografije ne dokazuju
 

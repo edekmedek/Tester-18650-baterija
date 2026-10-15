@@ -1,159 +1,158 @@
-08:00:19 | INFO: Data are loaded, start creating Blender stuff
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.1
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.2
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.1
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.4
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.5
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.6
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.7
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.8
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.9
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.10
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.11
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.12
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.13
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.14
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.15
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.16
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.1
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.2
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.19
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.20
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.21
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.22
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.1
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.24
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.25
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.26
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.27
-08:00:19 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.28
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node SOLID
-08:00:19 | INFO: Blender create Mesh node COMPOUND
-08:00:19 | INFO: Blender create Mesh node COMPOUND
-08:00:19 | INFO: Blender create Mesh node COMPOUND
-08:00:19 | INFO: Blender create Mesh node tester18650_copper
-08:00:19 | INFO: Blender create Mesh node tester18650_pad
-08:00:19 | INFO: Blender create Mesh node tester18650_silkscreen
-08:00:19 | INFO: Blender create Mesh node tester18650_soldermask
-08:00:19 | INFO: Blender create Mesh node tester18650_soldermask
-08:00:19 | INFO: Blender create Mesh node tester18650_PCB
-08:00:19 | INFO: glTF import finished in 0.25s
+17:24:28 | INFO: Data are loaded, start creating Blender stuff
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.1
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.2
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.1
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.4
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.5
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.6
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.7
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.8
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.9
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.10
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.11
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.12
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.13
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.14
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.15
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.16
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.1
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.2
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.19
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.20
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.21
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.22
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.1
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.24
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.25
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.26
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.27
+17:24:28 | INFO: Blender create Mesh node Open CASCADE STEP translator 7.8 1.28
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node SOLID
+17:24:28 | INFO: Blender create Mesh node COMPOUND
+17:24:28 | INFO: Blender create Mesh node COMPOUND
+17:24:28 | INFO: Blender create Mesh node COMPOUND
+17:24:28 | INFO: Blender create Mesh node tester18650_copper
+17:24:28 | INFO: Blender create Mesh node tester18650_pad
+17:24:29 | INFO: Blender create Mesh node tester18650_silkscreen
+17:24:29 | INFO: Blender create Mesh node tester18650_soldermask
+17:24:29 | INFO: Blender create Mesh node tester18650_soldermask
+17:24:29 | INFO: Blender create Mesh node tester18650_PCB
+17:24:29 | INFO: glTF import finished in 0.27s
 Blender 4.3.2
-Fra:1 Mem:30.14M (Peak 30.14M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Studio background (not a board component)
-Fra:1 Mem:30.14M (Peak 30.14M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 3
-Fra:1 Mem:32.16M (Peak 32.16M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 4
-Fra:1 Mem:32.26M (Peak 32.26M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | J1 NON-PHYSICAL annotation
-Fra:1 Mem:32.40M (Peak 32.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 5
-Fra:1 Mem:32.38M (Peak 32.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 6
-Fra:1 Mem:32.40M (Peak 32.40M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 7
-Fra:1 Mem:32.41M (Peak 32.41M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | K1 NON-PHYSICAL annotation
-Fra:1 Mem:32.63M (Peak 32.63M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 8
-Fra:1 Mem:32.81M (Peak 32.81M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 9
-Fra:1 Mem:32.81M (Peak 32.81M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 10
-Fra:1 Mem:32.87M (Peak 32.87M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 11
-Fra:1 Mem:32.88M (Peak 32.88M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 12
-Fra:1 Mem:32.93M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 13
-Fra:1 Mem:32.91M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 14
-Fra:1 Mem:32.93M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R1 NON-PHYSICAL annotation
-Fra:1 Mem:32.93M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 15
-Fra:1 Mem:32.93M (Peak 32.93M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R2 NON-PHYSICAL annotation
-Fra:1 Mem:33.09M (Peak 33.09M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 16
-Fra:1 Mem:33.08M (Peak 33.09M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Non-physical figure caption
-Fra:1 Mem:33.20M (Peak 33.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 17
-Fra:1 Mem:33.20M (Peak 33.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 18
-Fra:1 Mem:33.19M (Peak 33.20M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 19
-Fra:1 Mem:33.33M (Peak 33.33M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Non-physical figure caption.001
-Fra:1 Mem:33.35M (Peak 33.35M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 20
-Fra:1 Mem:33.66M (Peak 33.66M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 21
-Fra:1 Mem:33.68M (Peak 33.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 22
-Fra:1 Mem:33.59M (Peak 33.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 23
-Fra:1 Mem:33.61M (Peak 33.68M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 24
-Fra:1 Mem:33.83M (Peak 33.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 25
-Fra:1 Mem:33.79M (Peak 33.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 26
-Fra:1 Mem:33.77M (Peak 33.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 27
-Fra:1 Mem:33.81M (Peak 33.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 28
-Fra:1 Mem:33.80M (Peak 33.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:29]
-Fra:1 Mem:33.78M (Peak 33.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:30]
-Fra:1 Mem:33.78M (Peak 33.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:31]
-Fra:1 Mem:33.85M (Peak 33.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:32]
-Fra:1 Mem:34.06M (Peak 34.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:33]
-Fra:1 Mem:34.00M (Peak 34.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:29].001
-Fra:1 Mem:34.03M (Peak 34.06M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Non-physical figure caption.002
-Fra:1 Mem:34.33M (Peak 34.33M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:30].001
-Fra:1 Mem:34.50M (Peak 34.50M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:31].001
-Fra:1 Mem:34.54M (Peak 34.54M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:32].001
-Fra:1 Mem:34.47M (Peak 34.54M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:33].001
-Fra:1 Mem:34.45M (Peak 34.54M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:37]
-Fra:1 Mem:34.66M (Peak 34.66M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:38]
-Fra:1 Mem:34.85M (Peak 34.85M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:40]
-Fra:1 Mem:34.88M (Peak 34.88M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:41]
-Fra:1 Mem:34.85M (Peak 34.88M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:46]
-Fra:1 Mem:35.30M (Peak 35.30M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:42]
-Fra:1 Mem:35.36M (Peak 35.36M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:43]
-Fra:1 Mem:37.05M (Peak 37.45M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:44]
-Fra:1 Mem:39.73M (Peak 39.73M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:45]
-Fra:1 Mem:43.86M (Peak 50.34M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
-Fra:1 Mem:37.13M (Peak 50.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
-Fra:1 Mem:37.13M (Peak 50.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
-Fra:1 Mem:37.13M (Peak 50.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
-Fra:1 Mem:37.13M (Peak 50.34M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
-Fra:1 Mem:37.22M (Peak 50.34M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
-Fra:1 Mem:37.22M (Peak 50.34M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
-Fra:1 Mem:37.22M (Peak 50.34M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
-Fra:1 Mem:37.22M (Peak 50.34M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
-Fra:1 Mem:37.22M (Peak 50.34M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
-Fra:1 Mem:37.22M (Peak 50.34M) | Time:00:00.05 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
-Fra:1 Mem:37.24M (Peak 50.34M) | Time:00:00.05 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
-Fra:1 Mem:37.24M (Peak 50.34M) | Time:00:00.05 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
-Fra:1 Mem:37.24M (Peak 50.34M) | Time:00:00.05 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
-Fra:1 Mem:37.24M (Peak 50.34M) | Time:00:00.05 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
-Fra:1 Mem:38.53M (Peak 50.34M) | Time:00:00.05 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
-Fra:1 Mem:40.23M (Peak 50.34M) | Time:00:00.05 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
-Fra:1 Mem:40.23M (Peak 50.34M) | Time:00:00.05 | Mem:1.72M, Peak:1.72M | Scene, ViewLayer | Updating Scene BVH | Building
-Fra:1 Mem:40.23M (Peak 50.34M) | Time:00:00.05 | Mem:1.72M, Peak:1.72M | Scene, ViewLayer | Updating Scene BVH | Building BVH
-Fra:1 Mem:40.23M (Peak 50.34M) | Time:00:00.05 | Mem:4.31M, Peak:4.31M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
-Fra:1 Mem:40.23M (Peak 50.34M) | Time:00:00.06 | Mem:7.39M, Peak:9.97M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
-Fra:1 Mem:40.23M (Peak 50.34M) | Time:00:00.06 | Mem:7.39M, Peak:9.97M | Scene, ViewLayer | Updating Mesh | Computing normals
-Fra:1 Mem:47.22M (Peak 50.34M) | Time:00:00.06 | Mem:7.39M, Peak:9.97M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
-Fra:1 Mem:47.22M (Peak 50.34M) | Time:00:00.06 | Mem:14.38M, Peak:14.38M | Scene, ViewLayer | Updating Objects Flags
-Fra:1 Mem:47.22M (Peak 50.34M) | Time:00:00.06 | Mem:14.38M, Peak:14.38M | Scene, ViewLayer | Updating Primitive Offsets
-Fra:1 Mem:47.22M (Peak 50.34M) | Time:00:00.06 | Mem:14.38M, Peak:14.38M | Scene, ViewLayer | Updating Images
-Fra:1 Mem:47.22M (Peak 50.34M) | Time:00:00.06 | Mem:14.38M, Peak:14.38M | Scene, ViewLayer | Updating Camera Volume
-Fra:1 Mem:47.22M (Peak 50.34M) | Time:00:00.06 | Mem:14.38M, Peak:14.38M | Scene, ViewLayer | Updating Lookup Tables
-Fra:1 Mem:47.22M (Peak 50.34M) | Time:00:00.06 | Mem:14.47M, Peak:14.47M | Scene, ViewLayer | Updating Lights
-Fra:1 Mem:47.22M (Peak 50.34M) | Time:00:00.06 | Mem:14.47M, Peak:14.47M | Scene, ViewLayer | Updating Lights | Computing tree
-Fra:1 Mem:47.23M (Peak 50.34M) | Time:00:00.06 | Mem:14.47M, Peak:14.47M | Scene, ViewLayer | Updating Integrator
-Fra:1 Mem:47.23M (Peak 50.34M) | Time:00:00.06 | Mem:14.47M, Peak:14.47M | Scene, ViewLayer | Updating Film
-Fra:1 Mem:47.23M (Peak 50.34M) | Time:00:00.06 | Mem:14.39M, Peak:14.47M | Scene, ViewLayer | Updating Lookup Tables
-Fra:1 Mem:47.23M (Peak 50.34M) | Time:00:00.06 | Mem:14.47M, Peak:14.47M | Scene, ViewLayer | Updating Baking
-Fra:1 Mem:47.23M (Peak 50.34M) | Time:00:00.06 | Mem:14.47M, Peak:14.47M | Scene, ViewLayer | Updating Device | Writing constant memory
-Fra:1 Mem:47.23M (Peak 50.34M) | Time:00:00.06 | Mem:14.47M, Peak:14.47M | Scene, ViewLayer | Sample 0/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:00:03.10 | Remaining:04:48.95 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 1/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:00:27.22 | Remaining:04:22.56 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 9/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:00:51.30 | Remaining:03:58.08 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 17/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:01:15.39 | Remaining:03:33.93 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 25/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:01:39.45 | Remaining:03:09.73 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 33/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:02:03.38 | Remaining:02:45.42 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 41/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:02:27.01 | Remaining:02:20.94 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 49/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:02:50.78 | Remaining:01:56.80 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 57/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:03:14.51 | Remaining:01:32.73 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 65/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:03:38.05 | Remaining:01:08.68 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 73/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:03:59.20 | Remaining:00:47.82 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 80/96
-Fra:1 Mem:170.85M (Peak 170.85M) | Time:04:21.47 | Remaining:00:23.76 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 88/96
-Fra:1 Mem:225.79M (Peak 335.65M) | Time:04:43.87 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Sample 96/96
-Fra:1 Mem:225.79M (Peak 335.65M) | Time:04:43.87 | Mem:138.07M, Peak:138.07M | Scene, ViewLayer | Finished
+Fra:1 Mem:30.05M (Peak 30.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Studio background (not a board component)
+Fra:1 Mem:30.05M (Peak 30.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 1
+Fra:1 Mem:30.05M (Peak 30.05M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 3
+Fra:1 Mem:32.07M (Peak 32.07M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 4
+Fra:1 Mem:32.08M (Peak 32.08M) | Time:00:00.00 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | J1 NON-PHYSICAL annotation
+Fra:1 Mem:32.24M (Peak 32.24M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | K1 NON-PHYSICAL annotation
+Fra:1 Mem:32.83M (Peak 32.83M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 5
+Fra:1 Mem:32.84M (Peak 32.84M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R1 NON-PHYSICAL annotation
+Fra:1 Mem:32.91M (Peak 32.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 6
+Fra:1 Mem:32.82M (Peak 32.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 7
+Fra:1 Mem:32.83M (Peak 32.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | R2 NON-PHYSICAL annotation
+Fra:1 Mem:32.81M (Peak 32.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 8
+Fra:1 Mem:32.93M (Peak 32.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 9
+Fra:1 Mem:32.84M (Peak 32.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Non-physical figure caption
+Fra:1 Mem:32.84M (Peak 32.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 11
+Fra:1 Mem:32.88M (Peak 32.93M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 12
+Fra:1 Mem:33.02M (Peak 33.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 13
+Fra:1 Mem:33.00M (Peak 33.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 14
+Fra:1 Mem:33.00M (Peak 33.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 15
+Fra:1 Mem:33.00M (Peak 33.02M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 16
+Fra:1 Mem:33.05M (Peak 33.05M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 17
+Fra:1 Mem:33.16M (Peak 33.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Non-physical figure caption.001
+Fra:1 Mem:33.16M (Peak 33.16M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 18
+Fra:1 Mem:33.33M (Peak 33.33M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 19
+Fra:1 Mem:33.32M (Peak 33.33M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 20
+Fra:1 Mem:33.50M (Peak 33.50M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 21
+Fra:1 Mem:33.62M (Peak 33.62M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 22
+Fra:1 Mem:33.60M (Peak 33.62M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 23
+Fra:1 Mem:33.60M (Peak 33.62M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 24
+Fra:1 Mem:33.60M (Peak 33.62M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 25
+Fra:1 Mem:33.65M (Peak 33.65M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 26
+Fra:1 Mem:33.76M (Peak 33.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 27
+Fra:1 Mem:33.79M (Peak 33.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | 28
+Fra:1 Mem:33.74M (Peak 33.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:29]
+Fra:1 Mem:33.68M (Peak 33.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:30]
+Fra:1 Mem:33.67M (Peak 33.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:31]
+Fra:1 Mem:33.68M (Peak 33.79M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:32]
+Fra:1 Mem:33.91M (Peak 33.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:33]
+Fra:1 Mem:33.90M (Peak 33.91M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:35]
+Fra:1 Mem:33.92M (Peak 33.92M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:30].001
+Fra:1 Mem:33.97M (Peak 33.96M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:31].001
+Fra:1 Mem:33.99M (Peak 33.99M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:32].001
+Fra:1 Mem:34.04M (Peak 34.04M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:33].001
+Fra:1 Mem:34.03M (Peak 34.04M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:38]
+Fra:1 Mem:34.04M (Peak 34.04M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:40]
+Fra:1 Mem:34.14M (Peak 34.14M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:41]
+Fra:1 Mem:34.17M (Peak 34.17M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:42]
+Fra:1 Mem:34.34M (Peak 34.34M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Non-physical figure caption.002
+Fra:1 Mem:35.15M (Peak 35.15M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:43]
+Fra:1 Mem:35.09M (Peak 35.15M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:44]
+Fra:1 Mem:34.93M (Peak 35.15M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:45]
+Fra:1 Mem:36.76M (Peak 36.76M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | =>[0:1:1:46]
+Fra:1 Mem:43.70M (Peak 50.36M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:37.00M (Peak 50.36M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:37.00M (Peak 50.36M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:37.00M (Peak 50.36M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:37.00M (Peak 50.36M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:37.09M (Peak 50.36M) | Time:00:00.03 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:37.09M (Peak 50.36M) | Time:00:00.03 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:37.09M (Peak 50.36M) | Time:00:00.03 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:37.09M (Peak 50.36M) | Time:00:00.03 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:37.09M (Peak 50.36M) | Time:00:00.03 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:37.09M (Peak 50.36M) | Time:00:00.03 | Mem:0.01M, Peak:0.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:37.11M (Peak 50.36M) | Time:00:00.03 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:37.11M (Peak 50.36M) | Time:00:00.03 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:37.11M (Peak 50.36M) | Time:00:00.03 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:37.11M (Peak 50.36M) | Time:00:00.03 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:38.39M (Peak 50.36M) | Time:00:00.03 | Mem:0.02M, Peak:0.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:40.09M (Peak 50.36M) | Time:00:00.03 | Mem:0.03M, Peak:0.03M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:40.08M (Peak 50.36M) | Time:00:00.03 | Mem:1.71M, Peak:1.71M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:40.08M (Peak 50.36M) | Time:00:00.03 | Mem:1.71M, Peak:1.71M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:40.08M (Peak 50.36M) | Time:00:00.03 | Mem:4.28M, Peak:4.28M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:40.08M (Peak 50.36M) | Time:00:00.04 | Mem:7.35M, Peak:9.92M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:40.08M (Peak 50.36M) | Time:00:00.04 | Mem:7.35M, Peak:9.92M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:7.35M, Peak:9.92M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:14.30M, Peak:14.30M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:14.30M, Peak:14.30M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:14.30M, Peak:14.30M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:14.30M, Peak:14.30M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:14.30M, Peak:14.30M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:14.38M, Peak:14.38M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:14.38M, Peak:14.38M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:14.38M, Peak:14.38M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:47.03M (Peak 50.36M) | Time:00:00.05 | Mem:14.38M, Peak:14.38M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:47.04M (Peak 50.36M) | Time:00:00.05 | Mem:14.30M, Peak:14.38M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:47.04M (Peak 50.36M) | Time:00:00.05 | Mem:14.39M, Peak:14.39M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:47.04M (Peak 50.36M) | Time:00:00.05 | Mem:14.39M, Peak:14.39M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:47.04M (Peak 50.36M) | Time:00:00.05 | Mem:14.39M, Peak:14.39M | Scene, ViewLayer | Sample 0/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:00:03.14 | Remaining:04:54.40 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 1/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:00:28.11 | Remaining:04:31.28 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 9/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:00:52.65 | Remaining:04:04.46 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 17/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:01:17.40 | Remaining:03:39.68 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 25/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:01:42.10 | Remaining:03:14.83 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 33/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:02:06.62 | Remaining:02:49.79 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 41/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:02:31.20 | Remaining:02:24.98 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 49/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:02:55.39 | Remaining:01:59.97 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 57/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:03:19.79 | Remaining:01:35.26 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 65/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:03:43.92 | Remaining:01:10.53 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 73/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:04:05.48 | Remaining:00:49.08 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 80/96
+Fra:1 Mem:170.66M (Peak 170.66M) | Time:04:28.25 | Remaining:00:24.38 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 88/96
+Fra:1 Mem:225.59M (Peak 335.46M) | Time:04:51.30 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Sample 96/96
+Fra:1 Mem:225.59M (Peak 335.46M) | Time:04:51.30 | Mem:137.98M, Peak:137.98M | Scene, ViewLayer | Finished
 Saved: '/workspace/Tester-18650-baterija/hardware/tester18650/tester18650_pcb_3d.png'
-Time: 04:44.42 (Saving: 00:00.54)
+Time: 04:51.82 (Saving: 00:00.52)
 
 Actual imported KiCad GLB bounds in metres: (0.0, -0.13199999928474426, -0.006811187602579594) (0.11599999666213989, 0.0, 0.029194999486207962)
 Info: Saved "tester18650-render.blend"

@@ -42,7 +42,7 @@ for ref,caption in labels.items():
 # Renderer-only figure captions describe the references without pretending
 # that labels are physical component markings or manufacturing verification.
 for caption,x,y,size in [
-    ('P3 / PARTIAL PCB - NOT FOR FABRICATION',58,-7,.0022),
+    ('P4 / PARTIAL PCB - NOT FOR FABRICATION',58,-7,.0022),
     ('Orange: relay body reference. White: proposed resistor substitute.',58,140,.00135),
     ('Black: reference holder. Blue: NodeMCU graphic, model unresolved.',58,143,.00135)]:
     curve=bpy.data.curves.new('Figure caption','FONT');curve.body=caption
@@ -65,6 +65,6 @@ cam_data=bpy.data.cameras.new('PCB inspection');cam=bpy.data.objects.new(cam_dat
 cam.location=center+Vector((span*.05,-span*1.1,span*2.35));cam.rotation_euler=(center-cam.location).to_track_quat('-Z','Y').to_euler()
 cam_data.type='ORTHO';cam_data.ortho_scale=span*1.35;cam_data.lens=50;cam_data.clip_start=.0001;cam_data.clip_end=100
 scene.camera=cam
-scene.render.filepath='/tmp/tester18650-p3-preview.png' if preview else str(root/'tester18650_pcb_3d.png')
+scene.render.filepath='/tmp/tester18650-p4-preview.png' if preview else str(root/'tester18650_pcb_3d.png')
 bpy.ops.wm.save_as_mainfile(filepath='/tmp/tester18650-render.blend')
 bpy.ops.render.render(write_still=True)

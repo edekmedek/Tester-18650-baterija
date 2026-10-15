@@ -1,6 +1,8 @@
-# PCB DRC P3 — K1 mapiran, nalaz nije čist
+# PCB DRC P4 — K1 mapiran, nalaz nije čist
 
 Nativni **KiCad 10.0.4**, `pcb drc --schematic-parity --all-track-errors --severity-all --exit-code-violations`. [JSON](drc.json), [tekst](drc.rpt), [status](drc-exit-status.txt).
+
+Ponovljeno za P4: **0 geometrijskih kršenja, 2 nepovezane veze i 5 upozorenja schematic parity; status 5**. ERC: **11 pogrešaka i 1 upozorenje; status 5**. P4 dodaje oznake u stvarne footprintove i novi PDF donjeg bakra; svih 33 P3 segmenta i sve nepoznanice ostaju. Nema novih električnih spojeva niti tvrdnje da je ostalo povezati samo dvije žice. U nastavku je usporedba električnog stanja P2/P3, koje P4 zadržava.
 
 | Kategorija | P2 | P3 |
 |---|---:|---:|

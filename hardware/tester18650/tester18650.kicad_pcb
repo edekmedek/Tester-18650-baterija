@@ -8,11 +8,11 @@
 	)
 	(paper "A4")
 	(title_block
-		(title "Tester 18650 / P3 - eight relay pins mapped - NOT FOR FAB")
+		(title "Tester 18650 / P4 - pin legends - NOT FOR FAB")
 		(date "2026-10-15")
-		(rev "P3")
-		(comment 1 "K1: eight physical pins / five functions. KiCad dimensional reference; see PCB.md")
-		(comment 2 "BAT+ -> COM / NO -> parallel load routed. INA polarity and C3209 unresolved.")
+		(rev "P4")
+		(comment 1 "F.Fab legends from source CAD; module fit and physical wiring unverified.")
+		(comment 2 "B.Cu PDF uses TOP registration, matching the already mirrored underside photo.")
 	)
 	(layers
 		(0 "F.Cu" signal)
@@ -533,6 +533,28 @@
 				)
 			)
 		)
+		(fp_text user "IN- / PAD 6"
+			(at 12 -5.7 0)
+			(layer "F.Fab")
+			(uuid "055e7563-0859-4535-abea-8fb271413e17")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "IN+ / PAD 5"
+			(at 12 5.7 0)
+			(layer "F.Fab")
+			(uuid "df1517da-b327-42d9-9aca-4dd53b969d07")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
 		(pad "1" thru_hole circle
 			(at -17.5 -1.27)
 			(size 1.7 1.7)
@@ -873,6 +895,17 @@
 				(font
 					(size 0.85 0.85)
 					(thickness 0.13)
+				)
+			)
+		)
+		(fp_text user "B/C/E NETS UNASSIGNED"
+			(at 0 8 0)
+			(layer "F.Fab")
+			(uuid "190fc8ba-c729-45df-bf14-f56d47d4849f")
+			(effects
+				(font
+					(size 0.65 0.65)
+					(thickness 0.12)
 				)
 			)
 		)
@@ -1605,14 +1638,366 @@
 			(layer "F.Fab")
 			(uuid "bb08a6e8-e28e-4657-a215-3ea51002ad17")
 		)
-		(fp_text user "NODEMCU CH340 REF"
-			(at 0 -18.5 0)
+		(fp_text user "CH340 REF"
+			(at 0 -10 0)
 			(layer "F.SilkS")
 			(uuid "93b98343-778b-4fa3-ae4e-4ba5c9687433")
 			(effects
 				(font
-					(size 1 1)
+					(size 0.8 0.8)
 					(thickness 0.16)
+				)
+			)
+		)
+		(fp_text user "3V3"
+			(at -9.8 -17.78 0)
+			(layer "F.Fab")
+			(uuid "771ca56f-bc6b-4e18-abf6-936eec281e08")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "GND"
+			(at -9.8 -15.24 0)
+			(layer "F.Fab")
+			(uuid "55df9b48-360e-4abb-bc44-366b8bd4011e")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "TX"
+			(at -9.8 -12.7 0)
+			(layer "F.Fab")
+			(uuid "8acfd115-9797-4135-b5d7-8ebea0bc2ffd")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "RX"
+			(at -9.8 -10.16 0)
+			(layer "F.Fab")
+			(uuid "f8b1ad10-f68b-4822-9935-328208e47a80")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "D8"
+			(at -9.8 -7.62 0)
+			(layer "F.Fab")
+			(uuid "dbe3970d-9486-4901-ad94-a57ff037e2e4")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "D7"
+			(at -9.8 -5.08 0)
+			(layer "F.Fab")
+			(uuid "8a27aeb0-ea21-4d79-ac79-c180f2768052")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "D6"
+			(at -9.8 -2.54 0)
+			(layer "F.Fab")
+			(uuid "9cb130fd-8a4f-4cef-a5e6-1a55721e5dfe")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "D5/G14"
+			(at -9.8 0 0)
+			(layer "F.Fab")
+			(uuid "86a781a4-bc78-4b68-9b99-fb087c997f45")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "GND"
+			(at -9.8 2.54 0)
+			(layer "F.Fab")
+			(uuid "fda4bfb6-dbd5-487a-9df3-776916ae1595")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "3V3"
+			(at -9.8 5.08 0)
+			(layer "F.Fab")
+			(uuid "b1bf8fab-79c2-4d6f-b5c5-130704e1abac")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "D4/G2"
+			(at -9.8 7.62 0)
+			(layer "F.Fab")
+			(uuid "b774bd75-6dbd-4a96-8670-62fd2506b9c3")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "D3"
+			(at -9.8 10.16 0)
+			(layer "F.Fab")
+			(uuid "9653ad89-a117-497b-9d7d-871e10c948ca")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "D2"
+			(at -9.8 12.7 0)
+			(layer "F.Fab")
+			(uuid "161ffadc-cc05-4713-970a-c0e052e0bcfc")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "D1/G5"
+			(at -9.8 15.24 0)
+			(layer "F.Fab")
+			(uuid "a02066ce-794f-4c0d-a8df-a3cc01a86d9b")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "D0"
+			(at -9.8 17.78 0)
+			(layer "F.Fab")
+			(uuid "d09d783f-c320-442e-9927-9b199c3e44d7")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "PIN NAMES: SOURCE CAD"
+			(at 0 -6.7 0)
+			(layer "F.Fab")
+			(uuid "68c6a99f-1c50-46d9-b85b-23b795332388")
+			(effects
+				(font
+					(size 0.65 0.65)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "CLONE FIT UNVERIFIED"
+			(at 0 -4.7 0)
+			(layer "F.Fab")
+			(uuid "387423de-34ec-4be7-8632-c723b01c3b7c")
+			(effects
+				(font
+					(size 0.65 0.65)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "5V REF"
+			(at 9.8 -17.78 0)
+			(layer "F.Fab")
+			(uuid "7af452e6-8014-4ef5-a4b4-688fdbe574a6")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "GND"
+			(at 9.8 -15.24 0)
+			(layer "F.Fab")
+			(uuid "60c65c11-7952-4c55-b49d-dfa0ba7dd522")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "RST"
+			(at 9.8 -12.7 0)
+			(layer "F.Fab")
+			(uuid "33507294-3cf1-4c9f-be68-6c18d4de9dd1")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "EN"
+			(at 9.8 -10.16 0)
+			(layer "F.Fab")
+			(uuid "f6a18b61-e881-483c-8b56-e4c2f85a5c5f")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "3V3"
+			(at 9.8 -7.62 0)
+			(layer "F.Fab")
+			(uuid "54d701cf-8861-43a0-b45d-19ee6dd76261")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "GND"
+			(at 9.8 -5.08 0)
+			(layer "F.Fab")
+			(uuid "3744e9ac-33f8-4d3a-88bb-215c285304c3")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "3V3"
+			(at 9.8 -2.54 0)
+			(layer "F.Fab")
+			(uuid "7d4e5a28-883f-4e13-8ac4-85dfc2d313f9")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "GND"
+			(at 9.8 0 0)
+			(layer "F.Fab")
+			(uuid "8eb7fb4c-cc9b-44e5-b37b-0269ed6da60e")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "RSV@5"
+			(at 9.8 2.54 0)
+			(layer "F.Fab")
+			(uuid "bc8acdf6-eb95-48ae-bf43-29c29fbefecc")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "RSV@4"
+			(at 9.8 5.08 0)
+			(layer "F.Fab")
+			(uuid "e26f1238-91a3-4f11-ad48-b2fb4cd86f9d")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "RSV@3"
+			(at 9.8 7.62 0)
+			(layer "F.Fab")
+			(uuid "6d50d329-738c-409d-8d22-49d582877860")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "RSV@2"
+			(at 9.8 10.16 0)
+			(layer "F.Fab")
+			(uuid "dd875993-6505-4568-a4da-ae83a2c2877a")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "RSV@1"
+			(at 9.8 12.7 0)
+			(layer "F.Fab")
+			(uuid "ecd51596-fa4a-4b6f-ae6b-c3bb51a28ce7")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "RSV@0"
+			(at 9.8 15.24 0)
+			(layer "F.Fab")
+			(uuid "6541c269-e487-4b21-9339-37db4dd1d62c")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "A0"
+			(at 9.8 17.78 0)
+			(layer "F.Fab")
+			(uuid "441536ee-3068-4f48-bc53-081f29e1bedf")
+			(effects
+				(font
+					(size 0.7 0.7)
+					(thickness 0.12)
 				)
 			)
 		)
@@ -2211,6 +2596,28 @@
 				)
 			)
 		)
+		(fp_text user "6V COIL / 5V DRIVE"
+			(at 0 -7.5 0)
+			(layer "F.Fab")
+			(uuid "6c2935fb-4cf7-4629-a8e6-77a340a591d6")
+			(effects
+				(font
+					(size 0.65 0.65)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "A1:+5V  A2:K1_C"
+			(at 0 -5.5 0)
+			(layer "F.Fab")
+			(uuid "aa8512dc-70f0-45d3-90af-7c2ae33addeb")
+			(effects
+				(font
+					(size 0.65 0.65)
+					(thickness 0.12)
+				)
+			)
+		)
 		(fp_text user "A2"
 			(at 3.75 -15.9 0)
 			(layer "F.Fab")
@@ -2706,7 +3113,7 @@
 			)
 		)
 	)
-	(gr_text "P3 / 116x132 / NOT FOR FAB"
+	(gr_text "P4 / 116x132 / NOT FOR FAB"
 		(at 146 155 0)
 		(layer "F.SilkS")
 		(uuid "ed477916-27b4-484b-9c17-9d44ca03db5b")

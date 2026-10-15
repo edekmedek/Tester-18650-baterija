@@ -137,8 +137,8 @@
       114
     ]
   },
-  "note": "K1 eight physical pins mapped; proper top-view rotation, A1 left/A2 right with coil up. KiCad library dimensions need final TE dimensional/tolerance inspection. Other P2 mechanical/electrical uncertainties remain.",
-  "revision": "P3",
+  "note": "K1 eight physical pins mapped; proper top-view rotation, A1 left/A2 right with coil up. KiCad library dimensions need final TE dimensional/tolerance inspection. Other P2 mechanical/electrical uncertainties remain. P4 adds source CAD pin legends only; all P3 tracks, pads, models and placements retained.",
+  "revision": "P4",
   "reference_body_mm": {
     "K1": [
       12.7,

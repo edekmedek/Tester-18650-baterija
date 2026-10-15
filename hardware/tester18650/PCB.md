@@ -1,6 +1,12 @@
-# PCB P3 — stvarne izmjene pločice, djelomično rutirano, nije za proizvodnju
+# PCB P4 — oznake priključaka, djelomično rutirano, nije za proizvodnju
 
-[Uređivi KiCad PCB](tester18650.kicad_pcb) · [PDF komponenti 1:1](tester18650_pcb_components.pdf) · [PDF prednjeg bakra i rasporeda](tester18650_pcb_layout.pdf) · [3D PNG](tester18650_pcb_3d.png) · [3D GLB](tester18650_pcb_3d.glb) · [izvorni DRC](reports/pcb/drc.rpt)
+[Uređivi KiCad PCB](tester18650.kicad_pcb) · [PDF komponenti 1:1](tester18650_pcb_components.pdf) · [PDF prednjeg bakra](tester18650_pcb_layout.pdf) · [PDF donjeg bakra, gornja registracija](tester18650_pcb_bottom_registered.pdf) · [3D PNG](tester18650_pcb_3d.png) · [3D GLB](tester18650_pcb_3d.glb) · [izvorni DRC](reports/pcb/drc.rpt)
+
+**Nastavak P4 od `9a12d8e`:** u stvarni PCB i lokalnu biblioteku dodane su oznake svih 30 NodeMCU mjesta prema već navedenom proizvođačkom CAD-u, GPIO oznake D5/G14, D4/G2 i D1/G5 prema radnom firmwareu, IN−/pad 6 i IN+/pad 5 na INA219 te jasna napomena o nedodijeljenim Q1 mrežama. Oznake `RSV@0..5` ostaju nazivi iz izvornog CAD-a; nisu izmišljene SD funkcije konkretnog klona. Nazivi pinova ne dodjeljuju mreže ostalim rupama niti potvrđuju klon. Promijenjeni su samo tekstovi i revizija; svih **33 bakrena segmenta**, padovi, položaji i 3D modeli iz P3 ostaju isti. Novi PDF donjeg bakra nije ponovno zrcaljen, kako bi se mogao uspoređivati s već zrcaljenom korisnikovom donjom fotografijom. GLB/PNG i provjere ponovno su izrađeni iz P4.
+
+Noviji dokumenti za budući punjač ne donose potvrdu preostalih fizičkih spojeva V1 i nisu korišteni za proizvoljno dopunjavanje bakra. Ponovni pokušaj službenih Mouser/TE/Toshiba i distributerskih izvora vraća proxy HTTP 403. Nisu dobiveni novi proizvođački podaci koji bi opravdali mapiranje Q1, R4 ili vanjskog INA polariteta.
+
+## Električna i mehanička osnova zadržana iz P3
 
 P3 nastavlja postojeći PCB P2 nativnim KiCadom **10.0.4**, u istom projektu. Zadržani su obris **116 × 132 × 1,6 mm**, položaji prema fotografijama, referentni NodeMCU/INA219 i svih 23 prethodna bakrena segmenta. K1 je zamijenjen osmoizvodnim footprintom i mapiran na pet električnih funkcija; dodano je deset bakrenih segmenata i model sa svih osam pinova. **Glavni strujni put i upravljanje još nisu potpuno rutirani.**
 
@@ -57,7 +63,7 @@ Između projekcija zamjenskih tijela R1/R2 ima 17,6 mm; bočno prema INA219 najm
 
 Nativni KiCad **10.0.4**: **DRC 0 geometrijskih kršenja, 2 nepovezane veze i 5 upozorenja schematic parity, status 5**. ERC: **11 pogrešaka + 1 upozorenje, status 5**. Nisu mijenjane ozbiljnosti pravila niti dodavana izuzeća, `No Connect` ili `PWR_FLAG` radi utišavanja nalaza. [Tumačenje DRC-a](reports/pcb/DRC.md) objašnjava zašto broj nepovezanih mreža ne predstavlja sav nedovršeni sklop.
 
-Oba PDF-a su nativni izvoz 1:1 na A4 vodoravno. `_pcb_components.pdf` sadrži F.SilkS/F.Fab/Edge.Cuts bez bakra radi čitljivosti svih priključaka; `_pcb_layout.pdf` dodaje F.Cu radi prikaza novih vodova. Nisu kompletna dokumentacija svih bakrenih slojeva. GLB je nativni KiCad izvoz stvarne pločice, PNG je Blender render tog GLB-a. Opisni natpisi u renderu grafičke su oznake statusa, ne tvornički natpisi ni fizička tijela. Nativni `pcb render` ranije se rušio u ovom okruženju; korišten je provjereni GLB→Blender put.
+Tri PDF-a su nativni izvoz 1:1 na A4 vodoravno. `_pcb_components.pdf` sadrži F.SilkS/F.Fab/Edge.Cuts bez bakra radi čitljivosti svih priključaka; `_pcb_layout.pdf` dodaje F.Cu. `_pcb_bottom_registered.pdf` prikazuje B.Cu s istim gornjim F.Fab/F.SilkS oznakama, bez dodatnog zrcaljenja: to je projekcija za usporedbu fotografija, **nije prikaz dijelova montiranih odozdo ni predložak za jetkanje**. PDF-ovi ne prikazuju ratsnest; otvorene veze navedene su u DRC-u. GLB je nativni KiCad izvoz stvarne pločice, PNG je Blender render tog GLB-a. Opisni natpisi u renderu grafičke su oznake statusa, ne tvornički natpisi ni fizička tijela. Nativni `pcb render` ranije se rušio u ovom okruženju; korišten je provjereni GLB→Blender put.
 
 ```sh
 ./tools/validate.sh       # očekivani stvarni ERC status 5
@@ -66,6 +72,6 @@ sha256sum -c reports/SHA256SUMS
 sha256sum -c reports/pcb/SHA256SUMS
 ```
 
-Izvori, licence, hashovi i granice provjere su u [pcb_sources/p3](pcb_sources/p3/README.md) i ranijem [pcb_sources/p2](pcb_sources/p2/README.md). `tools/implement_p3.py` nastavlja postojeći P2, a `tools/make_p3_relay_model.py` provjerava i zakreće cijeli osmoizvodni model. `tools/implement_p2.py` jednokratna je migracija postojećeg P1 u P2, preko nativnog KiCad 10 Python API-ja (`tools/pcb_python.sh`). `tools/build_pcb.py` ostaje povijesni generator P1; **nije generator konačnog P3**. `tools/make_p2_models.py` reproducira referentne modele pomoću paketa iz `tools/cad-requirements.txt`.
+Izvori, licence, hashovi i granice provjere su u [pcb_sources/p3](pcb_sources/p3/README.md) i ranijem [pcb_sources/p2](pcb_sources/p2/README.md). `tools/annotate_p4.py` jednokratno nastavlja P3 i provjerava da nijedan vod nije promijenjen; ne pokretati ga ponovno preko P4. `tools/implement_p3.py` nastavlja postojeći P2, a `tools/make_p3_relay_model.py` provjerava i zakreće cijeli osmoizvodni model. `tools/implement_p2.py` jednokratna je migracija postojećeg P1 u P2, preko nativnog KiCad 10 Python API-ja (`tools/pcb_python.sh`). `tools/build_pcb.py` ostaje povijesni generator P1; **nije generator konačnog P4**. `tools/make_p2_models.py` reproducira referentne modele pomoću paketa iz `tools/cad-requirements.txt`.
 
 **Za dovršenje nedostaju:** izravna usporedba točnih TE dimenzija/tolerancija s korištenom knjižničnom geometrijom, točan C3209 i pinout, puni R4 raster, stvarna kućišta R3/R4, odobren konkretni otpornik i montaža, točan NodeMCU/INA219/držač, napajanja, zaštite, bazni sklop i djelitelj te mehanička/termička provjera. Nisu izdani Gerberi ni odobrenje za proizvodnju. Fizičko ožičenje funkcionalnog primjerka nije proglašeno potvrđenim.

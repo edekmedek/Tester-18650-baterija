@@ -76,6 +76,70 @@
 (fp_line (start 15.75 -22.1) (end 15.75 25.55) (stroke (width 0.05) (type default)) (layer "F.CrtYd"))
 (fp_line (start 15.75 25.55) (end -15.75 25.55) (stroke (width 0.05) (type default)) (layer "F.CrtYd"))
 (fp_line (start -15.75 25.55) (end -15.75 -22.1) (stroke (width 0.05) (type default)) (layer "F.CrtYd"))
-(fp_text user "NODEMCU CH340 REF" (at 0 -18.5) (layer "F.SilkS") (effects (font (size 1 1) (thickness .16))))
+(fp_text user "CH340 REF" (at 0 -10) (layer "F.SilkS") (effects (font (size .8 .8) (thickness .16))))
 (model "${KIPRJMOD}/models/NodeMCU_CH340_reference_plane.step" (offset (xyz 0 0 0)) (scale (xyz 1 1 1)) (rotate (xyz 0 0 0)))
+
+(fp_text user "A0" (at 9.8 17.78) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "RSV@0" (at 9.8 15.24) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "RSV@1" (at 9.8 12.7) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "RSV@2" (at 9.8 10.16) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "RSV@3" (at 9.8 7.62) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "RSV@4" (at 9.8 5.08) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "RSV@5" (at 9.8 2.54) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "GND" (at 9.8 0.0) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "3V3" (at 9.8 -2.54) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "GND" (at 9.8 -5.08) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "3V3" (at 9.8 -7.62) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "EN" (at 9.8 -10.16) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "RST" (at 9.8 -12.7) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "GND" (at 9.8 -15.24) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "5V REF" (at 9.8 -17.78) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "D0" (at -9.8 17.78) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "D1/G5" (at -9.8 15.24) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "D2" (at -9.8 12.7) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "D3" (at -9.8 10.16) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "D4/G2" (at -9.8 7.62) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "3V3" (at -9.8 5.08) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "GND" (at -9.8 2.54) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "D5/G14" (at -9.8 0.0) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "D6" (at -9.8 -2.54) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "D7" (at -9.8 -5.08) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "D8" (at -9.8 -7.62) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "RX" (at -9.8 -10.16) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "TX" (at -9.8 -12.7) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "GND" (at -9.8 -15.24) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "3V3" (at -9.8 -17.78) (layer "F.Fab") (effects (font (size 0.7 0.7) (thickness .12))))
+
+(fp_text user "PIN NAMES: SOURCE CAD" (at 0 -6.7) (layer "F.Fab") (effects (font (size 0.65 0.65) (thickness .12))))
+
+(fp_text user "CLONE FIT UNVERIFIED" (at 0 -4.7) (layer "F.Fab") (effects (font (size 0.65 0.65) (thickness .12))))
 )

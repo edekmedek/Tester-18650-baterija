@@ -30,10 +30,10 @@ Datum: 15.10.2026. Izvor: fotografije uređaja, korisnikove potvrde i aktualni E
 - Oznaka `ALWAYS_OFF` i naredba pri bootu predstavljaju softversku zaštitu; stanje izlaza tijekom samog napajanja ovisi o hardveru.
 
 ## Put pražnjenja — prema korisnikovu opisu
-BAT+ → kontakt releja → shunt → INA219 → BAT− (redoslijed ponovno potvrdio korisnik). Dva otpornika od 22 Ω / 5 W su paralelno opterećenje. Njihova točna električna pozicija u navedenom slijedu još nije nedvosmisleno označena. INA219 je mjerni IC, a njegov modul može imati vlastiti shunt; prije završnog crtanja treba razjasniti jesu li riječ 'shunt' i INA219 dva zasebna elementa ili naziv za mjerni sklop.
+BAT+ → kontakt releja → dva bijela otpornika 22 Ω / 5 W paralelno (korisnik ih naziva „shunt”, funkcionalno su pražnjeno opterećenje) → mjerni INA219 modul → BAT−. Korisnik je izričito potvrdio da pod „shunt” misli na ta dva bijela otpornika. INA219 breakout ima i vlastiti mali mjerni otpornik; njegova točna veza VIN+/VIN− i odnos prema masi još nisu fizički verificirani.
 
 ## Otvoreno prije izvedbene KiCad sheme
-1. Točan položaj R_LOAD u potvrđenom redoslijedu i priključaka INA219 VIN+/VIN−; utvrditi je li shunt na modulu ili zaseban.
+1. Položaj R_LOAD je potvrđen između releja i INA219 modula. Još provjeriti stvarnu vezu INA219 VIN+/VIN− i referentne mase modula prije izdavanja izvedbene sheme.
 2. Topologija naponskog djelitelja A0: vrijednosti 10k/20k su poznate, ali ne i redoslijed / eventualni dodatni otpornici na NodeMCU pločici. Faktor 9.5079 sam po sebi ne potvrđuje omjer vanjskog djelitelja.
 3. Tranzistorski stupanj: točna veza baze, emitera, kolektora i diode releja.
 4. Napajanje modula i releja; USB je vidljiv, ali nisu sve naponske mreže potvrđene.

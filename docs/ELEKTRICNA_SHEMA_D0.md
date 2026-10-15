@@ -1,30 +1,43 @@
-# Rekonstrukcija električne sheme — revizija D1
+# Električna dokumentacija — revizija D2 (rekonstrukcija)
 
-Datum: 15.10.2026. Status: radna rekonstrukcija na temelju fotografija i korisnikovih podataka. **Nije verificirana izvedbena shema.**
+Datum: 15.10.2026. Izvor: fotografije uređaja, korisnikove potvrde i aktualni ESPHome YAML.
 
-## Ispravak identifikacije kontrolera
-Na dostavljenim fotografijama je **NodeMCU s ESP8266 / ESP-12F**, a ne ESP32. Ranije zabilježeni GPIO21/22/26/34 pripadaju drugoj platformi i NE SMIJU se prenijeti u shemu ove pločice bez provjere izvornog koda. Vidljivi su pinovi D0–D8, A0, RX, TX, 3V, VIN i GND.
+## Aktualna izvedba
+- U1: NodeMCU v2 ESP8266 (ESP-12F); konfiguracija `board: nodemcuv2`.
+- U2: INA219 breakout; I²C adresa 0x40.
+- K1: Schrack RT314006; nazivna zavojnica 6 V DC, prema korisniku pogonjena s 5 V.
+- Q1: C3209 upravlja relejem (prema ranijoj izvedbi); bazni otpornik i zaštitna dioda još nisu dokumentirani.
+- R_LOAD1/R_LOAD2: 2 × 22 Ω / 5 W paralelno; izmjeren ukupni otpor 11,15 Ω.
+- R_DIV1/R_DIV2: 10 kΩ i 20 kΩ; točan redoslijed i dodatni djelitelji/ulazni sklop treba potvrditi.
+- BAT1: držač 18650; BAT− na zajedničkoj masi.
+- **OLED nije ugrađen u aktualnu izvedbu** i ne smije se prikazati na shemi.
 
-## Komponente i podaci
-- U1: NodeMCU ESP8266, ESP-12F; napajanje preko micro-USB vidljivo na fotografiji. Ostali putovi napajanja nisu potvrđeni.
-- U2: INA219 breakout, oznake SCL, SDA, VCC, GND i VIN+/VIN− (položaj u krugu provjeriti).
-- DS1: OLED I²C (poznat iz prethodnog projekta, nije vidljiv na fotografijama).
-- K1: Schrack RT314006, zavojnica označena 6 V DC, u uređaju napajana s 5 V prema korisniku.
-- Q1: tranzistor C3209 za upravljanje relejem, prema prethodnom projektu; vrijednost baznog otpornika i zaštitna dioda nisu utvrđene.
-- R_LOAD1, R_LOAD2: 22 Ω / 5 W paralelno, vidljivo na fotografiji. Izmjeren ukupni otpor oko 11,15 Ω.
-- R_DIV1, R_DIV2: 10 kΩ i 20 kΩ, korisnik potvrdio; redoslijed u djelitelju i spoj na A0 još provjeriti.
-- BAT1: držač 18650; minus baterije spojen na zajedničku masu.
-- Nema ugrađene zaštite od obrnutog polariteta prema korisniku; evidentirano kao sigurnosni rizik, ne kao preporuka.
+## ESP8266 pinovi — potvrđeni aktualnim YAML-om
+| Signal | NodeMCU | GPIO | Konfiguracija |
+|---|---|---|---|
+| Relej | D5 | GPIO14 | `switch.gpio`, `restore_mode: ALWAYS_OFF` |
+| INA219 SDA | D4 | GPIO2 | I²C |
+| INA219 SCL | D1 | GPIO5 | I²C, 100 kHz |
+| Napon baterije | A0 | ADC0 | `adc`, faktor 9.5079 |
+| INA219 adresa | — | — | 0x40 |
+| INA219 shunt | — | — | 0,11425 Ω u konfiguraciji |
 
-## Put struje — korisnikov opis
-BAT+ → kontakt releja → shunt / INA219 → BAT−.
+## Logika rada prema firmwareu
+- Prilikom boota relej se isključuje.
+- Start testa provjerava napon i uključuje relej nakon 500 ms.
+- Test se zaustavlja nakon pet uzastopnih očitanja (u intervalu 1 s) na ili ispod cutoffa, početno 3,00 V.
+- Kapacitet i energija integriraju se iz struje i napona svakih 1 s.
+- Oznaka `ALWAYS_OFF` i naredba pri bootu predstavljaju softversku zaštitu; stanje izlaza tijekom samog napajanja ovisi o hardveru.
 
-**Otvoreno:** točan spoj dvaju opteretnih otpornika u tom putu, položaj INA219 VIN+ i VIN− u odnosu na shunt i kontakt releja. Ne spajati shemu prema pretpostavci.
+## Put pražnjenja — prema korisnikovu opisu
+BAT+ → relej → shunt / INA219 → BAT−. Opteretni otpornici su 2×22 Ω paralelno, ali njihov točan položaj u serijskom strujnom putu još nije potvrđen. Nije dopušteno nacrtati direktan kratki spoj kao zamjenu za nepoznatu vezu.
 
-## Potrebno iz izvornog firmwarea
-- Stvarni pinovi ESP8266 za SDA/SCL, relej, LED i analogni ulaz A0.
-- Polaritet relejnog upravljanja i logika sigurnog isključivanja.
-- Skala ADC-a i logika mjerenja INA219.
+## Otvoreno prije izvedbene KiCad sheme
+1. Stvarni položaj R_LOAD u strujnom krugu i priključaka INA219 VIN+/VIN−.
+2. Topologija naponskog djelitelja A0: vrijednosti 10k/20k su poznate, ali ne i redoslijed / eventualni dodatni otpornici na NodeMCU pločici. Faktor 9.5079 sam po sebi ne potvrđuje omjer vanjskog djelitelja.
+3. Tranzistorski stupanj: točna veza baze, emitera, kolektora i diode releja.
+4. Napajanje modula i releja; USB je vidljiv, ali nisu sve naponske mreže potvrđene.
+5. Zaštita od obrnutog polariteta nije ugrađena — dokumentirani rizik.
 
-## Napomena o fotografijama
-Fotografije potvrđuju tip pločice, oznaku releja, INA219 i 2×22 Ω/5 W. Ne potvrđuju nevidljive veze na poleđini pločice. Nije potrebno rastavljati funkcionalan uređaj radi ove dokumentacije.
+## Izvorni kod
+Aktualni YAML dostavljen u razgovoru 15.10.2026. Treba ga arhivirati u repozitorij uz provjeru uklanjanja tajni.

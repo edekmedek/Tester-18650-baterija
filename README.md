@@ -1,0 +1,1 @@
+# Tester-18650-baterija

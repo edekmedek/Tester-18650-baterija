@@ -1,6 +1,6 @@
 # Dodatna korisnikova vizualna referenca — detalj RL/Q/R (15.10.2026.)
 
-**Potvrda korisnika:** slika je iz jednog od ranijih predložaka ovog projekta i **footprint/raster rasporeda na toj slici odgovara stvarnom funkcionalnom sklopu**. Ovo je potvrđena referenca fizičkog rasporeda, a ne samo spekulativan crtež. Prikazani vodovi i njihovo električko značenje ipak se moraju zasebno provjeriti.
+**Precizna potvrda korisnika:** iz ranijeg predloška **odgovara samo detalj iz dostavljenog izreza slike**. **Sve ostalo u tom predlošku ne odgovara stvarnom sklopu i ne smije se preuzimati.** Potvrda se odnosi na footprint/raster upravo prikazanog detalja, ne na cijeli predložak, ostale komponente, vodove ili shemu.
 
 ## Čitljive oznake na slici
 
@@ -12,10 +12,10 @@
 
 ## Kako upotrijebiti
 
-1. Koristiti **korisnički potvrđen footprint/raster ovog predloška** kao prioritetnu geometrijsku referencu za područje releja, tranzistora i otpornika. Usporediti s fotografijama obje strane fizičkog testera i PCB P1.
+1. Koristiti **isključivo geometriju unutar korisnikova izreza slike** kao potvrđenu referencu. Ne kopirati ostatak ranijeg predloška. Usporediti taj detalj s fotografijama obje strane stvarnog sklopa.
 2. Ne pretpostaviti da oznake RL11/RL12/RL14 predstavljaju potvrđen stvarni raspored izvoda Schrack RT314006. Oznake A/B mogu označavati paralelne/udvojene kontaktne točke, ali to je potrebno dokazati.
 3. Korisnik potvrđuje da footprint/raster predloška odgovara stvarnosti, ali **simbolički 3D izgled R1–R4 na prikazu nije mjera fizičkog kućišta**. R1/R2 su na stvarnoj fotografiji 22Ω/5W cementni otpornici; treba razlikovati pozicije/raster od grafičkog prikaza tijela.
 4. Grafički Q1 E/C/B raspored nije sam po sebi dokaz fizičkog pinouta C3209.
-5. Potražiti izvorni uređivi predložak u postojećim projektnim datotekama ako je dostupan, kako bi se **preuzele potvrđene koordinate i rasteri**, a ne ponovno ručno precrtavali.
+5. Ako je izvorni uređivi predložak dostupan, iz njega preuzeti **samo elemente koji su vidljivi na korisnikovu izrezu**. Ostali elementi predloška nisu vjerodostojni.
 
-**Status:** korisnik je izričito potvrdio da **footprint prikazanog ranijeg predloška odgovara stvarnom sklopu**. To opravdava korištenje geometrije za PCB P2. Potvrda geometrije nije automatska potvrda električkog pinouta ili vodova.
+**Status:** korisnik potvrđuje **samo prikazani izrez**; **ostatak predloška je pogrešan**. Ova granica vrijedi i za PCB P2. Potvrda prikazane geometrije nije potvrda električkog pinouta ili vodova.

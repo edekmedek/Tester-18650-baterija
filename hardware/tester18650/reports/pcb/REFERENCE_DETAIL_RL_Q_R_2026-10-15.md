@@ -19,3 +19,7 @@
 5. Ako je izvorni uređivi predložak dostupan, iz njega preuzeti **samo elemente koji su vidljivi na korisnikovu izrezu**. Ostali elementi predloška nisu vjerodostojni.
 
 **Status:** korisnik potvrđuje **samo prikazani izrez**; **ostatak predloška je pogrešan**. Ova granica vrijedi i za PCB P2. Potvrda prikazane geometrije nije potvrda električkog pinouta ili vodova.
+
+## Naknadna proizvođačka potvrda u P3
+
+Korisnik je potvrdio TE RT1 rev. 6 str. 5: izvedba RT314006 16 A / 5 mm / 1 Form C ima osam fizičkih izvoda (A1/A2 i udvojene 12/11/14). Time je razriješena struktura kontaktnih parova za K1; ograda o nepotvrđenom fizičkom pinoutu C3209 ostaje. Aktualne top-view koordinate, pravilna rotacija, mapiranje i granica dimenzijske provjere opisani su u [RT314006_MANUFACTURER_SOURCE.md](RT314006_MANUFACTURER_SOURCE.md). Nije kopiran bakar sa starog izreza.

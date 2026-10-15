@@ -46,3 +46,9 @@ Dodan je nativni KiCad 10 PCB, PDF 1:1, GLB i PNG prema korisnikovoj fotografiji
 Izmijenjena je stvarna `.kicad_pcb` datoteka nativnim KiCad 10 Python API-jem, bez ponovnog generiranja P1. Sačuvano je svih 15 P1 segmenata; dodano ih je 8. Shemi su ažurirana samo polja footprintova, bez promjene mreža; projektna pravila i firmware nisu promijenjeni. K1/Q1 imaju nedodijeljene fizičke točke izreza, R1/R2/R3 dvoizvodni raster, a R4 zbog odrezanih završetaka nema padove. Kućišta i zamjenski modeli imaju jasno odvojen status u [PCB.md](../PCB.md).
 
 Ponovljeni nativni ERC vraća 5, **11 pogrešaka + 1 upozorenje**. DRC sa schematic parity vraća 5: **0 geometrijskih kršenja, 2 nepovezane veze, 10 upozorenja**. Provjera izvora, mreža i rastera prolazi. PDF i GLB ponovno su izvezeni iz tog PCB-a; PNG je render tog GLB-a, uz grafičke opise statusa. Nema Gerbera, pojedinačnih izuzeća ni tvrdnje da je glavni strujni krug rutiran ili fizički uređaj verificiran.
+
+## PCB P3 — osam fizičkih pinova releja
+
+Ispravljena je pogrešna prethodna pretpostavka o pet fizičkih izvoda RT314006. Funkcijski SPDT simbol i mreže sheme nisu promijenjeni; K1 ima osam padova s pet funkcija. Dostupni standardni KiCad RT1 16 A footprint uspoređen je s njegovim cjelovitim modelom: svih osam pinova poravnato je s rupama nakon pravilne top-view rotacije. Korisnikov primarni PDF vraća proxy 403, pa proizvođačke točne mjere/tolerancije nisu lažno proglašene očitanima. Sačuvana su sva 23 P2 segmenta, dodano deset za kontaktne parove i potvrđene veze COM/BAT+ i NO/opterećenje. Q1 i INA pretpostavke nisu rutirane.
+
+Nativni ERC ostaje status 5, **11 pogrešaka + 1 upozorenje**. DRC sa schematic parity: **0 geometrijskih kršenja, 2 nepovezane veze, 5 upozorenja, status 5**. Nema K1 upozorenja o nedostajućim funkcionalnim padovima. PDF/GLB/PNG ponovno su izvezeni iz stvarnog P3 PCB-a. Napajanja, C3209, R4, stvarna mehanika, termika i tolerancije sprečavaju proizvodno odobrenje.

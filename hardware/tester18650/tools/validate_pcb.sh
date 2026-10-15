@@ -6,6 +6,7 @@ mkdir -p reports/pcb
 ./tools/kicad.sh version > reports/pcb/kicad-version.txt
 case "$(cat reports/pcb/kicad-version.txt)" in 10.*) ;; *) echo 'KiCad 10 required' >&2; exit 1 ;; esac
 ./tools/kicad.sh pcb export pdf --layers F.Cu,F.SilkS,F.Fab,Edge.Cuts --mode-single --include-border-title --sketch-pads-on-fab-layers --no-property-popups --black-and-white --scale 1 --output tester18650_pcb_layout.pdf tester18650.kicad_pcb
+./tools/kicad.sh pcb export pdf --layers F.SilkS,F.Fab,Edge.Cuts --mode-single --include-border-title --sketch-pads-on-fab-layers --no-property-popups --black-and-white --scale 1 --output tester18650_pcb_components.pdf tester18650.kicad_pcb
 ./tools/kicad.sh pcb export glb --force --include-tracks --include-pads --include-silkscreen --include-soldermask --user-origin 90x25mm --output tester18650_pcb_3d.glb tester18650.kicad_pcb
 tester_pcb_drc=0
 ./tools/kicad.sh pcb drc --schematic-parity --all-track-errors --severity-all --format json --exit-code-violations --output reports/pcb/drc.json tester18650.kicad_pcb || tester_pcb_drc=$?
@@ -21,6 +22,6 @@ blender --version > reports/pcb/blender-version.txt
 rm -f tester18650_pcb_3d.png
 blender -b --python-exit-code 2 --python tools/render_pcb.py > reports/pcb/render.log 2>&1
 [ -s tester18650_pcb_3d.png ]
-sha256sum tester18650.kicad_pcb tester18650_pcb_layout.pdf tester18650_pcb_3d.glb tester18650_pcb_3d.png reports/pcb/drc.json reports/pcb/drc.rpt reports/pcb/board-check.txt pcb_sources/reference-geometry.json pcb_sources/p2/geometry.json reports/pcb/p2-models.json models/RT314006_DIMENSION_REFERENCE_NO_PINS.step models/Cement_5WAXIAL_VERTICAL_SUBSTITUTE.step models/Keystone1042_REFERENCE_NO_MOUNTING.step > reports/pcb/SHA256SUMS
+sha256sum tester18650.kicad_pcb tester18650_pcb_layout.pdf tester18650_pcb_components.pdf tester18650_pcb_3d.glb tester18650_pcb_3d.png reports/pcb/drc.json reports/pcb/drc.rpt reports/pcb/board-check.txt pcb_sources/reference-geometry.json pcb_sources/p2/geometry.json reports/pcb/p2-models.json models/RT314006_16A_8PIN_KICAD_REFERENCE.step models/Cement_5WAXIAL_VERTICAL_SUBSTITUTE.step models/Keystone1042_REFERENCE_NO_MOUNTING.step pcb_sources/p3/geometry.json reports/pcb/p3-relay-model.json reports/pcb/K1_COORDINATES.csv > reports/pcb/SHA256SUMS
 printf 'PCB outputs verified. Preserving NON-CLEAN native DRC status %s.\n' "$tester_pcb_drc"
 exit "$tester_pcb_drc"

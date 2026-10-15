@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/workspace/Tester-18650-baterija/hardware/tester18650/tester18650.kicad_sch</source>
-    <date>2026-10-15T07:22:16</date>
+    <date>2026-10-15T07:57:39</date>
     <tool>Eeschema 10.0.4-10.0.4~ubuntu25.10.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -105,10 +105,11 @@
     </comp>
     <comp ref="K1">
       <value>Schrack RT314006</value>
-      <footprint>Tester18650:RT314006_CROP_GRID_UNMAPPED</footprint>
+      <footprint>Tester18650:RT314006_16A_8PIN_5MM_KICAD_REFERENCE</footprint>
+      <datasheet>https://www.mouser.com/catalog/specsheets/ENG_DS_RT1_6-9724925.pdf</datasheet>
       <fields>
-        <field name="Footprint">Tester18650:RT314006_CROP_GRID_UNMAPPED</field>
-        <field name="Datasheet"/>
+        <field name="Footprint">Tester18650:RT314006_16A_8PIN_5MM_KICAD_REFERENCE</field>
+        <field name="Datasheet">https://www.mouser.com/catalog/specsheets/ENG_DS_RT1_6-9724925.pdf</field>
         <field name="Description"/>
       </fields>
       <libsource lib="Relay" part="Relay_SPDT" description="Relay SPDT, monostable, EN50005"/>

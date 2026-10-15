@@ -27,7 +27,7 @@ scene.view_settings.view_transform='AgX'
 import json
 placement=json.loads((root/'reports/pcb/placement-map.json').read_text())['placements']
 labels={'J1':'J1\nNodeMCU CH340\nREFERENCE / MODEL TBD',
-        'K1':'K1 / RT314006\nBODY REFERENCE\nPIN MAP TBD',
+        'K1':'K1 / RT314006\n8 PINS MAPPED\nKiCad model reference',
         'R1':'R1\n22R / 5W\nALT',
         'R2':'R2\n22R / 5W\nALT'}
 label_z={'K1':.0175,'R1':.0295,'R2':.0295}
@@ -42,7 +42,7 @@ for ref,caption in labels.items():
 # Renderer-only figure captions describe the references without pretending
 # that labels are physical component markings or manufacturing verification.
 for caption,x,y,size in [
-    ('P2 / PARTIAL PCB - NOT FOR FABRICATION',58,-7,.0022),
+    ('P3 / PARTIAL PCB - NOT FOR FABRICATION',58,-7,.0022),
     ('Orange: relay body reference. White: proposed resistor substitute.',58,140,.00135),
     ('Black: reference holder. Blue: NodeMCU graphic, model unresolved.',58,143,.00135)]:
     curve=bpy.data.curves.new('Figure caption','FONT');curve.body=caption
@@ -65,6 +65,6 @@ cam_data=bpy.data.cameras.new('PCB inspection');cam=bpy.data.objects.new(cam_dat
 cam.location=center+Vector((span*.05,-span*1.1,span*2.35));cam.rotation_euler=(center-cam.location).to_track_quat('-Z','Y').to_euler()
 cam_data.type='ORTHO';cam_data.ortho_scale=span*1.35;cam_data.lens=50;cam_data.clip_start=.0001;cam_data.clip_end=100
 scene.camera=cam
-scene.render.filepath='/tmp/tester18650-p2-preview.png' if preview else str(root/'tester18650_pcb_3d.png')
+scene.render.filepath='/tmp/tester18650-p3-preview.png' if preview else str(root/'tester18650_pcb_3d.png')
 bpy.ops.wm.save_as_mainfile(filepath='/tmp/tester18650-render.blend')
 bpy.ops.render.render(write_still=True)

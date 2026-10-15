@@ -39,7 +39,7 @@ for n,(x,y) in relay_pads.items():
     body.append(pad(n,x,y,1.3,2.4))
     # The original crop labels are recorded, not converted to manufacturer pins.
     body.append(text(n.replace('REF_','')+'?',x+(-3 if x<0 else 3),y,'F.Fab',.7))
-make('RT314006_CROP_GRID_UNMAPPED','Confirmed carrier raster from ONLY user crop: 8 reference landing points, NOT 8 asserted relay pins. Manufacturer five-pin mapping UNRESOLVED. All reference pads electrically unassigned. 1.3mm holes are a new PCB choice from KiCad RT1 reference, not a measured perfboard drill.',body)
+make('RT314006_CROP_GRID_UNMAPPED','Confirmed carrier raster from ONLY user crop: 8 reference landing points, Historical P2 unassigned geometry, superseded by P3. RT314006 has eight physical terminals and five electrical functions; P3 maps them. All reference pads electrically unassigned. 1.3mm holes are a new PCB choice from KiCad RT1 reference, not a measured perfboard drill.',body)
 
 body=[rect(-1.5,-4,1.5,4,'F.CrtYd'),text('Q1 C3209',0,-5.5),text('PINOUT TBD',0,5.5)]
 for n,(x,y) in crop['Q1']['pads_grid'].items():

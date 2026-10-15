@@ -1,7 +1,7 @@
-PASS: incremental native KiCad 10 PCB edit; all 15 P1 tracks preserved.
-PASS: crop grid reproduced for K1/Q1/R1/R2/R3. Relay and C3209 pads remain unmapped; R4/holder have no invented pads.
-PASS: source hashes and original module pad coordinates/drills checked; no guessed Q1/R3/R4 bodies.
-PASS: 23 segments on 5 confirmed copper nets; parallel resistor ends and duplicate INA pads connected; no assumed external VIN or driver/divider route.
-PASS: photo order retained; resistor reference-body gap 17.6 mm, lateral gaps >=19 mm; production thermal/lead-forming fit unverified.
-DRC NON-CLEAN: 0 geometric violations, 2 unconnected errors, 10 schematic-parity warnings; native status 5.
-BLOCKED FOR MANUFACTURING: relay/C3209 terminal mapping, R4 geometry, exact clones/holder, resistor procurement/lead forming, supplies and divider topology.
+PASS: incremental native KiCad 10 PCB edit; all 23 P2 tracks preserved.
+PASS: eight K1 physical pads / five functions, correct top-view rotation, A1 left/A2 right, all duplicate contacts assigned to the same schematic net.
+PASS: all eight model pin centres align with holes; available KiCad source coordinates/hashes checked. Direct TE dimensional tolerances remain unverified (PDF proxy403).
+PASS: BAT+ to COM11 and NO14 to parallel R1/R2 routed; 33 segments / 7 copper nets; no COM-NO bypass, speculative C3209/supply or external INA route.
+PASS: Q1 crop holes remain unmapped; R4/holder have no invented pads; photo order and thermal reference gaps retained.
+DRC NON-CLEAN: 0 geometric violations, 2 unconnected errors, 5 schematic-parity warnings; native status 5.
+BLOCKED FOR MANUFACTURING: direct TE dimensional/tolerance check, C3209 pinout, R4 geometry, clones/holder, resistor fit/lead forming, supplies and divider topology.

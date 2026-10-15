@@ -24,4 +24,6 @@
 
 KiCad 3D izvori i njihovi izvedeni modeli: [CC BY-SA 4.0 s KiCad iznimkom](KICAD_3D_LICENSE.md); izvorni autori i podaci ostaju u STEP zaglavljima. KiCad footprintovi koriste istu knjižničnu licencu s iznimkom za elektroničke projekte. Recept generatora potječe iz GPL-3.0 repozitorija; njegova licenca priložena je zasebno.
 
-Službeni TE/Schrack, Yageo, MPD i distributerski PDF endpointovi vraćali su proxy HTTP 403 i nakon odobrenja mrežnog pristupa. Nisu korišteni načini zaobilaženja proxyja. Nedostaju upravo tvornički crtež pet izvoda RT314006 (`ENG_DS_RT1_7.pdf` / crtež za `9-1393239-3`) i njegov službeni STEP `ENG_CVM_CVM_9-1393239-3_E.3d_stp.zip`, kao i proizvođački list konkretnog C3209. Podatci s grafičkog izreza nisu zamijenili te dokumente.
+Službeni TE/Schrack, Yageo, MPD i distributerski PDF endpointovi vraćali su proxy HTTP 403 i nakon odobrenja mrežnog pristupa. Nisu korišteni načini zaobilaženja proxyja. Nedostaju upravo tvornički crtež osam fizičkih izvoda RT314006 (`ENG_DS_RT1_7.pdf` / crtež za `9-1393239-3`) i njegov službeni STEP `ENG_CVM_CVM_9-1393239-3_E.3d_stp.zip`, kao i proizvođački list konkretnog C3209. Podatci s grafičkog izreza nisu zamijenili te dokumente.
+
+**Ispravak P3:** ranija pretpostavka o pet fizičkih izvoda bila je pogrešna. RT314006 ima osam fizičkih izvoda i pet funkcija; aktualni osmoizvodni footprint i cijeli model su u [P3](../p3/README.md). Ovdje ostaje povijesna P2 referenca bez pinova, koja se više ne koristi na završnoj pločici.

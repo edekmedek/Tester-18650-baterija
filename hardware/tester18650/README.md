@@ -1,12 +1,12 @@
-# Tester 18650 — KiCad 10, shema R2 i PCB P2
+# Tester 18650 — KiCad 10, shema R2 i PCB P3
 
-**Funkcionalni strujni krug je spojen u uređivoj shemi. Fizičko ožičenje i pinout nisu potvrđeni. ERC nije čist: 11 pogrešaka i 1 upozorenje.**
+**Funkcionalni strujni krug je spojen u uređivoj shemi. Fizičko ožičenje i C3209 pinout nisu potvrđeni. ERC nije čist: 11 pogrešaka i 1 upozorenje.**
 
 R2 nastavlja postojeći projekt iz commita `bfc8b56`: isti `.kicad_pro`, isti list i isti UUID-i jedanaest zadržanih simbola. Nije izrađen zaseban projekt. Prekidi TP1–TP4 uklonjeni su i zamijenjeni stvarnim električnim vodovima. Raspored lista i oznake priključaka uređeni su radi čitljivosti.
 
 ## PCB prema fotografijama
 
-Dodan je [uređivi PCB P2](tester18650.kicad_pcb), [PDF rasporeda](tester18650_pcb_layout.pdf) i [3D prikaz](tester18650_pcb_3d.png). Raspored koristi korisnikove fotografije kao glavni vizualni izvor. Detalji, izvori footprintova i ograničenja su u [PCB.md](PCB.md). P2 ima padove potvrđenog rastera izreza RL/Q/R i 23 bakrena segmenta na pet mreža; K1/Q1 padovi još nisu mapirani na funkcionalne pinove. Referentni/zamjenski 3D modeli jasno su označeni. **DRC: 2 nepovezane veze + 10 upozorenja usporedbe sa shemom; nije za proizvodnju.**
+Dodan je [uređivi PCB P3](tester18650.kicad_pcb), [PDF komponenti](tester18650_pcb_components.pdf), [PDF prednjeg bakra](tester18650_pcb_layout.pdf) i [3D prikaz](tester18650_pcb_3d.png). Raspored koristi korisnikove fotografije kao glavni vizualni izvor. Detalji, izvori footprintova i ograničenja su u [PCB.md](PCB.md). P3 ima osam mapiranih K1 padova te rutirane COM/BAT+ i NO/opterećenje; ukupno 33 segmenta na sedam bakrenih mreža. Q1 pinout ostaje nepotvrđen. Referentni/zamjenski 3D modeli jasno su označeni. **DRC: 2 nepovezane veze + 5 upozorenja usporedbe sa shemom; nije za proizvodnju.**
 
 ## Funkcionalni krug u shemi
 
@@ -15,7 +15,7 @@ BAT+ → K1 COM (11) → NO (14) → (R1 22 Ω / 5 W || R2 22 Ω / 5 W)
      → VIN+ → RSH1, interni shunt INA219 → VIN− → BAT−
 ```
 
-COM–NO koristi se prema korisnikovu zadatku i ponašanju firmwarea: aktivacija releja uključuje opterećenje. NC (12) ne sudjeluje u pražnjenju; ostavljen je otvoren i njegov je ERC nalaz vidljiv. Brojevi 11/12/14 i A1/A2 pripadaju standardnom funkcionalnom simbolu, a nisu potvrđeno mapiranje izvoda stvarnog RT314006.
+COM–NO koristi se prema korisnikovu zadatku i ponašanju firmwarea: aktivacija releja uključuje opterećenje. NC (12) ne sudjeluje u pražnjenju; ostavljen je otvoren i njegov je ERC nalaz vidljiv. Pet funkcija 11/12/14 i A1/A2 sada je mapirano na osam padova K1 prema korisnikovoj proizvođačkoj potvrdi i provjerljivoj KiCad 16A referenci. Izravna usporedba točnih TE dimenzija/tolerancija ostaje otvorena; mapiranje ne potvrđuje fizičko ožičenje korisnikova primjerka.
 
 **VIN+ je spojen prema opterećenju, VIN− prema BAT− kao izričito označena projektna pretpostavka.** Firmware koristi `fabsf(ina219_current)`, pa pozitivna prikazana struja nije dokaz fizičkog polariteta. RSH1 prikazuje postojeći interni mjerni element modula, ne dodatni vanjski otpornik. Njegova je vrijednost označena `vrijednost ?`; firmware parametar `0.11425 Ω` naveden je zasebno kao kalibracijski podatak. RSH1 je izuzet iz zasebnog BOM-a i PCB-a jer pripada modulu.
 
@@ -48,14 +48,14 @@ J1/J2 koriste standardni `Connector_Generic:Conn_01x06` kao logičke prikaze mod
 
 | Oznaka | Stanje u R2 |
 |---|---|
-| N1 | COM–NO funkcionalno spojen; fizički izvodi i raspored RT314006 nisu potvrđeni. NC je nekorišten. |
+| N1 | COM–NO funkcionalno spojen; K1 je mapiran na 8 padova 16A KiCad reference. Točne TE dimenzije/tolerancije nisu izravno očitane; ožičenje stvarnog primjerka nije potvrđeno. NC je nekorišten. |
 | N2 | VIN+/VIN− i interni shunt spojeni u serijski put. Orijentacija je pretpostavka; fizički polaritet, vrijednost i izvedba shunta nisu izmjereni. |
 | N3 | Baza i emiter C3209, fizički pinout, bazni otpornik i zaštitna dioda nisu potvrđeni. Otvoreni B/E i prekid nakon TP5 ostaju vidljivi. |
 | N4 | Vrijednosti 10 kΩ/20 kΩ su poznate; njihovi krajevi, redoslijed i eventualni djelitelj na NodeMCU-u nisu. TP6 i R3/R4 ostaju bez pretpostavljenih veza. |
 | N5 | GND INA219 te vrijednosti i naponska domena I²C pull-upova nisu potvrđeni. J2 GND je otvoren. |
 | N6 | Izvor +5 V za relej, ulaz napajanja NodeMCU-a i VCC INA219 nisu utvrđeni. J1/5 i J2/3 su otvoreni. |
 
-OLED nije ugrađen i nije nacrtan. Nisu dodani nepotvrđeni zaštitni elementi. PCB P2 koristi potvrđeni raster samo korisnikova izreza, uz nedodijeljene K1/Q1 padove i nepotvrđena kućišta; nema proizvoljne rekonstrukcije električnih mreža. Shema i PCB nisu odobrenje za proizvodnju ni potvrda sigurnosti fizičkog uređaja.
+OLED nije ugrađen i nije nacrtan. Nisu dodani nepotvrđeni zaštitni elementi. PCB P3 koristi potvrđeni raster samo korisnikova izreza, uz mapirani osmoizvodni K1 i nedodijeljene Q1 padove i nepotvrđena kućišta; nema proizvoljne rekonstrukcije električnih mreža. Shema i PCB nisu odobrenje za proizvodnju ni potvrda sigurnosti fizičkog uređaja.
 
 ## Datoteke i provjera
 

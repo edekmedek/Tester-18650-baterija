@@ -1,0 +1,82 @@
+{
+  "source": "pcb_sources/p3/RT1_16A_library_8pin_source.step",
+  "source_pin_centers_cartesian_mm": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      7.5
+    ],
+    [
+      15.260000000000002,
+      0.0
+    ],
+    [
+      15.260000000000002,
+      7.5
+    ],
+    [
+      20.3,
+      0.0
+    ],
+    [
+      20.3,
+      7.5
+    ],
+    [
+      25.34,
+      0.0
+    ],
+    [
+      25.34,
+      7.5
+    ]
+  ],
+  "top_view_local_pin_centers_mm": [
+    [
+      -3.75,
+      -12.15
+    ],
+    [
+      -3.75,
+      3.11
+    ],
+    [
+      -3.75,
+      8.15
+    ],
+    [
+      -3.75,
+      13.19
+    ],
+    [
+      3.75,
+      -12.15
+    ],
+    [
+      3.75,
+      3.11
+    ],
+    [
+      3.75,
+      8.15
+    ],
+    [
+      3.75,
+      13.19
+    ]
+  ],
+  "complete_model_bbox_mm": [
+    -6.35,
+    -14.5,
+    -5.3,
+    6.35,
+    14.5,
+    15.7
+  ],
+  "pin_count": 8,
+  "transformation": "translation then proper -90 degree rotation about Z; no mirroring, clipping or removal of pins",
+  "status": "All eight library pins align with board holes. KiCad model reference, not exact TE STEP or a claim of manufacturer tolerance verification."
+}

@@ -1,5 +1,5 @@
 ** Drc report for tester18650.kicad_pcb **
-** Created on 2026-10-15T07:25:59 **
+** Created on 2026-10-15T07:59:40 **
 ** Report includes: Errors, Warnings, Exclusions **
 
 ** Found 0 DRC violations **
@@ -14,22 +14,7 @@
     @(123.5000 mm, 133.5000 mm): Track [/BAT_MINUS] on F.Cu, length 5.0000 mm
     @(127.9700 mm, 45.9200 mm): Track [/BAT_MINUS] on F.Cu, length 5.0300 mm
 
-** Found 10 Footprint errors **
-[net_conflict]: No pad found for pin A1 (/+5V_RELEJ) in schematic
-    Local override; warning
-    @(151.0000 mm, 52.0000 mm): Footprint K1
-[net_conflict]: No pad found for pin 11 (/BAT_PLUS) in schematic
-    Local override; warning
-    @(151.0000 mm, 52.0000 mm): Footprint K1
-[net_conflict]: No pad found for pin A2 (/K1_C) in schematic
-    Local override; warning
-    @(151.0000 mm, 52.0000 mm): Footprint K1
-[net_conflict]: No pad found for pin 14 (/LOAD_IN) in schematic
-    Local override; warning
-    @(151.0000 mm, 52.0000 mm): Footprint K1
-[net_conflict]: No pad found for pin 12 in schematic
-    Local override; warning
-    @(151.0000 mm, 52.0000 mm): Footprint K1
+** Found 5 Footprint errors **
 [net_conflict]: No pad found for pin 2 (/K1_C) in schematic
     Local override; warning
     @(151.0000 mm, 87.0000 mm): Footprint Q1

@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-10-15T07:25:58",
+    "date": "2026-10-15T07:59:40",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -39,81 +39,6 @@
     ],
     "kicad_version": "10.0.4",
     "schematic_parity": [
-        {
-            "description": "No pad found for pin A1 (/+5V_RELEJ) in schematic",
-            "items": [
-                {
-                    "description": "Footprint K1",
-                    "pos": {
-                        "x": 151.0,
-                        "y": 52.0
-                    },
-                    "uuid": "f8489f48-90ee-481a-ab8d-5bc1c0d6d6dc"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "No pad found for pin 11 (/BAT_PLUS) in schematic",
-            "items": [
-                {
-                    "description": "Footprint K1",
-                    "pos": {
-                        "x": 151.0,
-                        "y": 52.0
-                    },
-                    "uuid": "f8489f48-90ee-481a-ab8d-5bc1c0d6d6dc"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "No pad found for pin A2 (/K1_C) in schematic",
-            "items": [
-                {
-                    "description": "Footprint K1",
-                    "pos": {
-                        "x": 151.0,
-                        "y": 52.0
-                    },
-                    "uuid": "f8489f48-90ee-481a-ab8d-5bc1c0d6d6dc"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "No pad found for pin 14 (/LOAD_IN) in schematic",
-            "items": [
-                {
-                    "description": "Footprint K1",
-                    "pos": {
-                        "x": 151.0,
-                        "y": 52.0
-                    },
-                    "uuid": "f8489f48-90ee-481a-ab8d-5bc1c0d6d6dc"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
-        {
-            "description": "No pad found for pin 12 in schematic",
-            "items": [
-                {
-                    "description": "Footprint K1",
-                    "pos": {
-                        "x": 151.0,
-                        "y": 52.0
-                    },
-                    "uuid": "f8489f48-90ee-481a-ab8d-5bc1c0d6d6dc"
-                }
-            ],
-            "severity": "warning",
-            "type": "net_conflict"
-        },
         {
             "description": "No pad found for pin 2 (/K1_C) in schematic",
             "items": [

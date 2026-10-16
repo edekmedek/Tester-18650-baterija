@@ -1,0 +1,40 @@
+** Drc report for REFERENTNI_RASPORED.kicad_pcb **
+** Created on 2026-10-15T19:32:36 **
+** Report includes: Errors, Warnings **
+
+** Found 7 DRC violations **
+[lib_footprint_mismatch]: Footprint 'INA219_Soldered333066_Manufacturer_REF' does not match copy in library 'Tester18650'
+    Local override; warning
+    @(99.8700 mm, 134.5200 mm): Footprint J2
+[lib_footprint_mismatch]: Footprint 'C3209_PIN123_USER_CONFIRMED' does not match copy in library 'Tester18650'
+    Local override; warning
+    @(124.8700 mm, 103.5200 mm): Footprint Q1
+[lib_footprint_mismatch]: Footprint 'Cement_5WAXIAL_VERTICAL_7.62_SUBSTITUTE' does not match copy in library 'Tester18650'
+    Local override; warning
+    @(98.0000 mm, 112.0000 mm): Footprint R1
+[lib_footprint_mismatch]: Footprint 'NodeMCU_CH340_Manufacturer_REFERENCE' does not match copy in library 'Tester18650'
+    Local override; warning
+    @(96.1200 mm, 82.1200 mm): Footprint J1
+[lib_footprint_mismatch]: Footprint 'Cement_5WAXIAL_VERTICAL_7.62_SUBSTITUTE' does not match copy in library 'Tester18650'
+    Local override; warning
+    @(112.0000 mm, 119.0000 mm): Footprint R2
+[lib_footprint_mismatch]: Footprint 'RT314006_16A_8PIN_5MM_KICAD_REFERENCE' does not match copy in library 'Tester18650'
+    Local override; warning
+    @(121.6200 mm, 82.6700 mm): Footprint K1
+[lib_footprint_mismatch]: Footprint 'Keystone1042_LAYOUT_REFERENCE_NO_PADS' does not match copy in library 'Tester18650'
+    Local override; warning
+    @(141.3700 mm, 99.5200 mm): Footprint BTH1
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
+

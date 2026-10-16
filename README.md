@@ -1,40 +1,32 @@
-# Tester 18650 baterija
+# Tester18650 R26 — dovršeno trasiranje i DRC
 
-**Stanje: radni prototip, dokumentacijska verzija 1.0 (15.10.2026.)**
+Izvorni R25 projekt u `Downloads` nije mijenjan. R26 je zasebna radna kopija.
 
-NodeMCU ESP8266 tester Li-ion 18650 baterija s INA219 mjerenjem i prikazom u Home Assistantu.
+## Napravljene promjene
 
-## Potvrđene funkcije
-- Mjerenje napona, struje, snage, kapaciteta (mAh), energije (Wh) i trajanja.
-- Pokretanje i prekid testa preko Home Assistanta.
-- Povijest testova i grafovi napona i struje.
-- Cutoff podešen na 3,00 V; dva testa zabilježena kao završena cutoffom.
-- Numeriranje baterija.
+- D1 i R5 premješteni su s koordinata izvan ploče na pločicu.
+- R1, R2, R3 i R4 preraspoređeni su tako da nema fizičkih preklapanja s NodeMCU, INA219 i držačem baterije.
+- Sve definirane mreže trasirane su na F.Cu i B.Cu.
+- Vodovi snage (`BAT_PLUS`, `BAT_MINUS_GND`, `LOAD_PLUS`, `LOAD_RETURN`) izvedeni su širinom 1,0 mm.
+- Upravljački i mjerni vodovi izvedeni su širinama 0,5–0,6 mm.
+- Rub silkscreena INA219 footprinta povučen je unutar obrisa ploče.
+- Sakriveni su natpisi koji su prelazili preko padova ili ruba ploče.
 
-## Rezultati
-| Baterija | Početni napon | Završni napon | Kapacitet | Energija | Trajanje |
-|---|---:|---:|---:|---:|---|
-| 1 | 4,200 V | 3,000 V | 1.164,3 mAh | 4,266 Wh | 3 h 33 min 59 s |
-| 2 | 4,234 V | 3,064 V | 2.432,9 mAh | 8,805 Wh | 7 h 32 min 43 s |
+## Završni DRC
 
-Na snimci je baterija 3 u testu (3,983 V, 0,351 A). Rezultati još nisu uspoređeni s referentnim mjernim instrumentom.
+- DRC violations: 7 upozorenja, 0 grešaka
+- Unconnected pads: 0
+- Footprint errors: 0
+- Nema kratkih spojeva, clearance grešaka, presijecanja vodova ni courtyard preklapanja.
 
-## Poznata pitanja
-- INA219 dijagnostički napon pokazuje 0,000 V: treba utvrditi značenje entiteta.
-- Završni napon baterije 2 je 3,064 V, iako je cutoff podešen na 3,00 V: provjeriti trenutak spremanja i logiku prekida.
-- Prije arhiviranja firmwarea treba provjeriti točan izvorni kod koji je instaliran.
-- Dokumentirati shemu, vrijednost opterećenja i sigurnosne zaštite za Li-ion baterije.
+Svih 7 preostalih upozorenja su `lib_footprint_mismatch`: lokalno prilagođeni footprintovi u PCB-u razlikuju se od primjeraka u projektnoj biblioteci. Nisu automatski zamijenjeni jer bi osvježavanje iz biblioteke moglo vratiti ranija, nepotvrđena mapiranja pinova.
 
-## Daljnji rad
-- [Stanje prototipa](docs/STANJE_V1.md)
-- [Ideje za budući razvoj](docs/PLAN_RAZVOJA.md)
+## Obavezna provjera prije izrade
 
-Ova dokumentacijska oznaka v1.0 **nije** potvrda da je firmware verificiran ili objavljen kao izdanje. Ne mijenjati funkcionalan firmware tijekom dokumentiranja.
+- Potvrditi fizičku orijentaciju zaštitne diode D1.
+- Potvrditi INA219 IN+/IN− orijentaciju na stvarnom modulu.
+- Iako je Q1 mapiranje ranije označeno kao korisnički potvrđeno, preporučuje se završna usporedba s točnom izvedbom C3209 prije narudžbe PCB-a.
+- Provjeriti termički razmak i očekivanu disipaciju oba otpornika 22 Ω / 5 W u stvarnom kućištu.
 
-## Električna shema u KiCadu 10
+Datoteka `DRC_R26.txt` sadrži puni završni izvještaj.
 
-[Projekt R2, PDF, ERC i popis nepoznatih spojeva](hardware/tester18650/README.md). Funkcionalni strujni krug u postojećoj shemi je spojen; fizičko ožičenje nije potvrđeno i ERC nije čist.
-
-## PCB raspored prema fotografijama
-
-[PCB P4, PDF i 3D prikaz](hardware/tester18650/PCB.md). Uređivi raspored prema fotografijama i potvrđenom izrezu RL/Q/R, s djelomičnim bakrom i označenim referentnim/zamjenskim 3D modelima. K1 ima osam mapiranih padova i rutirane kontakte. P4 dodaje čitljive oznake priključaka i PDF donjeg bakra u orijentaciji već zrcaljene fotografije; nema novih električnih veza. DRC: 2 nepovezane veze i 5 upozorenja; pločica nije spremna za proizvodnju.

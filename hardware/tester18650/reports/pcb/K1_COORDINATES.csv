@@ -1,9 +1,0 @@
-terminal,top_view_local_x_mm,top_view_local_y_mm,schematic_net
-A1,-3.75,-12.15,/+5V_RELEJ
-A2,3.75,-12.15,/K1_C
-12,-3.75,3.11,unconnected-(K1-Pad12)
-12,3.75,3.11,unconnected-(K1-Pad12)
-11,-3.75,8.15,/BAT_PLUS
-11,3.75,8.15,/BAT_PLUS
-14,-3.75,13.19,/LOAD_IN
-14,3.75,13.19,/LOAD_IN

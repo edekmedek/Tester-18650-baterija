@@ -14,7 +14,7 @@ def balanced(src,start):
    elif c=='\\':esc=True
    elif c=='"':quoted=False
   elif c=='"':quoted=True
-   elif c=='(':level+=1
+  elif c=='(':level+=1
   elif c==')':
    level-=1
    if level==0:return src[start:i+1]

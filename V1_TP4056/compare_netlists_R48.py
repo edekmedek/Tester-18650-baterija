@@ -28,19 +28,19 @@ for net in root.findall('.//nets/net'):
   k=(node.get('ref',''),node.get('pin',''))
   if k in net_nodes:raise SystemExit('Duplicate schematic pin '+str(k))
   net_nodes[k]=name
-missing=sorted(set(pcb_nodes)-set(net_nodes))
+missing=sorted(k for k,v in pcb_nodes.items() if v and k not in net_nodes)
 extra=sorted(set(net_nodes)-set(pcb_nodes))
 mismatches=[]
 for key in sorted(set(pcb_nodes)&set(net_nodes)):
  a=pcb_nodes[key]
  z=net_nodes[key]
- if a!=z:
+ if a and a!=z:
   mismatches.append((key,a,z))
 singletons={}
 for key,value in pcb_nodes.items():
  if value:singletons[value]=singletons.get(value,0)+1
-lines=['R48 KiCad XML netlist vs actual R42 PCB','PCB pad count: '+str(len(pcb_nodes)),'Netlist XML nodes: '+str(len(net_nodes)),'Missing schematic nodes: '+str(len(missing)),'Extra schematic nodes: '+str(len(extra)),'Mismatched net names: '+str(len(mismatches))]
-lines+=['PCB-only pins: '+str(missing),'Schematic-only pins: '+str(extra)]
+lines=['R48 KiCad XML netlist vs actual R42 PCB','PCB pad count: '+str(len(pcb_nodes)),'Netlist XML nodes: '+str(len(net_nodes)),'Missing assigned schematic nodes: '+str(len(missing)),'Extra schematic nodes: '+str(len(extra)),'Mismatched net names: '+str(len(mismatches))]
+lines+=['PCB assigned-only pins: '+str(missing),'Schematic-only pins: '+str(extra)]
 lines+=['Net mismatches: '+str(mismatches)]
 lines+=['Singleton nets (intentionally isolated names): '+str(sorted(x for x,n in singletons.items() if n==1))]
 lines+=['NOTE: PCB/netlist agreement is not electrical design validation.','No battery or fabrication approval.']

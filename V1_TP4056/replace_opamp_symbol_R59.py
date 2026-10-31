@@ -33,7 +33,10 @@ def getblock(s,regex):
  return balanced(s,hits[0].start())
 sch=src.read_text(encoding='utf-8')
 audit=getblock(sch,r'\(symbol\s+"Audit:Pads_8"')
-original=getblock(sch,r'\(symbol\s+\(lib_id\s+"Audit:Pads_8"')
+candidates=[balanced(sch,m.start()) for m in re.finditer(r'\(symbol\s+\(lib_id\s+"Audit:Pads_8"',sch)]
+selected=[item for item in candidates if '(reference "U1")' in item]
+if len(selected)!=1:raise SystemExit('Cannot uniquely identify U1 among 8-pin symbols')
+original=selected[0]
 if '(reference "U1")' not in original:raise SystemExit('Expected Audit 8-pin U1')
 # Check installed real MCP6002 LM2904 compatible pin functions confirmed in R53.
 pin_types={'1':('output','OUT_A'),'2':('input','IN_A_MINUS'),'3':('input','IN_A_PLUS'),

@@ -41,7 +41,7 @@ pin=block(embedded,pin_exprs[0].start())
 position=re.search(r'\(at\s+(-?[\d.]+)\s+(-?[\d.]+)\s+([\d.]+)\)',pin)
 if not position:raise SystemExit('Cannot identify PWR_FLAG pin position')
 dx,dy,angle=map(float,position.groups())
-if angle!=0:raise SystemExit('Unexpected PWR_FLAG pin angle')
+# Pin angle controls connection direction, not the pin's origin coordinate.
 sym_libs=one(schematic,r'\(lib_symbols\b')
 if '(symbol "power:PWR_FLAG"' in sym_libs:raise SystemExit('PWR_FLAG already embedded')
 schematic=schematic.replace(sym_libs,sym_libs[:-1]+'\n'+embedded+'\n)',1)

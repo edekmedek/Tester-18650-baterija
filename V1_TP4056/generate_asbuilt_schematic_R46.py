@@ -74,7 +74,8 @@ for ch in data:
 assert depth==0 and not quoted
 # Resolve embedded custom symbols with a project-local library, preserving original PCB-only net names.
 libfile=d/'Audit.kicad_sym'
-table=d/'sym-lib-table'\nproject=d/(out.stem+'.kicad_pro')
+table=d/'sym-lib-table'
+project=d/(out.stem+'.kicad_pro')
 libdata='(kicad_symbol_lib (version 20231120) (generator "kicad_symbol_editor")\n'+ '\n'.join(lib(n).replace(q('Audit:Pads_'+str(n)),q('Pads_'+str(n)),1) for n in count)+'\n)\n'
 if libfile.exists() and libfile.read_text(encoding='utf-8')!=libdata:
  raise SystemExit('Existing Audit.kicad_sym differs; refusing overwrite')
@@ -82,7 +83,7 @@ if table.exists() and 'name "Audit"' not in table.read_text(encoding='utf-8'):
  raise SystemExit('Existing sym-lib-table requires manual library merge; refusing overwrite')
 libfile.write_text(libdata,encoding='utf-8')
 if not project.exists():
- project.write_text('{"meta":{"filename":'+q(project.name)+',"version":1}}\\n',encoding='utf-8')
+ project.write_text('{"meta":{"filename":'+q(project.name)+',"version":1}}\n',encoding='utf-8')
 if table.exists():
  print('Symbol library table exists:',table)
 else:

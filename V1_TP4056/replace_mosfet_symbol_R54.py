@@ -49,9 +49,8 @@ embedded=parent.replace('(symbol "BUZ11"','(symbol "Transistor_FET:IRF3205"',1).
 # Replace library definition only (NOT the Q1 instance).
 generic=search_block(data,r'\(symbol\s+"Audit:Pads_3"')
 # Keep generic library as Q1 no longer uses it; add real symbol before closing lib_symbols.
-marker='\n(symbol (lib_id '
-assert marker in data
-data=data.replace(marker,'\n'+embedded+'\n'+marker,1)
+libblock=search_block(data,r'\(lib_symbols\b')
+data=data.replace(libblock,libblock[:-1]+'\n'+embedded+'\n)',1)
 # Remove old Q1 instance, and its three generated endpoint labels/NC markers.
 old=search_block(data,r'\(symbol\s+\(lib_id\s+"Audit:Pads_3"\)')
 assert '(reference "Q1")' in old

@@ -53,15 +53,16 @@ assert depth==0 and not quoted
 # Resolve embedded custom symbols with a project-local library, preserving original PCB-only net names.
 libfile=d/'Audit.kicad_sym'
 table=d/'sym-lib-table'
-libdata='(kicad_symbol_lib (version 20231120) (generator "kicad_symbol_editor")\\n'+ '\\n'.join(lib(n).replace(q('Audit:Pads_'+str(n)),q('Pads_'+str(n)),1) for n in count)+'\\n)\\n'
+libdata='(kicad_symbol_lib (version 20231120) (generator "kicad_symbol_editor")\n'+ '\n'.join(lib(n).replace(q('Audit:Pads_'+str(n)),q('Pads_'+str(n)),1) for n in count)+'\n)\n'
 if libfile.exists() and libfile.read_text(encoding='utf-8')!=libdata:
  raise SystemExit('Existing Audit.kicad_sym differs; refusing overwrite')
 if table.exists() and 'name "Audit"' not in table.read_text(encoding='utf-8'):
  raise SystemExit('Existing sym-lib-table requires manual library merge; refusing overwrite')
 libfile.write_text(libdata,encoding='utf-8')
 if not table.exists():
- table.write_text('(sym_lib_table (lib (name "Audit") (type "KiCad") (uri "${KIPRJMOD}/Audit.kicad_sym") (options "") (descr "")))\\n',encoding='utf-8')
+ table.write_text('(sym_lib_table (lib (name "Audit") (type "KiCad") (uri "${KIPRJMOD}/Audit.kicad_sym") (options "") (descr "")))\n',encoding='utf-8')
 out.write_text(data,encoding='utf-8')
 print('OK:',out,'footprints:',len(fps),'pads:',sum(len(pads(x)) for x in fps))
-print('R45 aligned to 1.27 mm connection grid; local Audit symbol library generated.')\nprint('R45 is AS-BUILT ONLY, not an electrical design or fabrication approval.')
+print('R45 aligned to 1.27 mm connection grid; local Audit symbol library generated.')
+print('R45 is AS-BUILT ONLY, not an electrical design or fabrication approval.')
 print('Run KiCad schematic netlist export and ERC; audit warnings expected.')
